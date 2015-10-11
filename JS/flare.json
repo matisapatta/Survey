@@ -1,0 +1,2355 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red97\green84\blue161;\red43\green149\blue67;\red67\green67\blue67;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\{\
+ \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"flare"\cf0 \expnd0\expndtw0\kerning0
+,\
+ \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+  \{\
+   \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"analytics"\cf0 \expnd0\expndtw0\kerning0
+,\
+   \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+    \{\
+     \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"cluster"\cf0 \expnd0\expndtw0\kerning0
+,\
+     \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"AgglomerativeCluster"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3938\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"CommunityStructure"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3812\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"HierarchicalCluster"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+6714\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"MergeEdge"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+743\cf0 \expnd0\expndtw0\kerning0
+\}\
+     ]\
+    \},\
+    \{\
+     \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"graph"\cf0 \expnd0\expndtw0\kerning0
+,\
+     \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"BetweennessCentrality"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3534\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"LinkDistance"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+5731\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"MaxFlowMinCut"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+7840\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ShortestPaths"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+5914\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"SpanningTree"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3416\cf0 \expnd0\expndtw0\kerning0
+\}\
+     ]\
+    \},\
+    \{\
+     \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"optimization"\cf0 \expnd0\expndtw0\kerning0
+,\
+     \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"AspectRatioBanker"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+7074\cf0 \expnd0\expndtw0\kerning0
+\}\
+     ]\
+    \}\
+   ]\
+  \},\
+  \{\
+   \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"animate"\cf0 \expnd0\expndtw0\kerning0
+,\
+   \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Easing"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+17010\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"FunctionSequence"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+5842\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\
+     \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"interpolate"\cf0 \expnd0\expndtw0\kerning0
+,\
+     \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ArrayInterpolator"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1983\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ColorInterpolator"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2047\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DateInterpolator"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1375\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Interpolator"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+8746\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"MatrixInterpolator"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2202\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"NumberInterpolator"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1382\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ObjectInterpolator"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1629\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"PointInterpolator"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1675\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"RectangleInterpolator"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2042\cf0 \expnd0\expndtw0\kerning0
+\}\
+     ]\
+    \},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ISchedulable"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1041\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Parallel"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+5176\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Pause"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+449\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Scheduler"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+5593\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Sequence"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+5534\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Transition"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+9201\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Transitioner"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+19975\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"TransitionEvent"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1116\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Tween"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+6006\cf0 \expnd0\expndtw0\kerning0
+\}\
+   ]\
+  \},\
+  \{\
+   \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"data"\cf0 \expnd0\expndtw0\kerning0
+,\
+   \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+    \{\
+     \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"converters"\cf0 \expnd0\expndtw0\kerning0
+,\
+     \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Converters"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+721\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DelimitedTextConverter"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+4294\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"GraphMLConverter"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+9800\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"IDataConverter"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1314\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"JSONConverter"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2220\cf0 \expnd0\expndtw0\kerning0
+\}\
+     ]\
+    \},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DataField"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1759\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DataSchema"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2165\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DataSet"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+586\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DataSource"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3331\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DataTable"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+772\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DataUtil"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3322\cf0 \expnd0\expndtw0\kerning0
+\}\
+   ]\
+  \},\
+  \{\
+   \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"display"\cf0 \expnd0\expndtw0\kerning0
+,\
+   \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DirtySprite"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+8833\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"LineSprite"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1732\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"RectSprite"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3623\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"TextSprite"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+10066\cf0 \expnd0\expndtw0\kerning0
+\}\
+   ]\
+  \},\
+  \{\
+   \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"flex"\cf0 \expnd0\expndtw0\kerning0
+,\
+   \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"FlareVis"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+4116\cf0 \expnd0\expndtw0\kerning0
+\}\
+   ]\
+  \},\
+  \{\
+   \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"physics"\cf0 \expnd0\expndtw0\kerning0
+,\
+   \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DragForce"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1082\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"GravityForce"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1336\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"IForce"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+319\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"NBodyForce"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+10498\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Particle"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2822\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Simulation"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+9983\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Spring"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2213\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"SpringForce"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1681\cf0 \expnd0\expndtw0\kerning0
+\}\
+   ]\
+  \},\
+  \{\
+   \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"query"\cf0 \expnd0\expndtw0\kerning0
+,\
+   \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"AggregateExpression"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1616\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"And"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1027\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Arithmetic"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3891\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Average"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+891\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"BinaryExpression"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2893\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Comparison"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+5103\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"CompositeExpression"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3677\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Count"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+781\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DateUtil"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+4141\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Distinct"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+933\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Expression"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+5130\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ExpressionIterator"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3617\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Fn"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3240\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"If"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2732\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"IsA"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2039\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Literal"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1214\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Match"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3748\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Maximum"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+843\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\
+     \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"methods"\cf0 \expnd0\expndtw0\kerning0
+,\
+     \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"add"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+593\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"and"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+330\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"average"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+287\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"count"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+277\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"distinct"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+292\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"div"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+595\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"eq"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+594\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"fn"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+460\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"gt"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+603\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"gte"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+625\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"iff"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+748\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"isa"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+461\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"lt"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+597\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"lte"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+619\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"max"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+283\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"min"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+283\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"mod"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+591\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"mul"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+603\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"neq"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+599\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"not"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+386\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"or"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+323\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"orderby"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+307\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"range"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+772\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"select"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+296\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"stddev"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+363\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"sub"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+600\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"sum"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+280\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"update"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+307\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"variance"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+335\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"where"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+299\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"xor"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+354\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"_"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+264\cf0 \expnd0\expndtw0\kerning0
+\}\
+     ]\
+    \},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Minimum"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+843\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Not"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1554\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Or"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+970\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Query"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+13896\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Range"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1594\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"StringUtil"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+4130\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Sum"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+791\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Variable"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1124\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Variance"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1876\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Xor"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1101\cf0 \expnd0\expndtw0\kerning0
+\}\
+   ]\
+  \},\
+  \{\
+   \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"scale"\cf0 \expnd0\expndtw0\kerning0
+,\
+   \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"IScaleMap"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2105\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"LinearScale"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1316\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"LogScale"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3151\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"OrdinalScale"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3770\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"QuantileScale"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2435\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"QuantitativeScale"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+4839\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"RootScale"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1756\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Scale"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+4268\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ScaleType"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1821\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"TimeScale"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+5833\cf0 \expnd0\expndtw0\kerning0
+\}\
+   ]\
+  \},\
+  \{\
+   \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"util"\cf0 \expnd0\expndtw0\kerning0
+,\
+   \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Arrays"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+8258\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Colors"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+10001\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Dates"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+8217\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Displays"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+12555\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Filter"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2324\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Geometry"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+10993\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\
+     \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"heap"\cf0 \expnd0\expndtw0\kerning0
+,\
+     \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"FibonacciHeap"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+9354\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"HeapNode"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1233\cf0 \expnd0\expndtw0\kerning0
+\}\
+     ]\
+    \},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"IEvaluable"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+335\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"IPredicate"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+383\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"IValueProxy"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+874\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\
+     \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"math"\cf0 \expnd0\expndtw0\kerning0
+,\
+     \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DenseMatrix"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3165\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"IMatrix"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2815\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"SparseMatrix"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3366\cf0 \expnd0\expndtw0\kerning0
+\}\
+     ]\
+    \},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Maths"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+17705\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Orientation"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1486\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\
+     \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"palette"\cf0 \expnd0\expndtw0\kerning0
+,\
+     \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ColorPalette"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+6367\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Palette"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1229\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ShapePalette"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2059\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"SizePalette"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2291\cf0 \expnd0\expndtw0\kerning0
+\}\
+     ]\
+    \},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Property"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+5559\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Shapes"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+19118\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Sort"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+6887\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Stats"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+6557\cf0 \expnd0\expndtw0\kerning0
+\},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Strings"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+22026\cf0 \expnd0\expndtw0\kerning0
+\}\
+   ]\
+  \},\
+  \{\
+   \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"vis"\cf0 \expnd0\expndtw0\kerning0
+,\
+   \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+    \{\
+     \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"axis"\cf0 \expnd0\expndtw0\kerning0
+,\
+     \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Axes"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1302\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Axis"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+24593\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"AxisGridLine"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+652\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"AxisLabel"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+636\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"CartesianAxes"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+6703\cf0 \expnd0\expndtw0\kerning0
+\}\
+     ]\
+    \},\
+    \{\
+     \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"controls"\cf0 \expnd0\expndtw0\kerning0
+,\
+     \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"AnchorControl"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2138\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ClickControl"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3824\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Control"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1353\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ControlList"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+4665\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DragControl"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2649\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ExpandControl"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2832\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"HoverControl"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+4896\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"IControl"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+763\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"PanZoomControl"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+5222\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"SelectionControl"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+7862\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"TooltipControl"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+8435\cf0 \expnd0\expndtw0\kerning0
+\}\
+     ]\
+    \},\
+    \{\
+     \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"data"\cf0 \expnd0\expndtw0\kerning0
+,\
+     \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Data"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+20544\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DataList"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+19788\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DataSprite"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+10349\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"EdgeSprite"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3301\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"NodeSprite"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+19382\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\
+       \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"render"\cf0 \expnd0\expndtw0\kerning0
+,\
+       \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ArrowType"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+698\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"EdgeRenderer"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+5569\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"IRenderer"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+353\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ShapeRenderer"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2247\cf0 \expnd0\expndtw0\kerning0
+\}\
+       ]\
+      \},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ScaleBinding"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+11275\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Tree"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+7147\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"TreeBuilder"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+9930\cf0 \expnd0\expndtw0\kerning0
+\}\
+     ]\
+    \},\
+    \{\
+     \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"events"\cf0 \expnd0\expndtw0\kerning0
+,\
+     \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DataEvent"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2313\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"SelectionEvent"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1880\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"TooltipEvent"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1701\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"VisualizationEvent"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1117\cf0 \expnd0\expndtw0\kerning0
+\}\
+     ]\
+    \},\
+    \{\
+     \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"legend"\cf0 \expnd0\expndtw0\kerning0
+,\
+     \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Legend"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+20859\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"LegendItem"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+4614\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"LegendRange"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+10530\cf0 \expnd0\expndtw0\kerning0
+\}\
+     ]\
+    \},\
+    \{\
+     \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"operator"\cf0 \expnd0\expndtw0\kerning0
+,\
+     \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+      \{\
+       \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"distortion"\cf0 \expnd0\expndtw0\kerning0
+,\
+       \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"BifocalDistortion"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+4461\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Distortion"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+6314\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"FisheyeDistortion"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3444\cf0 \expnd0\expndtw0\kerning0
+\}\
+       ]\
+      \},\
+      \{\
+       \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"encoder"\cf0 \expnd0\expndtw0\kerning0
+,\
+       \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ColorEncoder"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3179\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Encoder"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+4060\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"PropertyEncoder"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+4138\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ShapeEncoder"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1690\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"SizeEncoder"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1830\cf0 \expnd0\expndtw0\kerning0
+\}\
+       ]\
+      \},\
+      \{\
+       \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"filter"\cf0 \expnd0\expndtw0\kerning0
+,\
+       \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"FisheyeTreeFilter"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+5219\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"GraphDistanceFilter"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3165\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"VisibilityFilter"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3509\cf0 \expnd0\expndtw0\kerning0
+\}\
+       ]\
+      \},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"IOperator"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+1286\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\
+       \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"label"\cf0 \expnd0\expndtw0\kerning0
+,\
+       \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Labeler"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+9956\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"RadialLabeler"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3899\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"StackedAreaLabeler"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3202\cf0 \expnd0\expndtw0\kerning0
+\}\
+       ]\
+      \},\
+      \{\
+       \cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"layout"\cf0 \expnd0\expndtw0\kerning0
+,\
+       \cf2 \expnd0\expndtw0\kerning0
+"children"\cf0 \expnd0\expndtw0\kerning0
+: [\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"AxisLayout"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+6725\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"BundledEdgeRouter"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3727\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"CircleLayout"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+9317\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"CirclePackingLayout"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+12003\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"DendrogramLayout"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+4853\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"ForceDirectedLayout"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+8411\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"IcicleTreeLayout"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+4864\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"IndentedTreeLayout"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+3174\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Layout"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+7881\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"NodeLinkTreeLayout"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+12870\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"PieLayout"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2728\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"RadialTreeLayout"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+12348\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"RandomLayout"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+870\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"StackedAreaLayout"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+9121\cf0 \expnd0\expndtw0\kerning0
+\},\
+        \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"TreeMapLayout"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+9191\cf0 \expnd0\expndtw0\kerning0
+\}\
+       ]\
+      \},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Operator"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2490\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"OperatorList"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+5248\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"OperatorSequence"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+4190\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"OperatorSwitch"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2581\cf0 \expnd0\expndtw0\kerning0
+\},\
+      \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"SortOperator"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+2023\cf0 \expnd0\expndtw0\kerning0
+\}\
+     ]\
+    \},\
+    \{\cf2 \expnd0\expndtw0\kerning0
+"name"\cf0 \expnd0\expndtw0\kerning0
+: \cf2 \expnd0\expndtw0\kerning0
+"Visualization"\cf0 \expnd0\expndtw0\kerning0
+, \cf2 \expnd0\expndtw0\kerning0
+"size"\cf0 \expnd0\expndtw0\kerning0
+: \cf3 \expnd0\expndtw0\kerning0
+16540\cf0 \expnd0\expndtw0\kerning0
+\}\
+   ]\
+  \}\
+ ]\
+\}\
+\pard\pardeftab720
+
+\f1 \cf4 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\f0 \cf0 \expnd0\expndtw0\kerning0
+\
+\
+\pard\pardeftab720
+
+\f1 \cf0 \expnd0\expndtw0\kerning0
+\
+}
