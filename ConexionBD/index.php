@@ -6,19 +6,19 @@
  * Time: 10:30 AM
  */
 
-//require './aws/aws-autoloader.php';
-require __DIR__ . '/aws/aws-autoloader.php';
+require './aws/aws-autoloader.php';
+//require __DIR__ . '/aws/aws-autoloader.php';
 //use Aws\DynamoDb\DynamoDbClient;
 
 $sdk = new Aws\Sdk([
     'region'   => 'us-west-2',
     'version'  => 'latest',
-    'endpoint' => 'http://localhost:8080'
+    'endpoint' => 'http://localhost:8000'
 ]);
 
-$client = $sdk->createDynamoDb();
-
 echo "Mati ves esto2?";
+$dynamoDb = $sdk->createDynamoDb();
+
 
 // Create an "errors" table
 $dynamoDb->createTable(array(
