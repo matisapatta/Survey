@@ -7,7 +7,6 @@
  */
 require './aws/aws-autoloader.php';
 
-use Aws\DynamoDb\DynamoDbClient;
 
 $sdk = new Aws\Sdk([
     'region'   => 'us-west-2',
