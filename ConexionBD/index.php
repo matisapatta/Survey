@@ -5,8 +5,10 @@
  * Date: 10/12/15
  * Time: 10:30 AM
  */
-require './aws/aws-autoloader.php';
 
+//require './aws/aws-autoloader.php';
+require __DIR__ . '/aws/aws-autoloader.php';
+//use Aws\DynamoDb\DynamoDbClient;
 
 $sdk = new Aws\Sdk([
     'region'   => 'us-west-2',
@@ -14,11 +16,9 @@ $sdk = new Aws\Sdk([
     'endpoint' => 'http://localhost:8080'
 ]);
 
+$client = $sdk->createDynamoDb();
+
 echo "Mati ves esto2?";
-
-use Aws\DynamoDb\DynamoDbClient;
-
-$dynamoDb = $sdk->createDynamoDb();
 
 // Create an "errors" table
 $dynamoDb->createTable(array(
@@ -71,7 +71,7 @@ $result = $dynamoDb->getItem(array(
 // Grab value from the result object like an array
 echo $result['Item']['id']['N'] . "\n";
 //> 1201
-echo $result->getPath('Item/id/N') . "\n";
+echo $result['Item']['id']['N'] . "\n";
 //> 1201
 echo $result['Item']['error']['S'] . "\n";
 //> Executive overflow
