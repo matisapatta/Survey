@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: mati
  * Date: 10/12/15
- * Time: 10:30 AM
+ * Time: 10:30 AMd
  */
 
 require './aws/aws-autoloader.php';
@@ -16,9 +16,9 @@ $sdk = new Aws\Sdk([
     'endpoint' => 'http://localhost:8000'
 ]);
 
-echo "Mati ves esto2?";
+echo "Mati ves esto?";
 $dynamoDb = $sdk->createDynamoDb();
-
+echo "Mati ves esto?2";
 
 // Create an "errors" table
 $dynamoDb->createTable(array(
