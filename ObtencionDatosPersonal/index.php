@@ -9,17 +9,14 @@
 <table border="1">
     <tbody>
 
-    <!--aca comienza el codigo PHP donde se obtienen los datos desde el archivo-->
+    <!--esto se utilioza de prueba de la clase DatosPersonal-->
 
         <?php
-        /*este modulo obtiene los datos de los empleados desde un archivo csv y los guarda en un array de dos dimensiones
-        donde cada fila tiene todos los datos del empleado*/
-        $myfile = fopen("example_data.csv", "r") or die("No se puede abrir el archivo!");
 
-        while(!feof($myfile)) {
-            $datosEmpleados[] = fgetcsv($myfile);
-        }
-        fclose($myfile);
+        include_once("DatosPersonal.php");
+        $accesoDatosPersonal = new DatosPersonal();
+
+        $datosEmpleados = $accesoDatosPersonal->get();
 
         /*OPCIONAL: esto se utiliza para visualizar en una tabla html los datos obtenidos*/
         foreach ($datosEmpleados as $row){
