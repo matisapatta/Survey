@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: mati
  * Date: 10/12/15
- * Time: 10:30 AMd
+ * Time: 10:30 AM
  */
 
 require './aws/aws-autoloader.php';
@@ -15,6 +15,7 @@ $sdk = new Aws\Sdk([
     'version'  => 'latest',
     'endpoint' => 'http://localhost:8000'
 ]);
+var_dump($sdk);
 
 echo "Mati ves esto?";
 $dynamoDb = $sdk->createDynamoDb();
@@ -78,4 +79,4 @@ echo $result['Item']['error']['S'] . "\n";
 echo $result['Item']['message']['S'] . "\n";
 //> no vacant areas
 
-
+?>

@@ -110,13 +110,13 @@ var margin = {top: 19.5, right: 19.5, bottom: 19.5, left: 39.5},
     height = 500 - margin.top - margin.bottom;
 
 // Various scales. These domains make assumptions of data, naturally.
-var xScale = d3.scale.log().domain([0.1, 10]).range([1, width]),
+var xScale = d3.scale.linear().domain([0, 6]).range([1, width]),
     yScale = d3.scale.linear().domain([0, 6]).range([height, 0]),
     radiusScale = d3.scale.sqrt().domain([0, 100]).range([0, 40]),
     colorScale = d3.scale.category10();
 
 // The x & y axes.
-var xAxis = d3.svg.axis().orient("bottom").scale(xScale).ticks(12, d3.format(",d")),
+var xAxis = d3.svg.axis().orient("bottom").scale(xScale),
     yAxis = d3.svg.axis().scale(yScale).orient("left");
 
 // Create the SVG container and set the origin.
@@ -189,7 +189,6 @@ d3.json("../data/nations.json", function(nations) {
       .on("mouseup", function(d, i) {
         dot.classed("selected", false);
         d3.select(this).classed("selected", !d3.select(this).classed("selected"));
-        dragit.trajectory.display(d, i, "selected");
 
         //TODO: test if has been dragged
         // Look at the state machine history and find a drag event in it?
@@ -197,23 +196,19 @@ d3.json("../data/nations.json", function(nations) {
       })
       .on("mouseenter", function(d, i) {
         clear_demo();
-        if(dragit.statemachine.current_state == "idle") {
-          dragit.trajectory.display(d, i)
-          dragit.utils.animateTrajectory(dragit.trajectory.display(d, i), dragit.time.current, 1000)
           countrylabel.text(d.name);
           dot.style("opacity", .4)
           d3.select(this).style("opacity", 1)
           d3.selectAll(".selected").style("opacity", 1)
-        }
+
       })
       .on("mouseleave", function(d, i) {
 
-        if(dragit.statemachine.current_state == "idle") {
           countrylabel.text("");
           dot.style("opacity", 1);
-        }
+
   
-        dragit.trajectory.remove(d, i);
+
       })
       .call(dragit.object.activate)
 
