@@ -18,7 +18,9 @@ $sdk = new Aws\Sdk([
 var_dump($sdk);
 
 echo "Mati ves esto?";
+
 $dynamoDb = $sdk->createDynamoDb();
+
 echo "Mati ves esto?2";
 
 // Create an "errors" table
