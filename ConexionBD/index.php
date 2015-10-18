@@ -1,84 +1,36 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: mati
- * Date: 10/12/15
- * Time: 10:30 AM
- */
+<!DOCTYPE html>
+<html>
 
-require './aws/aws-autoloader.php';
-//require __DIR__ . '/aws/aws-autoloader.php';
-//use Aws\DynamoDb\DynamoDbClient;
+<head><title>Reading values into a table</title></head>
+<body>
 
-$sdk = new Aws\Sdk([
-    'region'   => 'us-west-2',
-    'version'  => 'latest',
-    'endpoint' => 'http://localhost:8000'
-]);
-var_dump($sdk);
+<!-- todo el c�digo html sirve para visualizar en una tabla html los datos obtenidos-->
+<div>
+    <table border="1">
+        <tbody>
 
-echo "Mati ves esto?";
+        <!--esto se utilioza de prueba de la clase DatosPersonal-->
 
-$dynamoDb = $sdk->createDynamoDb();
+        <?php
 
-echo "Mati ves esto?2";
+        include_once('db.php');
+        $accesoDB = new DatosDB();
 
-// Create an "errors" table
-$dynamoDb->createTable(array(
-    'TableName' => 'errors',
-    'AttributeDefinitions' => array(
-        array(
-            'AttributeName' => 'id',
-            'AttributeType' => 'N'
-        ),
-        array(
-            'AttributeName' => 'time',
-            'AttributeType' => 'N'
-        )
-    ),
-    'KeySchema' => array(
-        array(
-            'AttributeName' => 'id',
-            'KeyType'       => 'HASH'
-        ),
-        array(
-            'AttributeName' => 'time',
-            'KeyType'       => 'RANGE'
-        )
-    ),
-    'ProvisionedThroughput' => array(
-        'ReadCapacityUnits'  => 10,
-        'WriteCapacityUnits' => 20
-    )
-));
+        $datosEncuesta = $accesoDB->get();
 
-$result = $dynamoDb->putItem(array(
-    'TableName' => 'errors',
-    'Item' => array(
-        'id'      => array('N' => '1201'),
-        'time'    => array('N' => '14:05:05'),
-        'error'   => array('S' => 'Executive overflow'),
-        'message' => array('S' => 'no vacant areas')
-    )
-));
+        /*OPCIONAL: esto se utiliza para visualizar en una tabla html los datos obtenidos*/
+        foreach ($datosEncuesta as $row){
+            echo'<tr>';
+            foreach ($row as $item){
+                echo '<td>'.$item."</td>";
+            }
+            echo'</tr>';
+        }
 
-$result = $dynamoDb->getItem(array(
-    'ConsistentRead' => true,
-    'TableName' => 'errors',
-    'Key'       => array(
-        'id'   => array('N' => '1201'),
-        'time' => array('N' => '14:05:05')
-    )
-));
+        ?>
+        </tbody>
+    </table>
+</div>
 
-// Grab value from the result object like an array
-echo $result['Item']['id']['N'] . "\n";
-//> 1201
-echo $result['Item']['id']['N'] . "\n";
-//> 1201
-echo $result['Item']['error']['S'] . "\n";
-//> Executive overflow
-echo $result['Item']['message']['S'] . "\n";
-//> no vacant areas
-
-?>
+</body>
+</html>
