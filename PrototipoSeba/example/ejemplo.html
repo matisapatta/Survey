@@ -189,6 +189,8 @@
                 .style("fill", function(d) { return colorScale(color(d)); })
                 .call(position)
                 .on("mouseup", function(d, i) {
+                    dot.style("opacity", .4)
+                    d3.select(this).style("opacity", 1)
                     dot.classed("selected", false);
                     d3.select(this).classed("selected", !d3.select(this).classed("selected"));
                     //TODO: test if has been dragged
@@ -233,7 +235,7 @@
                 .attr("transform", function(d, i) { return "translate(-200," + i * 20 + ")"; });
 
         legend.append("rect")
-                .attr("x", width - 18)
+                .attr("x", width +205)
                 .attr("width", 18)
                 .attr("height", 18)
                 .style("fill",  function(d) { return colorScale(color(d)); })
@@ -252,11 +254,11 @@
                     dot.style("opacity", 1);
                 })
         legend.append("text")
-                .attr("x", width - 24)
+                .attr("x", width+200)
                 .attr("y", 9)
                 .attr("dy", ".35em")
                 .style("text-anchor", "end")
-                .text(function(d) { return d.nombre; });
+                .text(function(d) { return d.pepe; });
 
         // Interpolates the dataset for the given (fractional) year.
         function interpolateData() {
