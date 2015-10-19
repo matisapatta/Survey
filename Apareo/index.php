@@ -12,6 +12,7 @@
         <?php
 
         include_once("../ObtencionDatosPersonal/DatosPersonal.php");
+        include_once("Empleados.php");
         $accesoDatosPersonal = new DatosPersonal();
         $arrayEmpleados = $accesoDatosPersonal->get();
 
