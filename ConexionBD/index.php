@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 
-<head><title>Reading values into a table</title></head>
+<head><title>Leer valores</title></head>
 <body>
 
-<!-- todo el c�digo html sirve para visualizar en una tabla html los datos obtenidos-->
+<!-- todo el codigo html sirve para visualizar en una tabla html los datos obtenidos-->
 <div>
     <table border="1">
         <tbody>
 
-        <!--esto se utilioza de prueba de la clase DatosPersonal-->
+        <!--esto se utilioza de prueba de la clase DatosBD-->
 
         <?php
 
