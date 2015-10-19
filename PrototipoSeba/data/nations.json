@@ -1,1 +1,1 @@
-[{"name":"Cliente1","region":"1","income":[[2008,2]],"population":[[2008,250]],"lifeExpectancy":[[2008,3]]},{"name":"Cliente2","region":"2","income":[[2008,5]],"population":[[2008,20]],"lifeExpectancy":[[2008,4]]},{"name":"Cliente3","region":"1","income":[[2008,1]],"population":[[2008,100]],"lifeExpectancy":[[2008,5]]}]
+[{"nombre":"Cliente1","id":"1","proyecto":3.06,"cantidad":195,"cliente":3.1},{"nombre":"Cliente2","id":"2","proyecto":2.85,"cantidad":35,"cliente":3.15},{"nombre":"Cliente3","id":"3","proyecto":1,"cantidad":77,"cliente":3}]

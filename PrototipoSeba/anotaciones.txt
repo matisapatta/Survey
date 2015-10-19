@@ -1,0 +1,7 @@
+Hice que la linea de abajo tenga una escala normal, antes la mitad era del 0 al 1 y cada vez mas chico, no era proporcional.
+
+Correcion del problema del cliente1, cuando se marcaba ese se colgaba, tambien al clicker alguno, ya no pasa
+
+Cambie las etiquetas en el archivo JSON, ahora usa etiquetas que le defini manualmente. (GRAN AVANCE)
+
+hay un solo dato que todavia me jode que arrastro del ejemplo que es el año que muestra, esta harcodeado que traiga el 2008 y en el archivo tiene el 2008 como dato todos los registros. es lo proximo a cambiar

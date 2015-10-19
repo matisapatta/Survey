@@ -22,7 +22,7 @@ body {
 
 </style>
   <link href="../src/dragit.css" rel="stylesheet"/>
-  <script src="../Prototipo%20Seba/lib/d3.v3.js"></script>
+  <script src="../lib/d3.v3.js"></script>
   <script src="../src/dragit.js"></script>
 </head>
 <body>
@@ -166,9 +166,9 @@ legend.append("rect")
     .style("fill", color);
 
 legend.append("text")
-    .attr("x", width - 24)
-    .attr("y", 9)
-    .attr("dy", ".35em")
+        .attr("x", width - 18)
+        .attr("width", 18)
+        .attr("height", 18)
     .style("text-anchor", "end")
     .text(function(d) { return d; });
 
