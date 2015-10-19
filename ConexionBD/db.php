@@ -1,20 +1,29 @@
 <?php
+
 /**
  * Created by PhpStorm.
- * User: mati
- * Date: 10/12/15
- * Time: 2:31 PM
+ * User: AlanNote
+ * Date: 18/10/2015
+ * Time: 18:37
  */
+class DatosDB
+{
+    public $fileEmpleados = 'tt.csv';
 
-require './aws/aws-autoloader.php';
+    public function get(){
+        echo 'hola';
+        /*este metodo obtiene los datos de los empleados desde un archivo csv y los guarda en un array de dos dimensiones
+            donde cada fila tiene todos los datos del empleado*/
+        $myfile = fopen($this->fileEmpleados, "r") or die("No se puede abrir el archivo!");
+        $datosEmpleados = [];
+        while(!feof($myfile)) {
+            $datosEmpleados[] = fgetcsv($myfile);
+        }
+        fclose($myfile);
+        echo $datosEmpleados;
+        return $datosEmpleados;
 
-echo "antes";
+    }
+}
 
-$client = new Aws\DynamoDb\DynamoDbClient([
-    'region'  => 'us-west-2',
-    'version' => 'latest',
-    'endpoint' => 'http://localhost:8000'
-]);
-
-//$dynamoDb = $client->createDynamoDb();
-echo "dsp";
+?>
