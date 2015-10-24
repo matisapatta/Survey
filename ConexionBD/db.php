@@ -6,7 +6,7 @@
  * Date: 18/10/2015
  * Time: 18:37
  */
-include_once("../Apareo/Survey.php");
+include_once("../Merge/Survey.php");
 class DatosDB
 {
     public $fileEmpleados = 'tt.csv';

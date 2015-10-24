@@ -6,7 +6,7 @@
  * Date: 18/10/2015
  * Time: 18:37
  */
-include_once("../Apareo/Employee.php");
+include_once("../Merge/Employee.php");
 class DatosPersonal
 {
     public $fileEmpleados = "example_data.csv";
