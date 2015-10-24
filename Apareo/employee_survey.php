@@ -6,8 +6,8 @@
  * Date: 23/10/2015
  * Time: 11:46 PM
  */
-include_once("Empleados.php");
-include_once("Encuesta.php");
+include_once("Employee.php");
+include_once("Survey.php");
 
 class dtoEmployee_Survey
 {
@@ -50,7 +50,7 @@ class dtoEmployee_Survey
     private $Organizational_Unit_SAP_last;
     private $Entry_Date;
 
-    function __construct(dtoEncuesta $survey, dtoEmpleados $employee) {
+    function __construct(dtoSurvey $survey, dtoEmployee $employee) {
         $this->setResp1( $survey->getresp1() );
         $this->setresp2($survey->getresp2());
         $this->settoken($survey->gettoken());
@@ -480,7 +480,7 @@ class arrayEmployee_Survey
 {
     private $Employees_Survey = array();
 
-    public function guardarObjeto()
+    public function saveObject()
     {
         array_push($this->Employees_Survey , $this->newEmployee_Survey);
     }
@@ -492,7 +492,9 @@ class arrayEmployee_Survey
     public function add_Employee_Survey(dtoEmployee_Survey $employee_survey)
     {
         $this->newEmployee_Survey = $employee_survey;
+        $this->saveObject();
     }
+
     public function generar_Json(){
         $fh = fopen("datos_out.json", 'w')  or die("Error al abrir fichero de salida");
         // PARA GENERAR JSON BIEN LAS PROPIEDADES DEBEN SER PUBLICAS!!!

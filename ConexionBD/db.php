@@ -6,7 +6,7 @@
  * Date: 18/10/2015
  * Time: 18:37
  */
-include_once("../Apareo/Encuesta.php");
+include_once("../Apareo/Survey.php");
 class DatosDB
 {
     public $fileEmpleados = 'tt.csv';
@@ -16,16 +16,15 @@ class DatosDB
             donde cada fila tiene todos los datos del empleado*/
         $myfile = fopen($this->fileEmpleados, "r", 1) or die("No se puede abrir el archivo!");
 
-        $arraydtoPolls = new arrayPoll();
+        $arraydtoSurveys = new arraySurvey();
 
         while(!feof($myfile)) {
-            $poll = new dtoEncuesta();
-            $poll->arrayPollToDto(fgetcsv($myfile));
-            $arraydtoPolls->agregar_poll($poll);
-            $arraydtoPolls->guardarObjeto();
+            $survey = new dtoSurvey();
+            $survey->arraySurveyToDto(fgetcsv($myfile));
+            $arraydtoSurveys->add_Survey($survey);
         }
         fclose($myfile);
-        return $arraydtoPolls;
+        return $arraydtoSurveys;
 
     }
 }

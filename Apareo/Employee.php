@@ -6,7 +6,7 @@
  * Date: 18/10/2015
  * Time: 11:56 PM
  */
-class dtoEmpleados
+class dtoEmployee
 {
     private $Email;
     private $Q1;
@@ -403,117 +403,117 @@ class dtoEmpleados
     {
         $this->Studio = $Studio;
     }
-    public function EmpleadosArrayToDto( $row ){
-        $ordenEmpleado = new ordenEmpleado();
-        for($x=0; $x < $ordenEmpleado->getMax(); $x++ )
+    public function ArrayEmployeeToDto( $row ){
+        $orderEmployee = new orderEmployee();
+        for($x=0; $x < $orderEmployee->getMax(); $x++ )
         {
             switch($x){
-                case $ordenEmpleado->getEmail():
+                case $orderEmployee->getEmail():
                     $this->setEmail($row[$x]);
                     break;
-                case $ordenEmpleado->getQ1():
+                case $orderEmployee->getQ1():
                     $this->setQ1($row[$x]);
                     break;
-                case $ordenEmpleado->getQ2():
+                case $orderEmployee->getQ2():
                     $this->setQ2($row[$x]);
                     break;
-                case $ordenEmpleado->getObservation();
+                case $orderEmployee->getObservation();
                     $this->setObservation($row[$x]);
                     break;
-                case $ordenEmpleado->getName():
+                case $orderEmployee->getName():
                     $this->setName($row[$x]);
                     break;
-                case $ordenEmpleado->getID():
+                case $orderEmployee->getID():
                     $this->setID($row[$x]);
                     break;
-                case $ordenEmpleado->getCurrentSkill():
+                case $orderEmployee->getCurrentSkill():
                     $this->setCurrentSkill($row[$x]);
                     break;
-                case $ordenEmpleado->getCurrentSeniority():
+                case $orderEmployee->getCurrentSeniority():
                     $this->setCurrentSeniority($row[$x]);
                     break;
-                case $ordenEmpleado->getClientTag():
+                case $orderEmployee->getClientTag():
                     $this->setClientTag($row[$x]);
                     break;
-                case $ordenEmpleado->getClient():
+                case $orderEmployee->getClient():
                     $this->setClient($row[$x]);
                     break;
-                case $ordenEmpleado->getProjectTag():
+                case $orderEmployee->getProjectTag():
                     $this->setProjectTag($row[$x]);
                     break;
-                case $ordenEmpleado->getProject():
+                case $orderEmployee->getProject():
                     $this->setProject($row[$x]);
                     break;
-                case $ordenEmpleado->getstartingDate():
+                case $orderEmployee->getstartingDate():
                     $this->setstartingDate($row[$x]);
                     break;
-                case $ordenEmpleado->getendDate():
+                case $orderEmployee->getendDate():
                     $this->setendDate($row[$x]);
                     break;
-                case $ordenEmpleado->getpercentage():
+                case $orderEmployee->getpercentage():
                     $this->setPercentage($row[$x]);
                     break;
-                case $ordenEmpleado->getcurrentLocation():
+                case $orderEmployee->getcurrentLocation():
                     $this->setcurrentLocation($row[$x]);
                     break;
-                case $ordenEmpleado->getcurrentTL():
+                case $orderEmployee->getcurrentTL():
                     $this->setcurrentTL($row[$x]);
                     break;
-                case $ordenEmpleado->getallLocations():
+                case $orderEmployee->getallLocations():
                     $this->setallLocations($row[$x]);
                     break;
-                case $ordenEmpleado->getcurrentPMs():
+                case $orderEmployee->getcurrentPMs():
                     $this->setcurrentPMs($row[$x]);
                     break;
-                case $ordenEmpleado->getcurrentPA():
+                case $orderEmployee->getcurrentPA():
                     $this->setcurrentPA($row[$x]);
                     break;
-                case $ordenEmpleado->getpmsHistory():
+                case $orderEmployee->getpmsHistory():
                     $this->setpmsHistory($row[$x]);
                     break;
-                case $ordenEmpleado->getcurrentDDs():
+                case $orderEmployee->getcurrentDDs():
                     $this->setcurrentDDs($row[$x]);
                     break;
-                case $ordenEmpleado->getassignmentType():
+                case $orderEmployee->getassignmentType():
                     $this->setassignmentType($row[$x]);
                     break;
-                case $ordenEmpleado->getcomments():
+                case $orderEmployee->getcomments():
                     $this->setcomments($row[$x]);
                     break;
-                case $ordenEmpleado->getProjectStudio():
+                case $orderEmployee->getProjectStudio():
                     $this->setProjectStudio($row[$x]);
                     break;
-                case $ordenEmpleado->getStudio():
+                case $orderEmployee->getStudio():
                     $this->setStudio($row[$x]);
                     break;
-                case $ordenEmpleado->getOffice():
+                case $orderEmployee->getOffice():
                     $this->setOffice($row[$x]);
                     break;
-                case $ordenEmpleado->getddsHistory():
+                case $orderEmployee->getddsHistory():
                     $this->setddsHistory($row[$x]);
                     break;
-                case $ordenEmpleado->getbusinessUnitTag():
+                case $orderEmployee->getbusinessUnitTag():
                     $this->setbusinessUnitTag($row[$x]);
                     break;
-                case $ordenEmpleado->getbusinessUnitName():
+                case $orderEmployee->getbusinessUnitName():
                     $this->setbusinessUnitName($row[$x]);
                     break;
-                case $ordenEmpleado->getreplacementreason():
+                case $orderEmployee->getreplacementreason():
                     $this->setreplacementreason($row[$x]);
                     break;
-                case $ordenEmpleado->getorganizationalUnitType():
+                case $orderEmployee->getorganizationalUnitType():
                     $this->setorganizationalUnitType($row[$x]);
                     break;
-                case $ordenEmpleado->getbillable():
+                case $orderEmployee->getbillable():
                     $this->setbillable($row[$x]);
                     break;
-                case $ordenEmpleado->getOrganizationalUnitdeSAP():
+                case $orderEmployee->getOrganizationalUnitdeSAP():
                     $this->setOrganizationalUnitdeSAP($row[$x]);
                     break;
-                case $ordenEmpleado->getOrganizationalUnitSAPlast():
+                case $orderEmployee->getOrganizationalUnitSAPlast():
                     $this->setOrganizationalUnitSAPlast($row[$x]);
                     break;
-                case $ordenEmpleado->getEntryDate():
+                case $orderEmployee->getEntryDate():
                     $this->setEntryDate($row[$x]);
                     break;
             }
@@ -521,7 +521,7 @@ class dtoEmpleados
     }
 }
 
-class ordenEmpleado
+class orderEmployee
 {
     private $Email = 0 ;
     private $Q1 = 1 ;
@@ -1154,28 +1154,29 @@ class ordenEmpleado
     }
 }
 
-class arrayEmpleado
+class arrayEmployee
 {
-    private $Empleados = array();
+    private $Employees = array();
 
-    public static function sort_id( dtoEmpleados $a,dtoEmpleados $b)
+    public static function sort_id( dtoEmployee $a, dtoEmployee $b)
     {
         return strcmp($a->getID(), $b->getID());
     }
-    public function guardarObjeto()
+    public function saveObject()
     {
-        array_push($this->Empleados , $this->nuevoEmpleado);
+        array_push($this->Employees , $this->newEmployee);
     }
 
-    public function getEmpleados()
+    public function getEmployee()
     {
-        return $this->Empleados;
+        return $this->Employees;
     }
-    public function agregar_empleado(dtoEmpleados $empleado)
+    public function addEmployee(dtoEmployee $employee)
     {
-        $this->nuevoEmpleado = $empleado;
+        $this->newEmployee = $employee;
+        $this->saveObject();
     }
-    public function Ordenar_ID(){
-        usort( $this->Empleados, array('arrayEmpleado' , 'sort_id'));
+    public function Order_ID(){
+        usort( $this->Employees, array('arrayEmployee' , 'sort_id'));
     }
 }

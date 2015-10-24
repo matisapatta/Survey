@@ -3,10 +3,10 @@
 /**
  * Created by PhpStorm.
  * User: dgagl_000
- * Date: 18/10/2015
- * Time: 11:57 PM
+ * Date: 24/10/2015
+ * Time: 3:26 PM
  */
-class dtoEncuesta
+class dtoSurvey
 {
     private $resp1;
     private $resp2;
@@ -36,18 +36,18 @@ class dtoEncuesta
     {
         $this->token = $token;
     }
-    public function arrayPollToDto( $row ){
-        $sequencePoll = new SequencePoll();
-        for($x=0; $x < $sequencePoll->getMax(); $x++ )
+    public function arraySurveyToDto( $row ){
+        $sequenceSurvey = new SequenceSurvey();
+        for($x=0; $x < $sequenceSurvey->getMax(); $x++ )
         {
             switch($x){
-                case $sequencePoll->getResp1():
+                case $sequenceSurvey->getResp1():
                     $this->setResp1($row[$x]);
                     break;
-                case $sequencePoll->getResp2():
+                case $sequenceSurvey->getResp2():
                     $this->setResp2($row[$x]);
                     break;
-                case $sequencePoll->getToken():
+                case $sequenceSurvey->getToken():
                     $this->setToken($row[$x]);
                     break;
             }
@@ -55,7 +55,7 @@ class dtoEncuesta
     }
 }
 
-class SequencePoll
+class SequenceSurvey
 {
     public static $resp1 = 2;
     public static $resp2 = 0;
@@ -128,28 +128,28 @@ class SequencePoll
 
 }
 
-class arrayPoll
+class arraySurvey
 {
-    private $Polls = array();
+    private $Surveys = array();
 
-    public static function sort_token( dtoEncuesta $a, dtoEncuesta $b)
+    public static function sort_token( dtoSurvey $a, dtoSurvey $b)
     {
         return strcmp($a->getToken(), $b->getToken());
     }
-    public function guardarObjeto()
+    public function saveObject()
     {
-        array_push($this->Polls , $this->newPoll);
+        array_push($this->Surveys , $this->newSurvey);
     }
-
-    public function getPolls()
+    public function getSurveys()
     {
-        return $this->Polls;
+        return $this->Surveys;
     }
-    public function agregar_poll(dtoEncuesta $poll)
+    public function add_Survey(dtoSurvey $Survey)
     {
-        $this->newPoll = $poll;
+        $this->newSurvey = $Survey;
+        $this->saveObject();
     }
     public function Order_Token(){
-        usort( $this->Polls, array('arrayPoll' , 'sort_token'));
+        usort( $this->Surveys, array('arraySurvey' , 'sort_token'));
     }
 }

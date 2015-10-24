@@ -13,7 +13,7 @@
             include_once("Merge.php");
             include_once("employee_survey.php");
             $merge = new Merge();
-            $employees_survey = $merge->Aparear();
+            $employees_survey = $merge->Merge_Data();
             $array = $employees_survey->getEmployees_Survey();
             echo "Token";
             echo "Name";
