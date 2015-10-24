@@ -57,9 +57,9 @@ class dtoEncuesta
 
 class SequencePoll
 {
-    public static $resp1 = 0;
-    public static $resp2 = 1;
-    public static $token = 2;
+    public static $resp1 = 2;
+    public static $resp2 = 0;
+    public static $token = 1;
     public static $Max = 3;
 
     /**
