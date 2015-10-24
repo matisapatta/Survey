@@ -8,42 +8,42 @@
  */
 class dtoEmpleados
 {
-    public $Email;
-    public $Q1;
-    public $Q2;
-    public $Observation;
-    public $Name;
-    public $ID;
-    public $Current_Skill;
-    public $Current_Seniority;
-    public $Client_Tag;
-    public $Client;
-    public $Project_Tag;
-    public $Project;
-    public $starting_Date;
-    public $end_Date;
-    public $percentage;
-    public $current_Location;
-    public $current_TL;
-    public $all_Locations;
-    public $current_PMs;
-    public $current_PA;
-    public $pms_History;
-    public $current_DDs;
-    public $assignment_Type;
-    public $comments;
-    public $Project_Studio;
-    public $Studio;
-    public $Office;
-    public $dds_History;
-    public $business_Unit_Tag;
-    public $business_Unit_Name;
-    public $replacement_reason;
-    public $organizational_Unit_Type;
-    public $billable;
-    public $Organizational_Unit_de_SAP;
-    public $Organizational_Unit_SAP_last;
-    public $Entry_Date;
+    private $Email;
+    private $Q1;
+    private $Q2;
+    private $Observation;
+    private $Name;
+    private $ID;
+    private $Current_Skill;
+    private $Current_Seniority;
+    private $Client_Tag;
+    private $Client;
+    private $Project_Tag;
+    private $Project;
+    private $starting_Date;
+    private $end_Date;
+    private $percentage;
+    private $current_Location;
+    private $current_TL;
+    private $all_Locations;
+    private $current_PMs;
+    private $current_PA;
+    private $pms_History;
+    private $current_DDs;
+    private $assignment_Type;
+    private $comments;
+    private $Project_Studio;
+    private $Studio;
+    private $Office;
+    private $dds_History;
+    private $business_Unit_Tag;
+    private $business_Unit_Name;
+    private $replacement_reason;
+    private $organizational_Unit_Type;
+    private $billable;
+    private $Organizational_Unit_de_SAP;
+    private $Organizational_Unit_SAP_last;
+    private $Entry_Date;
 
     public function getAllLocations()
     {
@@ -523,43 +523,43 @@ class dtoEmpleados
 
 class ordenEmpleado
 {
-    public $Max = 36;
-    public $Email = 0 ;
-    public $Q1 = 1 ;
-    public $Q2 = 2 ;
-    public $Observation = 3 ;
-    public $Name = 4 ;
-    public $ID = 5 ;
-    public $Current_Skill = 6 ;
-    public $Current_Seniority = 7 ;
-    public $Client_Tag = 8 ;
-    public $Client = 9 ;
-    public $Project_Tag = 10 ;
-    public $Project = 11 ;
-    public $starting_Date = 12 ;
-    public $end_Date = 13 ;
-    public $percentage = 14 ;
-    public $current_Location = 15 ;
-    public $current_TL = 16 ;
-    public $all_Locations = 17 ;
-    public $current_PMs = 18 ;
-    public $current_PA = 19 ;
-    public $pms_History = 20 ;
-    public $current_DDs = 21 ;
-    public $assignment_Type = 22 ;
-    public $comments = 23 ;
-    public $Project_Studio = 24 ;
-    public $Studio = 25 ;
-    public $Office = 26 ;
-    public $dds_History = 27 ;
-    public $business_Unit_Tag = 28 ;
-    public $business_Unit_Name = 29 ;
-    public $replacement_reason = 30 ;
-    public $organizational_Unit_Type = 31 ;
-    public $billable = 32 ;
-    public $Organizational_Unit_de_SAP = 33 ;
-    public $Organizational_Unit_SAP_last = 34 ;
-    public $Entry_Date = 35 ;
+    private $Email = 0 ;
+    private $Q1 = 1 ;
+    private $Q2 = 2 ;
+    private $Observation = 3 ;
+    private $Name = 4 ;
+    private $ID = 5 ;
+    private $Current_Skill = 6 ;
+    private $Current_Seniority = 7 ;
+    private $Client_Tag = 8 ;
+    private $Client = 9 ;
+    private $Project_Tag = 10 ;
+    private $Project = 11 ;
+    private $starting_Date = 12 ;
+    private $end_Date = 13 ;
+    private $percentage = 14 ;
+    private $current_Location = 15 ;
+    private $current_TL = 16 ;
+    private $all_Locations = 17 ;
+    private $current_PMs = 18 ;
+    private $current_PA = 19 ;
+    private $pms_History = 20 ;
+    private $current_DDs = 21 ;
+    private $assignment_Type = 22 ;
+    private $comments = 23 ;
+    private $Project_Studio = 24 ;
+    private $Studio = 25 ;
+    private $Office = 26 ;
+    private $dds_History = 27 ;
+    private $business_Unit_Tag = 28 ;
+    private $business_Unit_Name = 29 ;
+    private $replacement_reason = 30 ;
+    private $organizational_Unit_Type = 31 ;
+    private $billable = 32 ;
+    private $Organizational_Unit_de_SAP = 33 ;
+    private $Organizational_Unit_SAP_last = 34 ;
+    private $Entry_Date = 35 ;
+    private $Max = 36;
 
     /**
      * @return int
@@ -1154,3 +1154,28 @@ class ordenEmpleado
     }
 }
 
+class arrayEmpleado
+{
+    private $Empleados = array();
+
+    public static function sort_id( dtoEmpleados $a,dtoEmpleados $b)
+    {
+        return strcmp($a->getID(), $b->getID());
+    }
+    public function guardarObjeto()
+    {
+        array_push($this->Empleados , $this->nuevoEmpleado);
+    }
+
+    public function getEmpleados()
+    {
+        return $this->Empleados;
+    }
+    public function agregar_empleado(dtoEmpleados $empleado)
+    {
+        $this->nuevoEmpleado = $empleado;
+    }
+    public function Ordenar_ID(){
+        usort( $this->Empleados, array('arrayEmpleado' , 'sort_id'));
+    }
+}
