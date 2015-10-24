@@ -9,7 +9,7 @@
 include_once("../Merge/Survey.php");
 class DatosDB
 {
-    public $fileEmpleados = 'tt.csv';
+    public $fileEmpleados = 'Survey.csv';
 
     public function get(){
         /*este metodo obtiene los datos de los empleados desde un archivo csv y los guarda en un array de dos dimensiones

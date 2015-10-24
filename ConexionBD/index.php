@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
 
-<head><title>Leer valores</title></head>
+<head><title>Values Read</title></head>
 <body>
 
-<!-- todo el codigo html sirve para visualizar en una tabla html los datos obtenidos-->
+<!-- HTML Code is only to visualize data-->
 <div>
     <table border="1">
         <tbody>
 
-        <!--esto se utilioza de prueba de la clase DatosBD-->
+        <!--this is to test DBData Class-->
 
         <?php
 
         include_once('db.php');
-        $accesoDB = new DatosDB();
+        $DBAccess = new DatosDB();
 
-        $datosEncuesta = $accesoDB->get();
+        $surveyData = $DBAccess->get();
 
-        /*OPCIONAL: esto se utiliza para visualizar en una tabla html los datos obtenidos*/
-        foreach ($datosEncuesta as $row){
+        /*This is to visualize data in an HTML table*/
+        foreach ($surveyData as $row){
             echo'<tr>';
             foreach ($row as $item){
                 echo '<td>'.$item."</td>";
