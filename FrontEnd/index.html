@@ -13,6 +13,7 @@
         margin-left:40px;
         font-weight: 200;
         font-size: 14px;
+        background-image: url("./img/background.jpeg");
     }
 
     html,body {
@@ -44,6 +45,9 @@
     .dot {
         stroke: #000;
     }
+    .rect {
+        stroke: #000;
+    }
 
     .axis path, .axis line {
         fill: none;
@@ -60,9 +64,10 @@
         fill: #ddd;
     }
 
-    .country.label  {
-        font: 500 96px "Helvetica Neue";
+    .graph.label  {
+        font: 500 96px "Helvetica";
         fill: #ddd;
+        text-anchor: start;
     }
 
     .year.label.active {
@@ -87,10 +92,19 @@
     .selected {
         stroke-width: 4;
     }
+    #title {
+        font-size: 95px;
+        font-family: "Helvetica";
+        opacity: 1;
+        margin-bottom: 30px;
+        font-style: italic;
+    }
 
 </style>
 
-<div id="chart" style="margin:0px"></div>
+
+<div align="center" id="title">Survey Results</div>
+<div align="center" id="chart" style="margin:0px"></div>
 
 
 
@@ -98,11 +112,15 @@
 <script>
 
     // Various accessors that specify the four dimensions of data to visualize.
-    function x(d) { return d.proyecto; }
-    function y(d) { return d.cliente; }
-    function radius(d) { return d.cantidad; }
+
+    function x(d) { return d.project; }
+    function y(d) { return d.client; }
+    function radius(d) { return d.quantity; }
     function color(d) { return d.region; }
-    function key(d) { return d.nombre; }
+    function key(d) { return d.Name; }
+
+
+
 
     // Chart dimensions.
     var margin = {top: 19.5, right: 19.5, bottom: 19.5, left: 39.5},
@@ -114,37 +132,73 @@
             yScale = d3.scale.linear().domain([0, 6]).range([height, 0]),
             radiusScale = d3.scale.sqrt().domain([0, 100]).range([0, 40]),
             colorScale = d3.scale.category10();
-
     // The x & y axes.
     var xAxis = d3.svg.axis().orient("bottom").scale(xScale),
             yAxis = d3.svg.axis().scale(yScale).orient("left");
 
     // Create the SVG container and set the origin.
     var svg = d3.select("#chart").append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
+            .attr("width", width + margin.left + margin.right + 200)
+            .attr("height", height + margin.top + margin.bottom + 200)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             .attr("class", "gRoot")
+
 
     // Add the x-axis.
     svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
-            .call(xAxis);
+            .call(xAxis)
+
 
     // Add the y-axis.
     svg.append("g")
             .attr("class", "y axis")
-            .call(yAxis);
+            .call(yAxis)
+
+    // Horizontal grid
+    svg.selectAll("line.horizontalGrid").data(yScale.ticks(24)).enter()
+            .append("line")
+            .attr(
+            {
+                "class":"horizontalGrid",
+                "x1" : "margin.right"+5,
+                "x2" : width,
+                "y1" : function(d){ return yScale(d);},
+                "y2" : function(d){ return yScale(d);},
+                "fill" : "none",
+                "shape-rendering" : "optimizeSpeed",
+                "stroke" : "grey",
+                "stroke-width" : "1px"
+            })
+            .style("opacity",.2);
+
+    // Vertical Grid
+    svg.selectAll("line.verticalGrid").data(xScale.ticks(24)).enter()
+            .append("line")
+            .attr(
+            {
+                "class":"verticalGrid",
+                "y1" : "margin.left"+5,
+                "y2" : height,
+                "x1" : function(d){ return xScale(d);},
+                "x2" : function(d){ return xScale(d);},
+                "fill" : "none",
+                "shape-rendering" : "optimizeSpeed",
+                "stroke" : "grey",
+                "stroke-width" : "1px",
+            })
+            .style("opacity",.2);
+
 
     // Add an x-axis label.
     svg.append("text")
             .attr("class", "x label")
             .attr("text-anchor", "end")
             .attr("x", width)
-            .attr("y", height - 6)
-            .text("Proyecto");
+            .attr("y", height - 10)
+            .text("Grado de conformidad con el proyecto");
 
     // Add a y-axis label.
     svg.append("text")
@@ -153,29 +207,32 @@
             .attr("y", 6)
             .attr("dy", ".75em")
             .attr("transform", "rotate(-90)")
-            .text("Cliente");
+            .text("Grado de conformidad del cliente");
 
 
-    // Add the country label; the value is set on transition.
-    var countrylabel = svg.append("text")
-            .attr("class", "country label")
+    // Add the value label; the value is set on transition.
+    var valueLabel = svg.append("text")
+            .attr("class", "graph label")
             .attr("text-anchor", "start")
             .attr("y", 80)
             .attr("x", 20)
             .text(" ");
 
-    var countryCant = svg.append("text")
-            .attr("class", "country label")
+    // Add the quantity label; the value is set on transition.
+    var valueQuan = svg.append("text")
+            .attr("class", "graph label")
             .attr("text-anchor", "start")
             .attr("y", 180)
             .attr("x", 20)
             .text(" ");
 
 
-    // Load the data.
-    d3.json("data/nations.json", function(nations) {
 
-        // A bisector since many nation's data is sparsely-defined.
+
+    // Load the data.
+    d3.json("data/info.json", function(nations) {
+
+        // A bisector since many value's data is sparsely-defined.
         var bisect = d3.bisector(function(d) { return d[0]; });
 
         var dot = svg.append("g")
@@ -194,23 +251,23 @@
 
                 })
                 .on("mouseenter", function(d, i) {
-                    countrylabel.text(d.nombre);
-                    countryCant.text(d.cantidad+'');
+                    valueLabel.text(d.Name);
+                    valueQuan.text(d.quantity+'');
                     dot.style("opacity", .4)
                     d3.select(this).style("opacity", 1)
                     d3.selectAll(".selected").style("opacity", 1)
 
                 })
                 .on("mouseleave", function(d, i) {
-                    countrylabel.text("");
-                    countryCant.text("");
+                    valueLabel.text("");
+                    valueQuan.text("");
                     dot.style("opacity", 1);
                 })
                 .call(dragit.object.activate)
 
         // Add a title.
         dot.append("title")
-                .text(function(d) { return d.nombre; });
+                .text(function(d) { return d.Name; });
 
 
         // Positions the dots based on data.
@@ -227,46 +284,47 @@
                 .attr("transform", function(d, i) { return "translate(-200," + i * 20 + ")"; });
 
         legend.append("rect")
-                .attr("x", width +205)
+                .attr("x", width +210)
                 .attr("width", 18)
                 .attr("height", 18)
+                .attr("class", "rect")
                 .style("fill",  function(d) { return colorScale(color(d)); })
                 .on("mouseenter", function(d, i) {
-                    countrylabel.text(d.nombre);
-                    var texto = d.nombre;
-                    countryCant.text(d.cantidad+'');
+                    valueLabel.text(d.Name);
+                    var texto = d.Name;
+                    valueQuan.text(d.quantity+'');
                     d3.selectAll(".dot").style("opacity", .4)
                     d3.selectAll(".dot").filter(function(d) {
-                        return d.nombre == texto;
+                        return d.Name == texto;
                     }).style("opacity", 1)
                 })
                 .on("mouseleave", function(d, i) {
-                    countrylabel.text("");
-                    countryCant.text("");
+                    valueLabel.text("");
+                    valueQuan.text("");
                     dot.style("opacity", 1);
                 })
         legend.append("text")
-                .attr("x", width+200)
+                .attr("x", width+232)
                 .attr("y", 9)
                 .attr("dy", ".35em")
-                .style("text-anchor", "end")
-                .text(function(d) { return d.nombre; });
+                .style("text-anchor", "start")
+                .text(function(d) { return d.Name; });
 
         // Interpolates the dataset for the given (fractional) year.
         function interpolateData() {
             return nations.map(function(d) {
                 return {
-                    nombre: d.nombre,
+                    Name: d.name,
                     region: d.id,
-                    proyecto: d.proyecto,
-                    cantidad: d.cantidad,
-                    cliente: d.cliente
+                    project: d.project,
+                    quantity: d.quantity,
+                    client: d.client
                 };
             });
         }
 
 
-        //dibuja los circulos
+        // dibuja los circulos
         function init() {
 
             dragit.init(".gRoot");

@@ -50,13 +50,14 @@ var scanDynamoDB = function(query) {
 };
 
 function arrayToCSV(array_input) {
-    var string_output = "";
-    for (var i = 0; i < array_input.length; i++) {
-        array_input[i] = array_input[i].replace(/\r?\n/g, "");
-        string_output += ('"' + array_input[i].replace(/\"/g, '\\"') + '"')
-        if (i != array_input.length - 1) string_output += ","
-    };
-    return string_output;
+        var string_output = "";
+        for (var i = 0; i < array_input.length; i++) {
+            array_input[i] = array_input[i].replace(/\r?\n/g, "");
+            string_output += ('"' + array_input[i].replace(/\"/g, '\\"') + '"')
+            if (i != array_input.length - 1) string_output += ","
+        }
+        ;
+        return string_output;
 }
 
 function printout(items) {
