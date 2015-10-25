@@ -216,10 +216,17 @@
 
 
     // Add the value label; the value is set on transition.
-    var valueLabel = svg.append("text")
+    var valueLabel1 = svg.append("text")
             .attr("class", "graph label")
             .attr("text-anchor", "start")
             .attr("y", 80)
+            .attr("x", 20)
+            .text(" ");
+
+    var valueLabel2 = svg.append("text")
+            .attr("class", "graph label")
+            .attr("text-anchor", "start")
+            .attr("y", 180)
             .attr("x", 20)
             .text(" ");
 
@@ -227,7 +234,7 @@
     var valueQuan = svg.append("text")
             .attr("class", "graph label")
             .attr("text-anchor", "start")
-            .attr("y", 180)
+            .attr("y", 280)
             .attr("x", 20)
             .text(" ");
 
@@ -260,7 +267,8 @@
 
                     })
                     .on("mouseenter", function (d, i) {
-                        valueLabel.text(d.Name);
+                        valueLabel1.text(d.Name);
+                        valueLabel2.text(d.region);
                         valueQuan.text(d.quantity + '');
                         dot.style("opacity", .4)
                         d3.select(this).style("opacity", 1)
@@ -268,7 +276,8 @@
 
                     })
                     .on("mouseleave", function (d, i) {
-                        valueLabel.text("");
+                        valueLabel1.text("");
+                        valueLabel2.text("");
                         valueQuan.text("");
                         dot.style("opacity", 1);
                     })
@@ -311,7 +320,8 @@
                         return colorScale(color(d));
                     })
                     .on("mouseenter", function (d, i) {
-                        valueLabel.text(d.Name);
+                        valueLabel1.text(d.Name);
+                        valueLabel2.text(d.region);
                         var texto = d.Name;
                         valueQuan.text(d.quantity + '');
                         d3.selectAll(".dot").style("opacity", .4)
@@ -320,7 +330,8 @@
                         }).style("opacity", 1)
                     })
                     .on("mouseleave", function (d, i) {
-                        valueLabel.text("");
+                        valueLabel1.text("");
+                        valueLabel2.text("");
                         valueQuan.text("");
                         dot.style("opacity", 1);
                     })
@@ -337,8 +348,8 @@
             function interpolateData() {
                 return surveyData.map(function (d) {
                     return {
-                        Name: d.name,
-                        region: d.id,
+                        Name: d.filter1,
+                        region: d.filter2,
                         project: d.project,
                         quantity: d.quantity,
                         client: d.client
