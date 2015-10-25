@@ -7,7 +7,7 @@
  * Time: 18:37
  */
 include_once("../Merge/Survey.php");
-class DatosDB
+class DBData
 {
     public $fileEmpleados = 'Survey.csv';
 

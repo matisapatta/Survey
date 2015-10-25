@@ -6,6 +6,7 @@ var headers = [];
 
 program.version('0.0.1').option('-t, --table [tablename]', 'Add the table you want to output to csv').option("-d, --describe").parse(process.argv);
 
+//error if no table is provided
 if (!program.table) {
     console.log("You must specify a table");
     program.outputHelp();
@@ -32,7 +33,7 @@ var describeTable = function(query) {
     });
 }
 
-
+// scan dynamo DB data
 var scanDynamoDB = function(query) {
 
     dynamoDB.scan(query, function(err, data) {
@@ -49,6 +50,7 @@ var scanDynamoDB = function(query) {
     });
 };
 
+//convert the array into a CSV format
 function arrayToCSV(array_input) {
         var string_output = "";
         for (var i = 0; i < array_input.length; i++) {
@@ -60,6 +62,7 @@ function arrayToCSV(array_input) {
         return string_output;
 }
 
+//write the CSV data
 function printout(items) {
     var headersMap = {};
     var values;

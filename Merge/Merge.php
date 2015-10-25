@@ -20,7 +20,7 @@ class Merge
         $objEmployees->Order_ID();
         $employees = $objEmployees->getEmployee();
 
-        $accesoDatosDB = new DatosDB();
+        $accesoDatosDB = new DBData();
         $objSurveys = $accesoDatosDB->get();
         $objSurveys->Order_Token();
         $surveys = $objSurveys->getSurveys();
