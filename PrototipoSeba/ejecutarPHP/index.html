@@ -7,7 +7,7 @@ function show(){
 		if (rad[i].checked == true){
 			request(rad[i].value);
 		}
-	};
+	}
 }
 function request(value){
 	var xmlhttp = new XMLHttpRequest();
@@ -19,13 +19,15 @@ function request(value){
 	xmlhttp.open("GET", "data.php?flt1=" + value, true);
 	xmlhttp.send();
 }
+
+setInterval(show, 3000);
 </script>
 </head>
 <body>
 
 <div class="seleccion">
 <form name="Filtros">
-	<input class="single-checkbox" type="radio" name="Filtro" value="1">Filtro 1<br>
+	<input class="single-checkbox" type="radio" name="Filtro" value="1" checked="checked">Filtro 1<br>
 	<input class="single-checkbox" type="radio" name="Filtro" value="2">Filtro 2<br>
 	<input class="single-checkbox" type="radio" name="Filtro" value="3">Filtro 3<br>
 	<input class="single-checkbox" type="radio" name="Filtro" value="4">Filtro 4<br>
