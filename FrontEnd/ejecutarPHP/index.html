@@ -1,0 +1,41 @@
+<html>
+<head>
+<script>
+function show(){
+	var rad = document.Filtros.Filtro;
+	for(var i = 0; i < rad.length; i++) {
+		if (rad[i].checked == true){
+			request(rad[i].value);
+		}
+	};
+}
+function request(value){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("GET", "data.php?flt1=" + value, true);
+	xmlhttp.send();
+}
+</script>
+</head>
+<body>
+
+<div class="seleccion">
+<form name="Filtros">
+	<input class="single-checkbox" type="radio" name="Filtro" value="1">Filtro 1<br>
+	<input class="single-checkbox" type="radio" name="Filtro" value="2">Filtro 2<br>
+	<input class="single-checkbox" type="radio" name="Filtro" value="3">Filtro 3<br>
+	<input class="single-checkbox" type="radio" name="Filtro" value="4">Filtro 4<br>
+	<input class="single-checkbox" type="radio" name="Filtro" value="5">Filtro 5<br>
+	<input class="single-checkbox" type="radio" name="Filtro" value="6">Filtro 6<br>
+	<input class="single-checkbox" type="radio" name="Filtro" value="7">Filtro 7<br>
+	<a href="javascript: show()">Mostrar</A>
+</form>	
+</div>
+
+<p><span id="txtHint"></span></p>
+</body>
+</html>
