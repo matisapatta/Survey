@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link href="src/dragit.css" rel="stylesheet"/>
+    <link href="css/bootstrap.css" rel="stylesheet"/>
     <script src="lib/d3.v3.js"></script>
     <script src="src/dragit.js"></script>
 </head>
@@ -105,12 +106,19 @@
         margin-top: 20px;
         margin-left: 120px;
     }
+    #container{
+        margin-top: 20px;
+        font-family: Helvetica;
+    }
 
 </style>
 
 
 <div align="center" id="title">Survey Results</div>
-<div align="center" id="chart" style="margin:0px"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10" align="left">
+            <div align="center" id="chart" style="margin:0px"></div>
 
 
 
@@ -226,7 +234,7 @@
     var valueLabel2 = svg.append("text")
             .attr("class", "graph label")
             .attr("text-anchor", "start")
-            .attr("y", 180)
+            .attr("y", 280)
             .attr("x", 20)
             .text(" ");
 
@@ -234,7 +242,7 @@
     var valueQuan = svg.append("text")
             .attr("class", "graph label")
             .attr("text-anchor", "start")
-            .attr("y", 280)
+            .attr("y", 180)
             .attr("x", 20)
             .text(" ");
 
@@ -268,7 +276,7 @@
                     })
                     .on("mouseenter", function (d, i) {
                         valueLabel1.text(d.Name);
-                        valueLabel2.text(d.region);
+                        //valueLabel2.text(d.region);
                         valueQuan.text(d.quantity + '');
                         dot.style("opacity", .4)
                         d3.select(this).style("opacity", 1)
@@ -277,7 +285,7 @@
                     })
                     .on("mouseleave", function (d, i) {
                         valueLabel1.text("");
-                        valueLabel2.text("");
+                        //valueLabel2.text("");
                         valueQuan.text("");
                         dot.style("opacity", 1);
                     })
@@ -321,7 +329,7 @@
                     })
                     .on("mouseenter", function (d, i) {
                         valueLabel1.text(d.Name);
-                        valueLabel2.text(d.region);
+                        //valueLabel2.text(d.region);
                         var texto = d.Name;
                         valueQuan.text(d.quantity + '');
                         d3.selectAll(".dot").style("opacity", .4)
@@ -331,7 +339,7 @@
                     })
                     .on("mouseleave", function (d, i) {
                         valueLabel1.text("");
-                        valueLabel2.text("");
+                        //valueLabel2.text("");
                         valueQuan.text("");
                         dot.style("opacity", 1);
                     })
@@ -376,5 +384,21 @@
 
         });
 </script>
+        </div>
+        <div align="right" class="col-md-1" style="margin-top: 20px">
+            <form name="Filtros">
+                <input class="single-checkbox" type="radio" name="Filtro" value="1" checked="checked">Filtro 1<br>
+                <input class="single-checkbox" type="radio" name="Filtro" value="2">Filtro 2<br>
+                <input class="single-checkbox" type="radio" name="Filtro" value="3">Filtro 3<br>
+                <input class="single-checkbox" type="radio" name="Filtro" value="4">Filtro 4<br>
+                <input class="single-checkbox" type="radio" name="Filtro" value="5">Filtro 5<br>
+                <input class="single-checkbox" type="radio" name="Filtro" value="6">Filtro 6<br>
+                <input class="single-checkbox" type="radio" name="Filtro" value="7">Filtro 7<br>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
