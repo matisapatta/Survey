@@ -11,7 +11,7 @@
   {"filter1":"TOTAL Austral","filter2":"10","project":4.5,"quantity":3,"client":2.5},
   {"filter1":"Samsung","filter2":"11","project":2.7,"quantity":31,"client":3.67},
   {"filter1":"Cognizant","filter2":"12","project":3.6,"quantity":230,"client":1.1},
-  {"filter1":"Siemens","filter2":"13","project":3.09,"quantity":15,"client":0.9},
+  {"filter1":"Siemens","filter2":"13","project":3.09,"quantity":15,"client":1.9},
   {"filter1":"Alfaguara","filter2":"14","project":1.4,"quantity":98,"client":2.43},
   {"filter1":"Spotify","filter2":"15","project":3.4,"quantity":45,"client":1.5},
   {"filter1":"Carrefour","filter2":"16","project":2.3,"quantity":53,"client":4.3},
