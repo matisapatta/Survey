@@ -75,7 +75,16 @@
     .year.label.active {
         fill: #aaa;
     }
-
+    .position.labelX{
+        font: 500 96px "Helvetica";
+        fill: #aaa;
+        text-anchor: middle;
+    }
+    .position.labelY {
+        font: 500 96px "Helvetica";
+        fill: #aaa;
+        text-anchor: start;
+    }
     circle.pointTrajectory {
         pointer-events: none;
         stroke: lightgray;
@@ -125,7 +134,62 @@
         <div class="col-md-10" align="left">
             <div align="center" id="chart" style="margin:0px"></div>
 
-
+        </div>
+        <div class="col-md-2" style="margin-top: 20px">
+            <form name="Filtros" id="form">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="1" value="1">
+                        Cliente
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="2" value="2">
+                        Proyecto
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="3" value="3">
+                        Current Location (Site)
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="4" value="4">
+                        Team Lead
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="5" value="4">
+                        Project Manager
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="6" value="4">
+                        Studio
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="7" value="4">
+                        Team Lead
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="8" value="4">
+                        Business Unit Name
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
 
 
 <script>
@@ -137,7 +201,8 @@
     function color(d) { return d.region; }
     function key(d) { return d.Name; }
 
-
+    // Max filters
+    var maxFilters = 2;
     // Chart dimensions.
     var margin = {top: 19.5, right: 19.5, bottom: 19.5, left: 39.5},
             width = 960 - margin.right,
@@ -238,35 +303,25 @@
     var valueLabel1 = svg.append("text")
             .attr("class", "graph label")
             .attr("text-anchor", "start")
-            .attr("y", 80)
-            .attr("x", 20)
             .text(" ");
 
     var valueLabel2 = svg.append("text")
             .attr("class", "graph label")
             .attr("text-anchor", "start")
-            .attr("y", 280)
-            .attr("x", 20)
             .text(" ");
 
     // Add the quantity label; the value is set on transition.
     var valueQuan = svg.append("text")
             .attr("class", "graph label")
             .attr("text-anchor", "start")
-            .attr("y", 180)
-            .attr("x", 20)
             .text(" ");
 
     // Add the X and Y values; the value is set on click.
     var valueX = svg.append("text")
-            .attr("class", "graph label")
-            .attr("text-anchor", "start")
+            .attr("class", "position labelX")
             .text(" ");
     var valueY = svg.append("text")
-            .attr("class", "graph label")
-            .attr("text-anchor", "start")
-            .attr("x", 0)
-            .attr("y", 0)
+            .attr("class", "position labelY")
             .text(" ");
 
 
@@ -293,32 +348,51 @@
                         d3.select(this).classed("selected", !d3.select(this).classed("selected"));
                         valueX
                                 .text(d.project)
-                                .attr("x", function (d) {
-                                    return xScale(x(d));
-                                })
-                                .attr("y", function (d) {
-                                    return yScale(y(d));
-                                });
+                                .attr("x", xScale(x(d)))
+                                .attr("y", height+margin.top+margin.bottom);
 
-                        //valueY
-                          //      .text(d.client);
+
+                        valueY
+                                .text(d.client)
+                                .attr("x", -margin.left)
+                                .attr("y",yScale(y(d)));
                         })
-
-                        //TODO: test if has been dragged
                     // Look at the state machine history and find a drag event in it?
 
                     .on("mouseenter", function (d, i) {
-                        valueLabel1.text(d.Name);
-                        //valueLabel2.text(d.region);
-                        valueQuan.text(d.quantity + '');
                         dot.style("opacity", .4)
                         d3.select(this).style("opacity", 1)
                         d3.selectAll(".selected").style("opacity", 1)
+                        if ($('.check:checked').length<maxFilters) {
+                            valueLabel1
+                                    .text(d.Name)
+                                    .attr("y", 80)
+                                    .attr("x", 20);
+                            valueQuan
+                                    .text(d.quantity + '')
+                                    .attr("y", 180)
+                                    .attr("x", 20);
+                        } else {
+
+                            valueLabel2
+                                    .text(d.region)
+                                    .attr("y", 80)
+                                    .attr("x", 20);
+                            valueLabel1
+                                    .text(d.Name)
+                                    .attr("y", 180)
+                                    .attr("x", 20);
+                            valueQuan
+                                    .text(d.quantity + '')
+                                    .attr("y", 280)
+                                    .attr("x", 20);
+                        }
+
 
                     })
                     .on("mouseleave", function (d, i) {
                         valueLabel1.text("");
-                        //valueLabel2.text("");
+                        valueLabel2.text("");
                         valueQuan.text("");
                         valueX.text("");
                         valueY.text("");
@@ -363,8 +437,29 @@
                         return colorScale(color(d));
                     })
                     .on("mouseenter", function (d, i) {
-                        valueLabel1.text(d.Name);
-                        //valueLabel2.text(d.region);
+                        if ($('.check:checked').length>1) {
+                            valueLabel2
+                                    .text(d.region)
+                                    .attr("y", 80)
+                                    .attr("x", 20);
+                            valueLabel1
+                                    .text(d.Name)
+                                    .attr("y", 180)
+                                    .attr("x", 20);
+                            valueQuan
+                                    .text(d.quantity + '')
+                                    .attr("y", 280)
+                                    .attr("x", 20);
+                        } else {
+                            valueLabel1
+                                    .text(d.Name)
+                                    .attr("y", 80)
+                                    .attr("x", 20);
+                            valueQuan
+                                    .text(d.quantity + '')
+                                    .attr("y", 180)
+                                    .attr("x", 20);
+                        }
                         var texto = d.Name;
                         valueQuan.text(d.quantity + '');
                         d3.selectAll(".dot").style("opacity", .4)
@@ -373,8 +468,8 @@
                         }).style("opacity", 1)
                     })
                     .on("mouseleave", function (d, i) {
+                        valueLabel2.text("");
                         valueLabel1.text("");
-                        //valueLabel2.text("");
                         valueQuan.text("");
                         dot.style("opacity", 1);
                     })
@@ -416,66 +511,35 @@
 
             }
 
+            function showData(){
+                if ($('.check:checked').length<maxFilters) {
+                    valueLabel1
+                            .text(d.Name)
+                            .attr("y", 80)
+                            .attr("x", 20);
+                    valueQuan
+                            .text(d.quantity + '')
+                            .attr("y", 180)
+                            .attr("x", 20);
+                } else {
+
+                    valueLabel2
+                            .text(d.region)
+                            .attr("y", 80)
+                            .attr("x", 20);
+                    valueLabel1
+                            .text(d.Name)
+                            .attr("y", 180)
+                            .attr("x", 20);
+                    valueQuan
+                            .text(d.quantity + '')
+                            .attr("y", 280)
+                            .attr("x", 20);
+                }
+            }
 
         });
-</script>
-        </div>
-        <div class="col-md-2" style="margin-top: 20px">
-            <form name="Filtros" id="form">
-                <div class="checkbox">
-                    <label id="check">
-                        <input type="checkbox" class="check" id="1" value="1">
-                        Cliente
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="check" id="2" value="2">
-                        Proyecto
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="check" id="3" value="3">
-                        Current Location (Site)
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="check" id="4" value="4">
-                        Team Lead
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="check" id="5" value="4">
-                        Project Manager
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="check" id="6" value="4">
-                        Studio
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="check" id="7" value="4">
-                        Team Lead
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="check" id="8" value="4">
-                        Business Unit Name
-                    </label>
-                </div>
-            </form>
-            </div>
-        </div>
-    </div>
-</div>
-<script>
+ // to work with filters
     function greyOut() {
         if ($('.check:checked').length > 1) $('.check:not(:checked)').attr("disabled", true);
         else $('.check').attr("disabled", false);
