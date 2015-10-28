@@ -41,6 +41,7 @@
         echo $row->getAnsw2().' ';
         echo "<br>";
     }
+    echo "<br> JSON: <br>";
     echo $data->sendJson();
     echo "<br>"."<br>";
 
@@ -74,7 +75,7 @@
         echo "<br>";
     }
 
-
+    echo "<br> JSON: <br>";
     echo $data->sendJson();
     echo "<br>";
 ?>
