@@ -5,6 +5,7 @@
     <link href="src/dragit.css" rel="stylesheet"/>
     <link href="css/bootstrap.css" rel="stylesheet"/>
     <script src="lib/d3.v3.js"></script>
+    <script src="lib/jquery-1.11.3.js"></script>
     <script src="src/dragit.js"></script>
 </head>
 <style>
@@ -110,6 +111,10 @@
         margin-top: 20px;
         font-family: Helvetica;
     }
+    #check {
+        font-family: Helvetica;
+        font-size: 10px;
+    }
 
 </style>
 
@@ -133,8 +138,6 @@
     function key(d) { return d.Name; }
 
 
-
-
     // Chart dimensions.
     var margin = {top: 19.5, right: 19.5, bottom: 19.5, left: 39.5},
             width = 960 - margin.right,
@@ -146,8 +149,16 @@
             radiusScale = d3.scale.sqrt().domain([0, 100]).range([0, 40]),
             colorScale = d3.scale.category20();
     // The x & y axes.
-    var xAxis = d3.svg.axis().orient("bottom").scale(xScale),
-            yAxis = d3.svg.axis().scale(yScale).orient("left");
+    var xAxis = d3.svg.axis()
+                    .orient("bottom")
+                    .scale(xScale)
+                    .tickValues([0,1,2,3,4,5]),
+            yAxis = d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left")
+                    .tickValues([0,1,2,3,4,5]);
+
+
 
     // Create the SVG container and set the origin.
     var svg = d3.select("#chart").append("svg")
@@ -246,7 +257,17 @@
             .attr("x", 20)
             .text(" ");
 
-
+    // Add the X and Y values; the value is set on click.
+    var valueX = svg.append("text")
+            .attr("class", "graph label")
+            .attr("text-anchor", "start")
+            .text(" ");
+    var valueY = svg.append("text")
+            .attr("class", "graph label")
+            .attr("text-anchor", "start")
+            .attr("x", 0)
+            .attr("y", 0)
+            .text(" ");
 
 
     // Load the data.
@@ -270,10 +291,22 @@
                     .on("mouseup", function (d, i) {
                         dot.classed("selected", false);
                         d3.select(this).classed("selected", !d3.select(this).classed("selected"));
-                        //TODO: test if has been dragged
-                        // Look at the state machine history and find a drag event in it?
+                        valueX
+                                .text(d.project)
+                                .attr("x", function (d) {
+                                    return xScale(x(d));
+                                })
+                                .attr("y", function (d) {
+                                    return yScale(y(d));
+                                });
 
-                    })
+                        //valueY
+                          //      .text(d.client);
+                        })
+
+                        //TODO: test if has been dragged
+                    // Look at the state machine history and find a drag event in it?
+
                     .on("mouseenter", function (d, i) {
                         valueLabel1.text(d.Name);
                         //valueLabel2.text(d.region);
@@ -287,6 +320,8 @@
                         valueLabel1.text("");
                         //valueLabel2.text("");
                         valueQuan.text("");
+                        valueX.text("");
+                        valueY.text("");
                         dot.style("opacity", 1);
                     })
                     .call(dragit.object.activate)
@@ -366,7 +401,7 @@
             }
 
 
-            // dibuja los circulos
+            // draw the circles
             function init() {
 
                 dragit.init(".gRoot");
@@ -385,20 +420,70 @@
         });
 </script>
         </div>
-        <div align="right" class="col-md-1" style="margin-top: 20px">
-            <form name="Filtros">
-                <input class="single-checkbox" type="radio" name="Filtro" value="1" checked="checked">Filtro 1<br>
-                <input class="single-checkbox" type="radio" name="Filtro" value="2">Filtro 2<br>
-                <input class="single-checkbox" type="radio" name="Filtro" value="3">Filtro 3<br>
-                <input class="single-checkbox" type="radio" name="Filtro" value="4">Filtro 4<br>
-                <input class="single-checkbox" type="radio" name="Filtro" value="5">Filtro 5<br>
-                <input class="single-checkbox" type="radio" name="Filtro" value="6">Filtro 6<br>
-                <input class="single-checkbox" type="radio" name="Filtro" value="7">Filtro 7<br>
+        <div class="col-md-2" style="margin-top: 20px">
+            <form name="Filtros" id="form">
+                <div class="checkbox">
+                    <label id="check">
+                        <input type="checkbox" class="check" id="1" value="1">
+                        Cliente
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="2" value="2">
+                        Proyecto
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="3" value="3">
+                        Current Location (Site)
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="4" value="4">
+                        Team Lead
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="5" value="4">
+                        Project Manager
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="6" value="4">
+                        Studio
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="7" value="4">
+                        Team Lead
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="8" value="4">
+                        Business Unit Name
+                    </label>
+                </div>
             </form>
             </div>
         </div>
     </div>
 </div>
+<script>
+    function greyOut() {
+        if ($('.check:checked').length > 1) $('.check:not(:checked)').attr("disabled", true);
+        else $('.check').attr("disabled", false);
+    }
 
+    $(function review(){
+        $('.check').change(greyOut);
+    })
+</script>
 </body>
 </html>
