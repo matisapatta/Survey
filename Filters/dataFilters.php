@@ -16,7 +16,7 @@ class dataFilters
     private $filter1;
     private $filter2;
     private $rawResults;
-    public $arrayResults;
+    private $arrayResults;
 
 
     private function sortFilter( dtoEmployee_Survey $a, dtoEmployee_Survey $b)
@@ -73,6 +73,7 @@ class dataFilters
         } while ($arrayEmployees [$i]);
         $newResult = new Results();
         $newResult->setFilter1($lastItem);
+        $newResult->setFilter2($id);
         $newResult->setAnsw1($sumAnsw1 / $cantAnsw);
         $newResult->setAnsw2($sumAnsw2 / $cantAnsw);
         $newResult->setQuantity($cantAnsw);
@@ -118,8 +119,8 @@ class dataFilters
                 $sumAnsw2 = 0;
                 $cantAnsw = 0;
             }
-            $lastSmallItem = call_user_func(array($arrayEmployees [$i], 'get' . $filter1));
-            $lastBigItem = call_user_func(array($arrayEmployees [$i], 'get' . $filter2));
+            $lastSmallItem = call_user_func(array($arrayEmployees [$i], 'get' . $filter2));
+            $lastBigItem = call_user_func(array($arrayEmployees [$i], 'get' . $filter1));
             $sumAnsw1 += $arrayEmployees [$i]->getResp1();
             $sumAnsw2 += $arrayEmployees [$i]->getResp2();
             $cantAnsw += 1;
@@ -142,6 +143,10 @@ class dataFilters
         $merge = new Merge();
         $employeesSurvey = $merge->Merge_Data();
         $this->rawResults = $employeesSurvey->getEmployees_Survey();
+    }
+
+    public function sendJson(){
+        return $this->arrayResults->generate_Json();
     }
 
     public function getResultsByFilters($filter1, $filter2){

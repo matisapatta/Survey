@@ -78,7 +78,7 @@ class arrayResults
         $this->newResult = $result;
         $this->saveObject();
     }
-
+/*
     public function generate_Json(){
         $fh = fopen("data_out.json", 'w')  or die("Error al abrir fichero de salida");
         // PARA GENERAR JSON BIEN LAS PROPIEDADES DEBEN SER PUBLICAS!!!
@@ -87,5 +87,14 @@ class arrayResults
             fwrite($fh, json_encode($result,JSON_UNESCAPED_UNICODE));
         }
         fclose($fh);
+    }*/
+    public function generate_Json(){
+    $fh = "";
+    // PARA GENERAR JSON BIEN LAS PROPIEDADES DEBEN SER PUBLICAS!!!
+    foreach($this->Results as $result)
+    {
+        $fh = $fh . json_encode($result,JSON_UNESCAPED_UNICODE);
     }
+    return $fh;
+}
 }

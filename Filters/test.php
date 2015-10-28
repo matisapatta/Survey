@@ -10,54 +10,71 @@
     include_once("dataFilters.php");
     $data = new dataFilters();
     $filter1='Client';
-    $filter2='Name';
+    $filter2='Project';
     $data->getAllData();
 
     $array = $data->applySimpleFilter($filter1);
-    echo "Cliente";
-    echo "Name";
+    echo "Client    ";
+    echo "Project ";
+    echo "User ";
     echo "<br>";
     foreach ($array as $row){
-        echo $row->getClient();
-        echo $row->getName();
-        echo $row->getProject();
+        echo $row->getClient().' ';
+        echo $row->getProject().' ';
+        echo $row->getName().' ';
         echo "<br>";
     }
 
     $filteredData = $data->getAveragesByFilter($array, $filter1);
     $filteredArray = $filteredData->getResults();
+    echo "Filtro 1    ";
+    echo "Filtro 2 ";
+    echo "Cantidad ";
+    echo "Prom resp 1 ";
+    echo "Prom resp 2 ";
+    echo "<br>";
     foreach ($filteredArray as $row){
-        echo $row->getFilter1();
-        echo $row->getFilter2();
-        echo $row->getQuantity();
-        echo $row->getAnsw1();
-        echo $row->getAnsw2();
+        echo $row->getFilter1().' ';
+        echo $row->getFilter2().' ';
+        echo $row->getQuantity().' ';
+        echo $row->getAnsw1().' ';
+        echo $row->getAnsw2().' ';
         echo "<br>";
     }
+    echo $data->sendJson();
+    echo "<br>"."<br>";
+
 
     $array = $data->applyDoubleFilter($filter1,$filter2);
-    echo "Cliente";
-    echo "Name";
+    echo "Client    ";
+    echo "Project ";
+    echo "User ";
     echo "<br>";
     foreach ($array as $row){
-        echo $row->getClient();
-        echo $row->getName();
-        echo $row->getProject();
+        echo $row->getClient().' ';
+        echo $row->getProject().' ';
+        echo $row->getName().' ';
         echo "<br>";
     }
 
     $filteredData = $data->getAveragesByDoubleFilter($array, $filter1, $filter2);
     $filteredArray = $filteredData->getResults();
+    echo "Filtro 1    ";
+    echo "Filtro 2 ";
+    echo "Cantidad ";
+    echo "Prom resp 1 ";
+    echo "Prom resp 2 ";
+    echo "<br>";
     foreach ($filteredArray as $row){
-        echo $row->getFilter1();
-        echo $row->getFilter2();
-        echo $row->getQuantity();
-        echo $row->getAnsw1();
-        echo $row->getAnsw2();
+        echo $row->getFilter1().' ';
+        echo $row->getFilter2().' ';
+        echo $row->getQuantity().' ';
+        echo $row->getAnsw1().' ';
+        echo $row->getAnsw2().' ';
         echo "<br>";
     }
 
 
-    $data->arrayResults->generate_Json();
-
+    echo $data->sendJson();
+    echo "<br>";
 ?>
