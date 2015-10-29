@@ -191,7 +191,7 @@
 </div>
 </div>
 
-
+<div><input type="submit" class="pepe"></div>
 <script>
 
     // Various accessors that specify the four dimensions of data to visualize.
@@ -223,28 +223,26 @@
                     .orient("left")
                     .tickValues([0,1,2,3,4,5]);
 
-
-
     // Create the SVG container and set the origin.
     var svg = d3.select("#chart").append("svg")
             .attr("width", width + margin.left + margin.right + 200)
             .attr("height", height + margin.top + margin.bottom + 200)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-            .attr("class", "gRoot")
+            .attr("class", "gRoot");
 
 
     // Add the x-axis.
     svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
-            .call(xAxis)
+            .call(xAxis);
 
 
     // Add the y-axis.
     svg.append("g")
             .attr("class", "y axis")
-            .call(yAxis)
+            .call(yAxis);
 
     // Horizontal grid
     svg.selectAll("line.horizontalGrid").data(yScale.ticks(24)).enter()
@@ -276,7 +274,7 @@
                 "fill" : "none",
                 "shape-rendering" : "optimizeSpeed",
                 "stroke" : "grey",
-                "stroke-width" : "1px",
+                "stroke-width" : "1px"
             })
             .style("opacity",.2);
 
@@ -325,8 +323,12 @@
             .text(" ");
 
 
+
+
     // Load the data.
-        d3.json("data/info.json", function (surveyData) {
+    var noCache = new Date().getTime();
+
+        d3.json("data/info.json?_=" + noCache , function (surveyData) {
 
             // A bisector since many value's data is sparsely-defined.
             var bisect = d3.bisector(function (d) {
@@ -335,6 +337,7 @@
 
             var dot = svg.append("g")
                     .attr("class", "dots")
+                    .attr("id","theDots")
                     .selectAll(".dot")
                     .data(interpolateData())
                     .enter().append("circle")
@@ -350,12 +353,10 @@
                                 .text(d.project)
                                 .attr("x", xScale(x(d)))
                                 .attr("y", height+margin.top+margin.bottom);
-
-
                         valueY
                                 .text(d.client)
                                 .attr("x", -margin.left)
-                                .attr("y",yScale(y(d)));
+                                .attr("y",("y", yScale(y(d))));
                         })
                     // Look at the state machine history and find a drag event in it?
 
@@ -397,6 +398,8 @@
                         valueX.text("");
                         valueY.text("");
                         dot.style("opacity", 1);
+                        dot.classed("selected",false);
+
                     })
                     .call(dragit.object.activate)
 
@@ -497,7 +500,7 @@
 
 
             // draw the circles
-            function init() {
+            /*function init() {
 
                 dragit.init(".gRoot");
 
@@ -509,7 +512,7 @@
                 })
 
 
-            }
+            }*/
 
             function showData(){
                 if ($('.check:checked').length<maxFilters) {
@@ -548,6 +551,16 @@
     $(function review(){
         $('.check').change(greyOut);
     })
+
+    function test(){
+        svg.selectAll(".dots").remove();
+        $('.check').attr("disabled",true);
+    }
+
+    $(function pepe(){
+        $('.pepe').click(test);
+    })
+
 </script>
 </body>
 </html>
