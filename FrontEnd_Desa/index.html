@@ -29,6 +29,7 @@
 
     text {
         cursor: default;
+
     }
 
     h1 {
@@ -115,6 +116,7 @@
 
 
 <div align="center" id="title">Survey Results</div>
+<p><span id="response"></span></p>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-10" align="left">
@@ -124,6 +126,32 @@
 
 
 <script>
+
+    var response = "";
+    function show(){
+        var rad = document.Filtros.Filtro;
+        for(var i = 0; i < rad.length; i++) {
+            if (rad[i].checked == true){
+                request(rad[i].value);
+            }
+        }
+    }
+    function request(value){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                var fso = new ActiveXObject("Scripting.FileSystemObject");
+                var FileObject = fso.OpenTextFile("archivo1.json", 8, true,0); // 8=append, true=create if not exist, 0 = ASCII
+                newObject.write(xmlhttp.responseText);
+                newFileObject.close();
+            }
+        }
+        xmlhttp.open("GET", "data.php?flt1=" + value, true);
+        xmlhttp.send();
+    }
+
+    setInterval(show, 3000);
 
     // Various accessors that specify the four dimensions of data to visualize.
     function x(d) { return d.project; }
@@ -247,15 +275,18 @@
             .text(" ");
 
 
-
-
+    var d = new Date();
+    var n = d.getTime();
     // Load the data.
-        d3.json("data/info.json", function (surveyData) {
+        delDot = true;
+        console.log("paso por aca");
+        d3.json("data/info.json?asd=" + n, function (surveyData) {
 
             // A bisector since many value's data is sparsely-defined.
             var bisect = d3.bisector(function (d) {
                 return d[0];
             });
+
 
             var dot = svg.append("g")
                     .attr("class", "dots")
@@ -365,7 +396,6 @@
                 });
             }
 
-
             // dibuja los circulos
             function init() {
 
@@ -380,9 +410,14 @@
 
 
             }
+            if (delDot){
+                delete dot;
+                delDot = false;
+            }
 
 
         });
+    $.ajaxSetup({cache: false});
 </script>
         </div>
         <div align="right" class="col-md-1" style="margin-top: 20px">
@@ -394,11 +429,11 @@
                 <input class="single-checkbox" type="radio" name="Filtro" value="5">Filtro 5<br>
                 <input class="single-checkbox" type="radio" name="Filtro" value="6">Filtro 6<br>
                 <input class="single-checkbox" type="radio" name="Filtro" value="7">Filtro 7<br>
+                <a href="javascript: show()">Mostrar</A>
             </form>
             </div>
         </div>
     </div>
 </div>
-
 </body>
 </html>
