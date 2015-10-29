@@ -7,7 +7,7 @@
  */
 
 include_once("../Merge/Merge.php");
-include_once("dataFilters.php");
+include_once("DataFilters.php");
 
 $filter1="";
 $filter2="";
@@ -17,7 +17,7 @@ if (isset($_GET['flt1']) and $_GET['flt1'] !=""){
     $merge = new Merge();
     $employeesSurvey = $merge->Merge_Data();
     $rawEmployeesSurveyArray = $employeesSurvey->getEmployees_Survey();
-    $dataFilter = new dataFilters();
+    $dataFilter = new DataFilters();
 
     if (isset($_GET['flt2']) and $_GET['flt2'] !=""){
         $filter2 = $_GET['flt2'];
