@@ -11,19 +11,25 @@ if (isset($_GET['flt1'])) {
 //en realidad lo que hace es guardar en una variable los datos segun como debe leerlos
     switch ($_GET['flt1']) {
         case 1:
-            $hint = read("archivo1.json");
+            /// aca crearia el archivo$hint = read("archivo1.json");
+            $hint = 0;
+            // se podria hacer con try y carch para captar el error
             break;
         case 2:
-            $hint = read("archivo2.json");
-            break;
+            /// aca crearia el archivo$hint = read("archivo2.json");
+            $hint = 0;
+           // se podria hacer con try y carch para captar el error            break;
         case 3:
-            $hint = read("archivo3.json");
-            break;
+            /// aca crearia el archivo$hint = read("archivo3.json");
+            $hint = 0;
+            // se podria hacer con try y carch para captar el error            break;
         case 4:
-            $hint = read("archivo4.json");
-            break;
+            /// aca crearia el archivo$hint = read("archivo4.json");
+            $hint = 0;
+            // se podria hacer con try y carch para captar el error            break;
         default:
-            $hint = "SIN FILTRO";
+            // Este seria un error
+            $hint = "1";
             break;
     }
 }
