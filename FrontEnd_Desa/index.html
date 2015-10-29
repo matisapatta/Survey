@@ -5,6 +5,7 @@
     <link href="src/dragit.css" rel="stylesheet"/>
     <link href="css/bootstrap.css" rel="stylesheet"/>
     <script src="lib/d3.v3.js"></script>
+    <script src="lib/jquery-1.11.3.js"></script>
     <script src="src/dragit.js"></script>
 </head>
 <style>
@@ -29,7 +30,6 @@
 
     text {
         cursor: default;
-
     }
 
     h1 {
@@ -75,7 +75,16 @@
     .year.label.active {
         fill: #aaa;
     }
-
+    .position.labelX{
+        font: 500 96px "Helvetica";
+        fill: #aaa;
+        text-anchor: middle;
+    }
+    .position.labelY {
+        font: 500 96px "Helvetica";
+        fill: #aaa;
+        text-anchor: start;
+    }
     circle.pointTrajectory {
         pointer-events: none;
         stroke: lightgray;
@@ -111,48 +120,79 @@
         margin-top: 20px;
         font-family: Helvetica;
     }
+    #check {
+        font-family: Helvetica;
+        font-size: 10px;
+    }
 
 </style>
 
 
 <div align="center" id="title">Survey Results</div>
-<p><span id="response"></span></p>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-10" align="left">
             <div align="center" id="chart" style="margin:0px"></div>
 
-
-
+        </div>
+        <div class="col-md-2" style="margin-top: 20px">
+            <form name="Filtros" id="form">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="1" value="1">
+                        Cliente
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="2" value="2">
+                        Proyecto
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="3" value="3">
+                        Current Location (Site)
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="4" value="4">
+                        Team Lead
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="5" value="4">
+                        Project Manager
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="6" value="4">
+                        Studio
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="7" value="4">
+                        Team Lead
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="check" id="8" value="4">
+                        Business Unit Name
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
 
 <script>
-
-    var response = "";
-    function show(){
-        var rad = document.Filtros.Filtro;
-        for(var i = 0; i < rad.length; i++) {
-            if (rad[i].checked == true){
-                request(rad[i].value);
-            }
-        }
-    }
-    function request(value){
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-                var fso = new ActiveXObject("Scripting.FileSystemObject");
-                var FileObject = fso.OpenTextFile("archivo1.json", 8, true,0); // 8=append, true=create if not exist, 0 = ASCII
-                newObject.write(xmlhttp.responseText);
-                newFileObject.close();
-            }
-        }
-        xmlhttp.open("GET", "data.php?flt1=" + value, true);
-        xmlhttp.send();
-    }
-
-    setInterval(show, 3000);
-
+    setInterval(reBuild,5000);
     // Various accessors that specify the four dimensions of data to visualize.
     function x(d) { return d.project; }
     function y(d) { return d.client; }
@@ -160,9 +200,8 @@
     function color(d) { return d.region; }
     function key(d) { return d.Name; }
 
-
-
-
+    // Max filters
+    var maxFilters = 2;
     // Chart dimensions.
     var margin = {top: 19.5, right: 19.5, bottom: 19.5, left: 39.5},
             width = 960 - margin.right,
@@ -174,8 +213,14 @@
             radiusScale = d3.scale.sqrt().domain([0, 100]).range([0, 40]),
             colorScale = d3.scale.category20();
     // The x & y axes.
-    var xAxis = d3.svg.axis().orient("bottom").scale(xScale),
-            yAxis = d3.svg.axis().scale(yScale).orient("left");
+    var xAxis = d3.svg.axis()
+                    .orient("bottom")
+                    .scale(xScale)
+                    .tickValues([0,1,2,3,4,5]),
+            yAxis = d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left")
+                    .tickValues([0,1,2,3,4,5]);
 
     // Create the SVG container and set the origin.
     var svg = d3.select("#chart").append("svg")
@@ -183,20 +228,20 @@
             .attr("height", height + margin.top + margin.bottom + 200)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-            .attr("class", "gRoot")
+            .attr("class", "gRoot");
 
 
     // Add the x-axis.
     svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
-            .call(xAxis)
+            .call(xAxis);
 
 
     // Add the y-axis.
     svg.append("g")
             .attr("class", "y axis")
-            .call(yAxis)
+            .call(yAxis);
 
     // Horizontal grid
     svg.selectAll("line.horizontalGrid").data(yScale.ticks(24)).enter()
@@ -228,7 +273,7 @@
                 "fill" : "none",
                 "shape-rendering" : "optimizeSpeed",
                 "stroke" : "grey",
-                "stroke-width" : "1px",
+                "stroke-width" : "1px"
             })
             .style("opacity",.2);
 
@@ -255,41 +300,43 @@
     var valueLabel1 = svg.append("text")
             .attr("class", "graph label")
             .attr("text-anchor", "start")
-            .attr("y", 80)
-            .attr("x", 20)
             .text(" ");
 
     var valueLabel2 = svg.append("text")
             .attr("class", "graph label")
             .attr("text-anchor", "start")
-            .attr("y", 280)
-            .attr("x", 20)
             .text(" ");
 
     // Add the quantity label; the value is set on transition.
     var valueQuan = svg.append("text")
             .attr("class", "graph label")
             .attr("text-anchor", "start")
-            .attr("y", 180)
-            .attr("x", 20)
+            .text(" ");
+
+    // Add the X and Y values; the value is set on click.
+    var valueX = svg.append("text")
+            .attr("class", "position labelX")
+            .text(" ");
+    var valueY = svg.append("text")
+            .attr("class", "position labelY")
             .text(" ");
 
 
-    var d = new Date();
-    var n = d.getTime();
-    // Load the data.
-        delDot = true;
-        console.log("paso por aca");
-        d3.json("data/info.json?asd=" + n, function (surveyData) {
+    reDoGraph();
+    function reDoGraph() {
+        // Load the data.
+        var noCache = new Date().getTime();
+
+        d3.json("data/info.json?_=" + noCache, function (surveyData) {
 
             // A bisector since many value's data is sparsely-defined.
             var bisect = d3.bisector(function (d) {
                 return d[0];
             });
 
-
             var dot = svg.append("g")
                     .attr("class", "dots")
+                    .attr("id", "theDots")
                     .selectAll(".dot")
                     .data(interpolateData())
                     .enter().append("circle")
@@ -301,24 +348,57 @@
                     .on("mouseup", function (d, i) {
                         dot.classed("selected", false);
                         d3.select(this).classed("selected", !d3.select(this).classed("selected"));
-                        //TODO: test if has been dragged
-                        // Look at the state machine history and find a drag event in it?
-
+                        valueX
+                                .text(d.project)
+                                .attr("x", xScale(x(d)))
+                                .attr("y", height + margin.top + margin.bottom);
+                        valueY
+                                .text(d.client)
+                                .attr("x", -margin.left)
+                                .attr("y", ("y", yScale(y(d))));
                     })
+                // Look at the state machine history and find a drag event in it?
+
                     .on("mouseenter", function (d, i) {
-                        valueLabel1.text(d.Name);
-                        //valueLabel2.text(d.region);
-                        valueQuan.text(d.quantity + '');
                         dot.style("opacity", .4)
                         d3.select(this).style("opacity", 1)
                         d3.selectAll(".selected").style("opacity", 1)
+                        if ($('.check:checked').length < maxFilters) {
+                            valueLabel1
+                                    .text(d.Name)
+                                    .attr("y", 80)
+                                    .attr("x", 20);
+                            valueQuan
+                                    .text(d.quantity + '')
+                                    .attr("y", 180)
+                                    .attr("x", 20);
+                        } else {
+
+                            valueLabel2
+                                    .text(d.region)
+                                    .attr("y", 80)
+                                    .attr("x", 20);
+                            valueLabel1
+                                    .text(d.Name)
+                                    .attr("y", 180)
+                                    .attr("x", 20);
+                            valueQuan
+                                    .text(d.quantity + '')
+                                    .attr("y", 280)
+                                    .attr("x", 20);
+                        }
+
 
                     })
                     .on("mouseleave", function (d, i) {
                         valueLabel1.text("");
-                        //valueLabel2.text("");
+                        valueLabel2.text("");
                         valueQuan.text("");
+                        valueX.text("");
+                        valueY.text("");
                         dot.style("opacity", 1);
+                        dot.classed("selected", false);
+
                     })
                     .call(dragit.object.activate)
 
@@ -359,8 +439,29 @@
                         return colorScale(color(d));
                     })
                     .on("mouseenter", function (d, i) {
-                        valueLabel1.text(d.Name);
-                        //valueLabel2.text(d.region);
+                        if ($('.check:checked').length > 1) {
+                            valueLabel2
+                                    .text(d.region)
+                                    .attr("y", 80)
+                                    .attr("x", 20);
+                            valueLabel1
+                                    .text(d.Name)
+                                    .attr("y", 180)
+                                    .attr("x", 20);
+                            valueQuan
+                                    .text(d.quantity + '')
+                                    .attr("y", 280)
+                                    .attr("x", 20);
+                        } else {
+                            valueLabel1
+                                    .text(d.Name)
+                                    .attr("y", 80)
+                                    .attr("x", 20);
+                            valueQuan
+                                    .text(d.quantity + '')
+                                    .attr("y", 180)
+                                    .attr("x", 20);
+                        }
                         var texto = d.Name;
                         valueQuan.text(d.quantity + '');
                         d3.selectAll(".dot").style("opacity", .4)
@@ -369,8 +470,8 @@
                         }).style("opacity", 1)
                     })
                     .on("mouseleave", function (d, i) {
+                        valueLabel2.text("");
                         valueLabel1.text("");
-                        //valueLabel2.text("");
                         valueQuan.text("");
                         dot.style("opacity", 1);
                     })
@@ -396,44 +497,69 @@
                 });
             }
 
-            // dibuja los circulos
-            function init() {
 
-                dragit.init(".gRoot");
+            // draw the circles
 
-                dragit.data = d3.range(surveyData.length).map(function () {
-                    return Array();
-                })
-                interpolateData().filter(function (d, i) {
-                    dragit.data[i][0] = [xScale(x(d)), yScale(y(d))];
-                })
+            /*function init() {
+
+             dragit.init(".gRoot");
+
+             dragit.data = d3.range(surveyData.length).map(function () {
+             return Array();
+             })
+             interpolateData().filter(function (d, i) {
+             dragit.data[i][0] = [xScale(x(d)), yScale(y(d))];
+             })
 
 
+             }*/
+
+            function showData(){
+                if ($('. check:checked').length<maxFilters) {
+                    valueLabel1
+                            .text(d.Name)
+                            .attr("y", 80)
+                            .attr("x", 20);
+                    valueQuan
+                            .text(d.quantity + '')
+                            .attr("y", 180)
+                            .attr("x", 20);
+                } else {
+
+                    valueLabel2
+                            .text(d.region)
+                            .attr("y", 80)
+                            .attr("x", 20);
+                    valueLabel1
+                            .text(d.Name)
+                            .attr("y", 180)
+                            .attr("x", 20);
+                    valueQuan
+                            .text(d.quantity + '')
+                            .attr("y", 280)
+                            .attr("x", 20);
+                }
             }
-            if (delDot){
-                delete dot;
-                delDot = false;
-            }
-
 
         });
-    $.ajaxSetup({cache: false});
+    }
+    // to work with filters
+    function greyOut() {
+        if ($('.check:checked').length > 1) $('.check:not(:checked)').attr("disabled", true);
+        else $('.check').attr("disabled", false);
+    }
+
+    $(function review(){
+        $('.check').change(greyOut);
+    })
+
+    function reBuild(){
+        svg.selectAll(".dots").remove();
+        reDoGraph();
+        console.log("aqui paso");
+    }
+
+
 </script>
-        </div>
-        <div align="right" class="col-md-1" style="margin-top: 20px">
-            <form name="Filtros">
-                <input class="single-checkbox" type="radio" name="Filtro" value="1" checked="checked">Filtro 1<br>
-                <input class="single-checkbox" type="radio" name="Filtro" value="2">Filtro 2<br>
-                <input class="single-checkbox" type="radio" name="Filtro" value="3">Filtro 3<br>
-                <input class="single-checkbox" type="radio" name="Filtro" value="4">Filtro 4<br>
-                <input class="single-checkbox" type="radio" name="Filtro" value="5">Filtro 5<br>
-                <input class="single-checkbox" type="radio" name="Filtro" value="6">Filtro 6<br>
-                <input class="single-checkbox" type="radio" name="Filtro" value="7">Filtro 7<br>
-                <a href="javascript: show()">Mostrar</A>
-            </form>
-            </div>
-        </div>
-    </div>
-</div>
 </body>
 </html>
