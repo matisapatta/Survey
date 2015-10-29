@@ -7,7 +7,7 @@
  */
 
 include_once("../Merge/Merge.php");
-include_once("DataFilters.php");
+include_once("dataFilters.php");
 
 $filter1="";
 $filter2="";

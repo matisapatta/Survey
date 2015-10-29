@@ -10,7 +10,7 @@
 include_once("../Merge/employee_survey.php");
 include_once("Results.php");
 
-class dataFilters
+class DataFilters
 {
     private $filter1;
     private $filter2;
@@ -29,13 +29,13 @@ class dataFilters
 
     public function applySimpleSort ($employeesSurveyArray, $filter){
         $this->filter1=$filter;
-        usort($employeesSurveyArray, array('dataFilters' , 'sortFilter'));
+        usort($employeesSurveyArray, array('DataFilters', 'sortFilter'));
         return $employeesSurveyArray;
     }
     public function applyDoubleSort ($employeesSurveyArray, $filter1,$filter2){
         $this->filter1=$filter1;
         $this->filter2=$filter2;
-        usort($employeesSurveyArray, array('dataFilters' , 'sortFilterDouble'));
+        usort($employeesSurveyArray, array('DataFilters', 'sortFilterDouble'));
         return $employeesSurveyArray;
     }
 
