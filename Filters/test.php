@@ -13,7 +13,7 @@
     $filter2='Project';
     $data->getAllData();
 
-    $array = $data->applySimpleFilter($filter1);
+    $array = $data->applySimpleSort($filter1);
     echo "Client    ";
     echo "Project ";
     echo "User ";
@@ -46,7 +46,7 @@
     echo "<br>"."<br>";
 
 
-    $array = $data->applyDoubleFilter($filter1,$filter2);
+    $array = $data->applyDoubleSort($filter1,$filter2);
     echo "Client    ";
     echo "Project ";
     echo "User ";

@@ -16,7 +16,15 @@ class Results
     public $filter2;
     public $quantity;
 
+    function __construct($answ1, $answ2, $filter1, $filter2, $quantity)
+    {
+        $this->setAnsw1($answ1);
+        $this->setAnsw2($answ2);
+        $this->setFilter1($filter1);
+        $this->setFilter2($filter2);
+        $this->setQuantity($quantity);
 
+    }
     public function getAnsw1()
     {
         return $this->answ1;
@@ -78,23 +86,24 @@ class arrayResults
         $this->newResult = $result;
         $this->saveObject();
     }
-/*
+
     public function generate_Json(){
-        $fh = fopen("data_out.json", 'w')  or die("Error al abrir fichero de salida");
+        $fh = fopen("filtered_data.json", 'w')  or die("Error al abrir fichero de salida");
         // PARA GENERAR JSON BIEN LAS PROPIEDADES DEBEN SER PUBLICAS!!!
+        fwrite($fh, "[ \n");
+        $i = 0;
+        $len = count($this->Results);
         foreach($this->Results as $result)
         {
             fwrite($fh, json_encode($result,JSON_UNESCAPED_UNICODE));
+            if ($i != $len - 1) {
+                // not the last
+                fwrite($fh, ",\n");
+            }
+            $i++;
         }
+        fwrite($fh, "\n]");
         fclose($fh);
-    }*/
-    public function generate_Json(){
-    $fh = "";
-    // PARA GENERAR JSON BIEN LAS PROPIEDADES DEBEN SER PUBLICAS!!!
-    foreach($this->Results as $result)
-    {
-        $fh = $fh . json_encode($result,JSON_UNESCAPED_UNICODE);
     }
-    return $fh;
-}
+
 }
