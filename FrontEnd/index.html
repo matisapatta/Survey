@@ -344,183 +344,186 @@ $(document).ready(function() {
             .attr("class", "position labelY")
             .text(" ");
 
-
+    dataLoad();
     // Load the data.
-    var noCache = new Date().getTime();
+    function dataLoad() {
+        var noCache = new Date().getTime();
 
-    d3.json("data/info.json?_=" + noCache, function (surveyData) {
+        d3.json("data/info.json?_=" + noCache, function (surveyData) {
 
-        // A bisector since many value's data is sparsely-defined.
-        var bisect = d3.bisector(function (d) {
-            return d[0];
-        });
-
-        var dot = svg.append("g")
-                .attr("class", "dots")
-                .attr("id", "theDots")
-                .selectAll(".dot")
-                .data(interpolateData())
-                .enter().append("circle")
-                .attr("class", "dot")
-                .style("fill", function (d) {
-                    return colorScale(color(d));
-                })
-                .call(position)
-                .on("mouseup", function (d, i) {
-                    dot.classed("selected", false);
-                    d3.select(this).classed("selected", !d3.select(this).classed("selected"));
-                    valueX
-                            .text(d.project)
-                            .attr("x", xScale(x(d)))
-                            .attr("y", height + margin.top + margin.bottom);
-                    valueY
-                            .text(d.client)
-                            .attr("x", -margin.left)
-                            .attr("y", ("y", yScale(y(d))));
-                })
-            // Look at the state machine history and find a drag event in it?
-
-                .on("mouseenter", function (d, i) {
-                    dot.style("opacity", .4)
-                    d3.select(this).style("opacity", 1)
-                    d3.selectAll(".selected").style("opacity", 1)
-                    if ($('.check:checked').length < maxFilters) {
-                        valueLabel1
-                                .text(d.Name)
-                                .attr("y", 80)
-                                .attr("x", 20);
-                        valueQuan
-                                .text(d.quantity + '')
-                                .attr("y", 180)
-                                .attr("x", 20);
-                    } else {
-
-                        valueLabel2
-                                .text(d.region)
-                                .attr("y", 80)
-                                .attr("x", 20);
-                        valueLabel1
-                                .text(d.Name)
-                                .attr("y", 180)
-                                .attr("x", 20);
-                        valueQuan
-                                .text(d.quantity + '')
-                                .attr("y", 280)
-                                .attr("x", 20);
-                    }
-
-
-                })
-                .on("mouseleave", function (d, i) {
-                    valueLabel1.text("");
-                    valueLabel2.text("");
-                    valueQuan.text("");
-                    valueX.text("");
-                    valueY.text("");
-                    dot.style("opacity", 1);
-                    dot.classed("selected", false);
-
-                })
-                .call(dragit.object.activate)
-
-        // Add a title.
-        dot.append("title")
-                .text(function (d) {
-                    return d.Name;
-                });
-
-
-        // Positions the dots based on data.
-        function position(dot) {
-            dot.attr("cx", function (d) {
-                return xScale(x(d));
-            })
-                    .attr("cy", function (d) {
-                        return yScale(y(d));
-                    })
-                    .attr("r", function (d) {
-                        return radiusScale(radius(d));
-                    });
-        }
-
-        var legend = svg.selectAll(".legend")
-                .data(interpolateData())
-                .enter().append("g")
-                .attr("class", "legend")
-                .attr("transform", function (d, i) {
-                    return "translate(-200," + i * 20 + ")";
-                });
-
-        legend.append("rect")
-                .attr("x", width + 210)
-                .attr("width", 18)
-                .attr("height", 18)
-                .attr("class", "rect")
-                .style("fill", function (d) {
-                    return colorScale(color(d));
-                })
-                .on("mouseenter", function (d, i) {
-                    if ($('.check:checked').length > 1) {
-                        valueLabel2
-                                .text(d.region)
-                                .attr("y", 80)
-                                .attr("x", 20);
-                        valueLabel1
-                                .text(d.Name)
-                                .attr("y", 180)
-                                .attr("x", 20);
-                        valueQuan
-                                .text(d.quantity + '')
-                                .attr("y", 280)
-                                .attr("x", 20);
-                    } else {
-                        valueLabel1
-                                .text(d.Name)
-                                .attr("y", 80)
-                                .attr("x", 20);
-                        valueQuan
-                                .text(d.quantity + '')
-                                .attr("y", 180)
-                                .attr("x", 20);
-                    }
-                    var texto = d.Name;
-                    valueQuan.text(d.quantity + '');
-                    d3.selectAll(".dot").style("opacity", .4)
-                    d3.selectAll(".dot").filter(function (d) {
-                        return d.Name == texto;
-                    }).style("opacity", 1)
-                })
-                .on("mouseleave", function (d, i) {
-                    valueLabel2.text("");
-                    valueLabel1.text("");
-                    valueQuan.text("");
-                    dot.style("opacity", 1);
-                })
-        legend.append("text")
-                .attr("x", width + 232)
-                .attr("y", 9)
-                .attr("dy", ".35em")
-                .style("text-anchor", "start")
-                .text(function (d) {
-                    return d.Name;
-                });
-
-        // Interpolates the dataset for the given (fractional) year.
-        function interpolateData() {
-            return surveyData.map(function (d) {
-                return {
-                    Name: d.filter1,
-                    region: d.filter2,
-                    project: d.project,
-                    quantity: d.quantity,
-                    client: d.client
-                };
+            // A bisector since many value's data is sparsely-defined.
+            var bisect = d3.bisector(function (d) {
+                return d[0];
             });
-        }
+
+            var dot = svg.append("g")
+                    .attr("class", "dots")
+                    .attr("id", "theDots")
+                    .selectAll(".dot")
+                    .data(interpolateData())
+                    .enter().append("circle")
+                    .attr("class", "dot")
+                    .style("fill", function (d) {
+                        return colorScale(color(d));
+                    })
+                    .call(position)
+                    .on("mouseup", function (d, i) {
+                        dot.classed("selected", false);
+                        d3.select(this).classed("selected", !d3.select(this).classed("selected"));
+                        valueX
+                                .text(d.project)
+                                .attr("x", xScale(x(d)))
+                                .attr("y", height + margin.top + margin.bottom);
+                        valueY
+                                .text(d.client)
+                                .attr("x", -margin.left)
+                                .attr("y", ("y", yScale(y(d))));
+                    })
+                // Look at the state machine history and find a drag event in it?
+
+                    .on("mouseenter", function (d, i) {
+                        dot.style("opacity", .4)
+                        d3.select(this).style("opacity", 1)
+                        d3.selectAll(".selected").style("opacity", 1)
+                        if ($('.check:checked').length < maxFilters) {
+                            valueLabel1
+                                    .text(d.Name)
+                                    .attr("y", 80)
+                                    .attr("x", 20);
+                            valueQuan
+                                    .text(d.quantity + '')
+                                    .attr("y", 180)
+                                    .attr("x", 20);
+                        } else {
+
+                            valueLabel2
+                                    .text(d.region)
+                                    .attr("y", 80)
+                                    .attr("x", 20);
+                            valueLabel1
+                                    .text(d.Name)
+                                    .attr("y", 180)
+                                    .attr("x", 20);
+                            valueQuan
+                                    .text(d.quantity + '')
+                                    .attr("y", 280)
+                                    .attr("x", 20);
+                        }
 
 
-        // draw the circles
-        /*function init() {
+                    })
+                    .on("mouseleave", function (d, i) {
+                        valueLabel1.text("");
+                        valueLabel2.text("");
+                        valueQuan.text("");
+                        valueX.text("");
+                        valueY.text("");
+                        dot.style("opacity", 1);
+                        dot.classed("selected", false);
+
+                    })
+                    .call(dragit.object.activate)
+
+            // Add a title.
+            dot.append("title")
+                    .text(function (d) {
+                        return d.Name;
+                    });
+
+
+            // Positions the dots based on data.
+            function position(dot) {
+                dot.attr("cx", function (d) {
+                    return xScale(x(d));
+                })
+                        .attr("cy", function (d) {
+                            return yScale(y(d));
+                        })
+                        .attr("r", function (d) {
+                            return radiusScale(radius(d));
+                        });
+            }
+
+            var legend = svg.selectAll(".legend")
+                    .data(interpolateData())
+                    .enter().append("g")
+                    .attr("class", "legend")
+                    .attr("transform", function (d, i) {
+                        return "translate(-200," + i * 20 + ")";
+                    });
+
+            legend.append("rect")
+                    .attr("x", width + 210)
+                    .attr("width", 18)
+                    .attr("height", 18)
+                    .attr("class", "rect")
+                    .style("fill", function (d) {
+                        return colorScale(color(d));
+                    })
+                    .on("mouseenter", function (d, i) {
+                        if ($('.check:checked').length > 1) {
+                            valueLabel2
+                                    .text(d.region)
+                                    .attr("y", 80)
+                                    .attr("x", 20);
+                            valueLabel1
+                                    .text(d.Name)
+                                    .attr("y", 180)
+                                    .attr("x", 20);
+                            valueQuan
+                                    .text(d.quantity + '')
+                                    .attr("y", 280)
+                                    .attr("x", 20);
+                        } else {
+                            valueLabel1
+                                    .text(d.Name)
+                                    .attr("y", 80)
+                                    .attr("x", 20);
+                            valueQuan
+                                    .text(d.quantity + '')
+                                    .attr("y", 180)
+                                    .attr("x", 20);
+                        }
+                        var texto = d.Name;
+                        valueQuan.text(d.quantity + '');
+                        d3.selectAll(".dot").style("opacity", .4)
+                        d3.selectAll(".dot").filter(function (d) {
+                            return d.Name == texto;
+                        }).style("opacity", 1)
+                    })
+                    .on("mouseleave", function (d, i) {
+                        valueLabel2.text("");
+                        valueLabel1.text("");
+                        valueQuan.text("");
+                        dot.style("opacity", 1);
+                    })
+            legend.append("text")
+                    .attr("x", width + 232)
+                    .attr("y", 9)
+                    .attr("dy", ".35em")
+                    .style("text-anchor", "start")
+                    .text(function (d) {
+                        return d.Name;
+                    });
+
+            // Interpolates the dataset for the given (fractional) year.
+            function interpolateData() {
+                return surveyData.map(function (d) {
+                    return {
+                        Name: d.filter1,
+                        region: d.filter2,
+                        project: d.project,
+                        quantity: d.quantity,
+                        client: d.client
+                    };
+                });
+            }
+
+
+            // draw the circles
+
+
+            /*function init() {
 
                 dragit.init(".gRoot");
 
@@ -566,6 +569,7 @@ $(document).ready(function() {
             }
 
         });
+        }
  // to work with filters
     function greyOut() {
         if ($('.check :checked').length > 1) $('.check:not(:checked)').attr("disabled", true);
@@ -583,6 +587,7 @@ $(document).ready(function() {
 
     $(function pepe(){
         $('.pepe').click(test);
+        $('.pepe').click(dataLoad);
     })
 })
 </script>
