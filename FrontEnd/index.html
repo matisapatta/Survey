@@ -137,54 +137,30 @@
         </div>
         <div class="col-md-2" style="margin-top: 20px">
             <form name="Filtros" id="form">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="check" id="1" value="1">
-                        Cliente
-                    </label>
+                <div class="selectView1">
+                    <select class="selectView1">
+                        <option value="Client">Cliente1</option>
+                        <option value="Project">Proyecto</option>
+                        <option value="currentLocation">Current Site (location)</option>
+                        <option value="currentTL">Team Lead</option>
+                        <option value="CurrentPMs">Project Manager</option>
+                        <option value="Studio">Studio</option>
+                        <option value="businessUnitName">Business Unit Name</option>
+                    </select>
                 </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="check" id="2" value="2">
-                        Proyecto
-                    </label>
+                <div class="selectView2">
+                    <select class="selectView2">
+                        <option selected>-- no filter --</option>
+                        <option value="Client">Cliente2</option>
+                        <option value="Project">Proyecto</option>
+                        <option value="currentLocation">Current Site (location)</option>
+                        <option value="currentTL">Team Lead</option>
+                        <option value="CurrentPMs">Project Manager</option>
+                        <option value="Studio">Studio</option>
+                        <option value="businessUnitName">Business Unit Name</option>
+                    </select>
                 </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="check" id="3" value="3">
-                        Current Location (Site)
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="check" id="4" value="4">
-                        Team Lead
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="check" id="5" value="4">
-                        Project Manager
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="check" id="6" value="4">
-                        Studio
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="check" id="7" value="4">
-                        Team Lead
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="check" id="8" value="4">
-                        Business Unit Name
-                    </label>
-                </div>
+
             </form>
         </div>
     </div>
@@ -385,41 +361,12 @@ $(document).ready(function() {
                         dot.style("opacity", .4)
                         d3.select(this).style("opacity", 1)
                         d3.selectAll(".selected").style("opacity", 1)
-                        if ($('.check:checked').length < maxFilters) {
-                            valueLabel1
-                                    .text(d.Name)
-                                    .attr("y", 80)
-                                    .attr("x", 20);
-                            valueQuan
-                                    .text(d.quantity + '')
-                                    .attr("y", 180)
-                                    .attr("x", 20);
-                        } else {
-
-                            valueLabel2
-                                    .text(d.region)
-                                    .attr("y", 80)
-                                    .attr("x", 20);
-                            valueLabel1
-                                    .text(d.Name)
-                                    .attr("y", 180)
-                                    .attr("x", 20);
-                            valueQuan
-                                    .text(d.quantity + '')
-                                    .attr("y", 280)
-                                    .attr("x", 20);
-                        }
-
+                        showMouseOver(d);
 
                     })
                     .on("mouseleave", function (d, i) {
-                        valueLabel1.text("");
-                        valueLabel2.text("");
-                        valueQuan.text("");
-                        valueX.text("");
-                        valueY.text("");
-                        dot.style("opacity", 1);
-                        dot.classed("selected", false);
+
+                        clearMouseLeave();
 
                     })
                     .call(dragit.object.activate)
@@ -461,29 +408,7 @@ $(document).ready(function() {
                         return colorScale(color(d));
                     })
                     .on("mouseenter", function (d, i) {
-                        if ($('.check:checked').length > 1) {
-                            valueLabel2
-                                    .text(d.region)
-                                    .attr("y", 80)
-                                    .attr("x", 20);
-                            valueLabel1
-                                    .text(d.Name)
-                                    .attr("y", 180)
-                                    .attr("x", 20);
-                            valueQuan
-                                    .text(d.quantity + '')
-                                    .attr("y", 280)
-                                    .attr("x", 20);
-                        } else {
-                            valueLabel1
-                                    .text(d.Name)
-                                    .attr("y", 80)
-                                    .attr("x", 20);
-                            valueQuan
-                                    .text(d.quantity + '')
-                                    .attr("y", 180)
-                                    .attr("x", 20);
-                        }
+                        showMouseOver(d);
                         var texto = d.Name;
                         valueQuan.text(d.quantity + '');
                         d3.selectAll(".dot").style("opacity", .4)
@@ -492,10 +417,7 @@ $(document).ready(function() {
                         }).style("opacity", 1)
                     })
                     .on("mouseleave", function (d, i) {
-                        valueLabel2.text("");
-                        valueLabel1.text("");
-                        valueQuan.text("");
-                        dot.style("opacity", 1);
+                        clearMouseLeave();
                     })
             legend.append("text")
                     .attr("x", width + 232)
@@ -537,7 +459,8 @@ $(document).ready(function() {
 
             }*/
 
-            function showData(){
+            // function that shows the mouse over data
+            function showMouseOver(d){
                 if ($('.check:checked').length<
                         maxFilters) {
                     valueLabel1
@@ -567,26 +490,35 @@ $(document).ready(function() {
                             .attr("x", 20);
                 }
             }
+            // function that clears the data
+            function clearMouseLeave(){
+                valueLabel1.text("");
+                valueLabel2.text("");
+                valueQuan.text("");
+                valueX.text("");
+                valueY.text("");
+                dot.style("opacity", 1);
+                dot.classed("selected", false);
+            }
 
         });
         }
  // to work with filters
-    function greyOut() {
-        if ($('.check :checked').length > 1) $('.check:not(:checked)').attr("disabled", true);
-        else $('.check').attr("disabled", false);
-    }
 
-    $(function review(){
-        $('.check').change(greyOut);
+    $(function greyOut(){
+        $('.selectView1').change(function() {
+            $('.selectView2').prop("selectedIndex",0);
+        })
+
     })
 
-    function test(){
+    function clearScreen(){
         svg.selectAll(".dots").remove();
         $('.check').attr("disabled",true);
     }
 
-    $(function pepe(){
-        $('.pepe').click(test);
+    $(function reload(){
+        $('.pepe').click(clearScreen);
         $('.pepe').click(dataLoad);
     })
 })
