@@ -8,7 +8,7 @@
  */
 
 
-class Results
+class Result
 {
     public $answ1;
     public $answ2;
@@ -81,7 +81,19 @@ class arrayResults
     {
         return $this->Results;
     }
-    public function addResults(Results $result)
+
+    private function sortResultDesc(Result $a, Result $b)
+    {
+        return ($a->getQuantity() < $b->getQuantity());
+    }
+
+    public function sortDesc(){
+
+        usort($this->Results, array('arrayResults', 'sortResultDesc'));
+    }
+
+
+    public function addResults(Result $result)
     {
         $this->newResult = $result;
         $this->saveObject();

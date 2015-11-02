@@ -8,7 +8,7 @@
  */
 error_reporting(0);
 include_once("../Merge/employee_survey.php");
-include_once("Results.php");
+include_once("Result.php");
 
 class DataFilters
 {
@@ -39,6 +39,7 @@ class DataFilters
         return $employeesSurveyArray;
     }
 
+
     public function getAveragesByFilter($arrayEmployees, $filter1){
         $sumResults = new arrayResults();
         $sumAnsw1=0;
@@ -49,7 +50,7 @@ class DataFilters
         $i=0;
         do {
             if ($lastItem != call_user_func(array($arrayEmployees [$i], 'get' . $filter1)) and $cantAnsw != 0) {
-                $newResult = new Results($sumAnsw1 / $cantAnsw, $sumAnsw2 / $cantAnsw, $lastItem, $id, $cantAnsw);
+                $newResult = new Result($sumAnsw1 / $cantAnsw, $sumAnsw2 / $cantAnsw, $lastItem, $id, $cantAnsw);
                 $sumResults->addResults($newResult);
                 $sumAnsw1 = 0;
                 $sumAnsw2 = 0;
@@ -62,7 +63,7 @@ class DataFilters
             $cantAnsw += 1;
             $i++;
         } while ($arrayEmployees [$i]);
-        $newResult = new Results($sumAnsw1 / $cantAnsw, $sumAnsw2 / $cantAnsw, $lastItem, $id, $cantAnsw);
+        $newResult = new Result($sumAnsw1 / $cantAnsw, $sumAnsw2 / $cantAnsw, $lastItem, $id, $cantAnsw);
         $sumResults->addResults($newResult);
         return $sumResults;
     }
@@ -77,14 +78,14 @@ class DataFilters
         $i=0;
         do {
             if ($lastBigItem != call_user_func(array($arrayEmployees [$i], 'get' . $filter2)) and $cantAnsw != 0) {
-                $newResult = new Results($sumAnsw1 / $cantAnsw, $sumAnsw2 / $cantAnsw, $lastSmallItem, $lastBigItem, $cantAnsw);
+                $newResult = new Result($sumAnsw1 / $cantAnsw, $sumAnsw2 / $cantAnsw, $lastSmallItem, $lastBigItem, $cantAnsw);
                 $sumResults->addResults($newResult);
                 $sumAnsw1 = 0;
                 $sumAnsw2 = 0;
                 $cantAnsw = 0;
             }
             else if ($lastSmallItem != call_user_func(array($arrayEmployees [$i], 'get' . $filter1)) and $cantAnsw != 0) {
-                $newResult = new Results($sumAnsw1 / $cantAnsw, $sumAnsw2 / $cantAnsw, $lastSmallItem, $lastBigItem, $cantAnsw);
+                $newResult = new Result($sumAnsw1 / $cantAnsw, $sumAnsw2 / $cantAnsw, $lastSmallItem, $lastBigItem, $cantAnsw);
                 $sumResults->addResults($newResult);
                 $sumAnsw1 = 0;
                 $sumAnsw2 = 0;
@@ -97,7 +98,7 @@ class DataFilters
             $cantAnsw += 1;
             $i++;
         } while ($arrayEmployees [$i]);
-        $newResult = new Results($sumAnsw1 / $cantAnsw, $sumAnsw2 / $cantAnsw, $lastSmallItem, $lastBigItem, $cantAnsw);
+        $newResult = new Result($sumAnsw1 / $cantAnsw, $sumAnsw2 / $cantAnsw, $lastSmallItem, $lastBigItem, $cantAnsw);
         $sumResults->addResults($newResult);
         return $sumResults;
     }
@@ -116,12 +117,14 @@ class DataFilters
     public function getFilteredResults1Filter($employeesSurveyArray, $filter1){
         $sortedArray = $this->applySimpleSort($employeesSurveyArray, $filter1);
         $filteredResults = $this->getAveragesByFilter($sortedArray, $filter1);
+        $filteredResults->sortDesc();
         return $filteredResults;
 
     }
     public function getFilteredResults2Filter($employeesSurveyArray, $filter1, $filter2){
         $sortedArray = $this->applyDoubleSort($employeesSurveyArray, $filter1, $filter2);
         $filteredResults = $this->getAveragesByDoubleFilter($sortedArray, $filter1, $filter2);
+        $filteredResults->sortDesc();
         return $filteredResults;
 
     }
