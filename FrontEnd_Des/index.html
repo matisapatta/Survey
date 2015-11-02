@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="src/dragit.css" rel="stylesheet"/>
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/jquery-1.11.3.js"></script>
+    <script src="src/dragit.js"></script>
+</head>
+<style>
+
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin-left:40px;
+        font-weight: 200;
+        font-size: 14px;
+        background-image: url("./img/background.jpeg");
+    }
+
+    html,body {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+    }
+
+    text {
+        cursor: default;
+    }
+
+    h1 {
+        font-weight: 400;
+    }
+
+    #chart {
+        height: 506px;
+    }
+
+    text {
+        font-size: 10px;
+    }
+
+    .dot {
+        stroke: #000;
+    }
+    .rect {
+        stroke: #000;
+    }
+
+    .axis path, .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+
+    .label {
+        fill: #777;
+    }
+
+    .year.label {
+        font: 500 196px "Helvetica Neue";
+        fill: #ddd;
+    }
+
+    .graph.label  {
+        font: 500 96px "Helvetica";
+        fill: #ddd;
+        text-anchor: start;
+    }
+
+    .year.label.active {
+        fill: #aaa;
+    }
+    .position.labelX{
+        font: 500 96px "Helvetica";
+        fill: #aaa;
+        text-anchor: middle;
+    }
+    .position.labelY {
+        font: 500 96px "Helvetica";
+        fill: #aaa;
+        text-anchor: start;
+    }
+    circle.pointTrajectory {
+        pointer-events: none;
+        stroke: lightgray;
+        fill: black;
+        opacity: 0;
+    }
+
+    path.lineTrajectory {
+        stroke-width: 2;
+        stroke-opacity: .5;
+        stroke: black;
+        fill: none;
+        pointer-events: none;
+    }
+
+    .selected {
+        stroke-width: 4;
+    }
+    #title {
+        font-size: 95px;
+        font-family: "Helvetica";
+        opacity: 1;
+        margin-bottom: 30px;
+        font-style: italic;
+    }
+    #filter {
+        font-size: 20px;
+        font-family: Helvetica;
+        margin-top: 20px;
+        margin-left: 120px;
+    }
+    #container{
+        margin-top: 20px;
+        font-family: Helvetica;
+    }
+    #check {
+        font-family: Helvetica;
+        font-size: 10px;
+    }
+
+</style>
+
+
+<div align="center" id="title">Survey Results</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10" align="left">
+            <div align="center" id="chart" style="margin:0px"></div>
+
+        </div>
+        <div class="col-md-2" style="margin-top: 20px">
+            <form name="Filtros" id="form">
+                <div class="selectView1">
+                    <select class="selectView1">
+                        <option value="Client">Cliente1</option>
+                        <option value="Project">Proyecto</option>
+                        <option value="currentLocation">Current Site (location)</option>
+                        <option value="currentTL">Team Lead</option>
+                        <option value="CurrentPMs">Project Manager</option>
+                        <option value="Studio">Studio</option>
+                        <option value="businessUnitName">Business Unit Name</option>
+                    </select>
+                </div>
+                <div class="selectView2">
+                    <select class="selectView2">
+                        <option selected>-- no filter --</option>
+                        <option value="Client">Cliente2</option>
+                        <option value="Project">Proyecto</option>
+                        <option value="currentLocation">Current Site (location)</option>
+                        <option value="currentTL">Team Lead</option>
+                        <option value="CurrentPMs">Project Manager</option>
+                        <option value="Studio">Studio</option>
+                        <option value="businessUnitName">Business Unit Name</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<div><input type="submit" class="pepe"></div>
+<script>
+$(document).ready(function() {
+    // Various accessors that specify the four dimensions of data to visualize.
+    function x(d) {
+        return d.project;
+    }
+
+    function y(d) {
+        return d.client;
+    }
+
+    function radius(d) {
+        return d.quantity;
+    }
+
+    function color(d) {
+        return d.region;
+    }
+
+    function key(d) {
+        return d.Name;
+    }
+
+    // Max filters
+    var maxFilters = 2;
+    // Chart dimensions.
+    var margin = {top: 19.5, right: 19.5, bottom: 19.5, left: 39.5},
+            width = 960 - margin.right,
+            height = 500 - margin.top - margin.bottom;
+
+    // Various scales. These domains make assumptions of data, naturally.
+    var xScale = d3.scale.linear().domain([0, 6]).range([1, width]),
+            yScale = d3.scale.linear().domain([0, 6]).range([height, 0]),
+            radiusScale = d3.scale.sqrt().domain([0, 100]).range([0, 40]),
+            colorScale = d3.scale.category20();
+    // The x & y axes.
+    var xAxis = d3.svg.axis()
+                    .orient("bottom")
+                    .scale(xScale)
+                    .tickValues([0, 1, 2, 3, 4, 5]),
+            yAxis = d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left")
+                    .tickValues([0, 1, 2, 3, 4, 5]);
+
+    // Create the SVG container and set the origin.
+    var svg = d3.select("#chart").append("svg")
+            .attr("width", width + margin.left + margin.right + 200)
+            .attr("height", height + margin.top + margin.bottom + 200)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            .attr("class", "gRoot");
+
+
+    // Add the x-axis.
+    svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+
+    // Add the y-axis.
+    svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis);
+
+    // Horizontal grid
+    svg.selectAll("line.horizontalGrid").data(yScale.ticks(24)).enter()
+            .append("line")
+            .attr(
+            {
+                "class": "horizontalGrid",
+                "x1": "margin.right" + 5,
+                "x2": width,
+                "y1": function (d) {
+                    return yScale(d);
+                },
+                "y2": function (d) {
+                    return yScale(d);
+                },
+                "fill": "none",
+                "shape-rendering": "optimizeSpeed",
+                "stroke": "grey",
+                "stroke-width": "1px"
+            })
+            .style("opacity", .2);
+
+    // Vertical Grid
+    svg.selectAll("line.verticalGrid").data(xScale.ticks(24)).enter()
+            .append("line")
+            .attr(
+            {
+                "class": "verticalGrid",
+                "y1": "margin.left" + 5,
+                "y2": height,
+                "x1": function (d) {
+                    return xScale(d);
+                },
+                "x2": function (d) {
+                    return xScale(d);
+                },
+                "fill": "none",
+                "shape-rendering": "optimizeSpeed",
+                "stroke": "grey",
+                "stroke-width": "1px"
+            })
+            .style("opacity", .2);
+
+
+    // Add an x-axis label.
+    svg.append("text")
+            .attr("class", "x label")
+            .attr("text-anchor", "end")
+            .attr("x", width)
+            .attr("y", height - 10)
+            .text("Grado de conformidad con el proyecto");
+
+    // Add a y-axis label.
+    svg.append("text")
+            .attr("class", "y label")
+            .attr("text-anchor", "end")
+            .attr("y", 6)
+            .attr("dy", ".75em")
+            .attr("transform", "rotate(-90)")
+            .text("Grado de conformidad del cliente");
+
+
+    // Add the value label; the value is set on transition.
+    var valueLabel1 = svg.append("text")
+            .attr("class", "graph label")
+            .attr("text-anchor", "start")
+            .text(" ");
+
+    var valueLabel2 = svg.append("text")
+            .attr("class", "graph label")
+            .attr("text-anchor", "start")
+            .text(" ");
+
+    // Add the quantity label; the value is set on transition.
+    var valueQuan = svg.append("text")
+            .attr("class", "graph label")
+            .attr("text-anchor", "start")
+            .text(" ");
+
+    // Add the X and Y values; the value is set on click.
+    var valueX = svg.append("text")
+            .attr("class", "position labelX")
+            .text(" ");
+    var valueY = svg.append("text")
+            .attr("class", "position labelY")
+            .text(" ");
+
+    dataLoad();
+    // Load the data.
+    function dataLoad() {
+        var noCache = new Date().getTime();
+
+        d3.json("data/info.json?_=" + noCache, function (surveyData) {
+
+            // A bisector since many value's data is sparsely-defined.
+            var bisect = d3.bisector(function (d) {
+                return d[0];
+            });
+
+            var dot = svg.append("g")
+                    .attr("class", "dots")
+                    .attr("id", "theDots")
+                    .selectAll(".dot")
+                    .data(interpolateData())
+                    .enter().append("circle")
+                    .attr("class", "dot")
+                    .style("fill", function (d) {
+                        return colorScale(color(d));
+                    })
+                    .call(position)
+                    .on("mouseup", function (d, i) {
+                        dot.classed("selected", false);
+                        d3.select(this).classed("selected", !d3.select(this).classed("selected"));
+                        valueX
+                                .text(d.project)
+                                .attr("x", xScale(x(d)))
+                                .attr("y", height + margin.top + margin.bottom);
+                        valueY
+                                .text(d.client)
+                                .attr("x", -margin.left)
+                                .attr("y", ("y", yScale(y(d))));
+                    })
+                // Look at the state machine history and find a drag event in it?
+
+                    .on("mouseenter", function (d, i) {
+                        dot.style("opacity", .4)
+                        d3.select(this).style("opacity", 1)
+                        d3.selectAll(".selected").style("opacity", 1)
+                        showMouseOver(d);
+
+                    })
+                    .on("mouseleave", function (d, i) {
+
+                        clearMouseLeave();
+
+                    })
+                    .call(dragit.object.activate)
+
+            // Add a title.
+            dot.append("title")
+                    .text(function (d) {
+                        return d.Name;
+                    });
+
+
+            // Positions the dots based on data.
+            function position(dot) {
+                dot.attr("cx", function (d) {
+                    return xScale(x(d));
+                })
+                        .attr("cy", function (d) {
+                            return yScale(y(d));
+                        })
+                        .attr("r", function (d) {
+                            return radiusScale(radius(d));
+                        });
+            }
+
+            var legend = svg.selectAll(".legend")
+                    .data(interpolateData())
+                    .enter().append("g")
+                    .attr("class", "legend")
+                    .attr("transform", function (d, i) {
+                        return "translate(-200," + i * 20 + ")";
+                    });
+
+            legend.append("rect")
+                    .attr("x", width + 210)
+                    .attr("width", 18)
+                    .attr("height", 18)
+                    .attr("class", "rect")
+                    .style("fill", function (d) {
+                        return colorScale(color(d));
+                    })
+                    .on("mouseenter", function (d, i) {
+                        showMouseOver(d);
+                        var texto = d.Name;
+                        valueQuan.text(d.quantity + '');
+                        d3.selectAll(".dot").style("opacity", .4)
+                        d3.selectAll(".dot").filter(function (d) {
+                            return d.Name == texto;
+                        }).style("opacity", 1)
+                    })
+                    .on("mouseleave", function (d, i) {
+                        clearMouseLeave();
+                    })
+            legend.append("text")
+                    .attr("x", width + 232)
+                    .attr("y", 9)
+                    .attr("dy", ".35em")
+                    .style("text-anchor", "start")
+                    .text(function (d) {
+                        return d.Name;
+                    });
+
+            // Interpolates the dataset for the given (fractional) year.
+            function interpolateData() {
+                return surveyData.map(function (d) {
+                    return {
+                        Name: d.filter1,
+                        region: d.filter2,
+                        project: d.project,
+                        quantity: d.quantity,
+                        client: d.client
+                    };
+                });
+            }
+
+
+            // draw the circles
+
+
+            /*function init() {
+
+                dragit.init(".gRoot");
+
+                dragit.data = d3.range(surveyData.length).map(function () {
+                    return Array();
+                })
+                interpolateData().filter(function (d, i) {
+                    dragit.data[i][0] = [xScale(x(d)), yScale(y(d))];
+                })
+
+
+            }*/
+
+            // function that shows the mouse over data
+            function showMouseOver(d){
+                if ($('.check:checked').length<
+                        maxFilters) {
+                    valueLabel1
+                            .text(d.Name)
+                            .attr("y", 80)
+                            .attr("x", 20);
+                    valueQuan
+                            .text(d.quantity + '')
+                            .attr(
+                            "y", 180)
+                            .attr("x", 20);
+                } else {
+                    valueLabel2
+                            .text(d.region)
+                            .attr("y", 80)
+                            .attr("x", 20);
+                    valueLabel1
+                            .text(d.Name)
+                            .attr("y", 180)
+                            .attr("x", 20);
+                    valueQuan
+                            .
+
+                            text(
+                            d.quantity + '')
+                            .attr("y", 280)
+                            .attr("x", 20);
+                }
+            }
+            // function that clears the data
+            function clearMouseLeave(){
+                valueLabel1.text("");
+                valueLabel2.text("");
+                valueQuan.text("");
+                valueX.text("");
+                valueY.text("");
+                dot.style("opacity", 1);
+                dot.classed("selected", false);
+            }
+
+        });
+        }
+ // to work with filters
+
+    $(function greyOut(){
+        $('.selectView1').change(function() {
+            $('.selectView2').prop("selectedIndex",0);
+        })
+
+    })
+
+    function clearScreen(){
+        svg.selectAll(".dots").remove();
+        $('.check').attr("disabled",true);
+    }
+
+    $(function reload(){
+        $('.pepe').click(clearScreen);
+        $('.pepe').click(dataLoad);
+    })
+})
+</script>
+</body>
+</html>
