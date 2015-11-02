@@ -149,7 +149,7 @@
                     </select>
                 </div>
                 <div class="selectView2">
-                    <select class="selectView2" id="sv2">
+                    <select class="selectView2" id="sv2" onchange="reload()">
                         <option value="None" selected>-- no filter --</option>
                         <option value="Client">Cliente2</option>
                         <option value="Project">Proyecto</option>
@@ -504,7 +504,7 @@
 
     function reload(){
         getFilters();
-        setTimeout(reDraw,1000);
+        setTimeout(reDraw,2000);
     }
     function reDraw(){
         clearScreen();
@@ -527,8 +527,9 @@
         xmlhttp.open("GET", "../Filters/FilteredData.php?" + filter, true);
         xmlhttp.send();
 
+
         console.log(response);
-        switch (response){
+        switch (response) {
             case "0":
                 console.log("Correct execution")
                 break;
@@ -538,6 +539,9 @@
             case "2":
                 console.log("No parameter send")
                 break;
+            case "3":
+                console.log("Default error")
+                break;
             default:
                 console.log("An unknown error")
                 break;
@@ -545,7 +549,7 @@
 
     }
 
-    setInterval(reload,10000);
+    //setInterval(reload,10000);
 </script>
 </body>
 </html>
