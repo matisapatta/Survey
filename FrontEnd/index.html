@@ -420,6 +420,7 @@ $(document).ready(function() {
                         clearMouseLeave();
                     })
             legend.append("text")
+                    .attr("class", "legendText")
                     .attr("x", width + 232)
                     .attr("y", 9)
                     .attr("dy", ".35em")
@@ -428,7 +429,7 @@ $(document).ready(function() {
                         return d.Name;
                     });
 
-            // Interpolates the dataset for the given (fractional) year.
+            // Interpolates the dataset for the given data.
             function interpolateData() {
                 return surveyData.map(function (d) {
                     return {
@@ -507,14 +508,17 @@ $(document).ready(function() {
 
     $(function greyOut(){
         $('.selectView1').change(function() {
+            clearScreen();
+            dataLoad();
             $('.selectView2').prop("selectedIndex",0);
         })
 
     })
 
-    function clearScreen(){
+     function clearScreen(){
         svg.selectAll(".dots").remove();
-        $('.check').attr("disabled",true);
+        svg.selectAll(".rect").remove();
+         svg.selectAll(".legendText").remove();
     }
 
     $(function reload(){
