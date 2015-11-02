@@ -8,7 +8,7 @@
 
 include_once("../Merge/Merge.php");
 include_once("dataFilters.php");
-
+error_reporting(0);
 $filter1="";
 $filter2="";
 
@@ -27,11 +27,11 @@ if (isset($_GET['flt1']) and $_GET['flt1'] !=""){
 
     try{
         $results->generate_Json();
-        echo 0;
+        echo "0";
     }
     catch(Exception $e){
-        echo 1;
+        echo "1";
     }
 }else
-    echo 2;
+    echo "2";
 ?>

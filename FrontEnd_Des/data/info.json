@@ -1,24 +1,7 @@
-[
-  {"filter1":"Sony","filter2":"1","project":3.06,"quantity":195,"client":3.1},
-  {"filter1":"MercadoLibre","filter2":"2","project":2.85,"quantity":35,"client":3.15},
-  {"filter1":"Black and Decker","filter2":"3","project":1,"quantity":77,"client":3},
-  {"filter1":"PF Chang's","filter2":"4","project":2.56,"quantity":30,"client":3.78},
-  {"filter1":"Microsoft","filter2":"5","project":2.1,"quantity":24,"client":2.1},
-  {"filter1":"YPF S.A.","filter2":"6","project":1.45,"quantity":200,"client":1.12},
-  {"filter1":"Volkswagen","filter2":"7","project":1.89,"quantity":67,"client":1.5},
-  {"filter1":"Shure","filter2":"8","project":4.34,"quantity":90,"client":3.7},
-  {"filter1":"Danone","filter2":"9","project":3.686,"quantity":12,"client":5},
-  {"filter1":"TOTAL Austral","filter2":"10","project":4.5,"quantity":3,"client":2.5},
-  {"filter1":"Samsung","filter2":"11","project":2.7,"quantity":31,"client":3.67},
-  {"filter1":"Cognizant","filter2":"12","project":3.6,"quantity":230,"client":1.1},
-  {"filter1":"Siemens","filter2":"13","project":3.09,"quantity":15,"client":1.9},
-  {"filter1":"Alfaguara","filter2":"14","project":1.4,"quantity":98,"client":2.43},
-  {"filter1":"Spotify","filter2":"15","project":3.4,"quantity":45,"client":1.5},
-  {"filter1":"Carrefour","filter2":"16","project":2.3,"quantity":53,"client":4.3},
-  {"filter1":"Club Atlético River Plate","filter2":"17","project":3,"quantity":34,"client":2.3},
-  {"filter1":"MADS Solutions","filter2":"18","project":5,"quantity":10,"client":5},
-  {"filter1":"Globant","filter2":"19","project":2,"quantity":77,"client":4},
-  {"filter1":"Netflix","filter2":"20","project":4.5,"quantity":23,"client":3},
-  {"filter1":"Gobierno de Buenos Aires","filter2":"21","project":4.5,"quantity":54,"client":5}
-
+[ 
+{"answ1":3,"answ2":4,"filter1":"project1","filter2":1,"quantity":1},
+{"answ1":2,"answ2":1,"filter1":"project2","filter2":2,"quantity":1},
+{"answ1":5,"answ2":5,"filter1":"project3","filter2":3,"quantity":1},
+{"answ1":3,"answ2":2,"filter1":"project4","filter2":4,"quantity":1},
+{"answ1":2,"answ2":2,"filter1":"project5","filter2":5,"quantity":1}
 ]

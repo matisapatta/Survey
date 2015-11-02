@@ -138,7 +138,7 @@
         <div class="col-md-2" style="margin-top: 20px">
             <form name="Filtros" id="form">
                 <div class="selectView1">
-                    <select class="selectView1">
+                    <select class="selectView1" id="sv1">
                         <option value="Client">Cliente1</option>
                         <option value="Project">Proyecto</option>
                         <option value="currentLocation">Current Site (location)</option>
@@ -149,8 +149,8 @@
                     </select>
                 </div>
                 <div class="selectView2">
-                    <select class="selectView2">
-                        <option selected>-- no filter --</option>
+                    <select class="selectView2" id="sv2">
+                        <option value="None" selected>-- no filter --</option>
                         <option value="Client">Cliente2</option>
                         <option value="Project">Proyecto</option>
                         <option value="currentLocation">Current Site (location)</option>
@@ -167,9 +167,7 @@
 </div>
 </div>
 
-<div><input type="submit" class="pepe"></div>
 <script>
-$(document).ready(function() {
     // Various accessors that specify the four dimensions of data to visualize.
     function x(d) {
         return d.project;
@@ -323,6 +321,9 @@ $(document).ready(function() {
     dataLoad();
     // Load the data.
     function dataLoad() {
+
+
+
         var noCache = new Date().getTime();
 
         d3.json("data/info.json?_=" + noCache, function (surveyData) {
@@ -355,7 +356,7 @@ $(document).ready(function() {
                                 .attr("x", -margin.left)
                                 .attr("y", ("y", yScale(y(d))));
                     })
-                // Look at the state machine history and find a drag event in it?
+
 
                     .on("mouseenter", function (d, i) {
                         dot.style("opacity", .4)
@@ -434,30 +435,12 @@ $(document).ready(function() {
                     return {
                         Name: d.filter1,
                         region: d.filter2,
-                        project: d.project,
+                        project: d.answ1,
                         quantity: d.quantity,
-                        client: d.client
+                        client: d.answ2
                     };
                 });
             }
-
-
-            // draw the circles
-
-
-            /*function init() {
-
-                dragit.init(".gRoot");
-
-                dragit.data = d3.range(surveyData.length).map(function () {
-                    return Array();
-                })
-                interpolateData().filter(function (d, i) {
-                    dragit.data[i][0] = [xScale(x(d)), yScale(y(d))];
-                })
-
-
-            }*/
 
             // function that shows the mouse over data
             function showMouseOver(d){
@@ -490,6 +473,7 @@ $(document).ready(function() {
                             .attr("x", 20);
                 }
             }
+
             // function that clears the data
             function clearMouseLeave(){
                 valueLabel1.text("");
@@ -514,14 +498,50 @@ $(document).ready(function() {
 
     function clearScreen(){
         svg.selectAll(".dots").remove();
+        svg.selectAll(".legend").remove();
         $('.check').attr("disabled",true);
     }
 
-    $(function reload(){
-        $('.pepe').click(clearScreen);
-        $('.pepe').click(dataLoad);
-    })
-})
+    function reload(){
+        getFilters();
+        clearScreen();
+        dataLoad();
+    }
+
+    function getFilters(){
+        var response = "3";
+        var flt1 = document.getElementById("sv1").value;
+        var flt2 = document.getElementById("sv2").value;
+        var filter = "flt1=" + flt1;
+        if (flt2 != "None"){
+            filter += "&flt2=" + flt2;
+        }
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+                response = xmlhttp.responseText;
+        }
+        xmlhttp.open("GET", "../Filters/FilteredData.php?" + filter, true);
+        xmlhttp.send();
+
+        console.log(response);
+        switch (response){
+            case "0":
+                console.log("Correct execution")
+                break;
+            case "1":
+                console.log("Problem execution")
+                break;
+            case "2":
+                console.log("No parameter send")
+                break;
+            default:
+                console.log("An unknown error")
+                break;
+        }
+
+    }
+
+    setInterval(reload,10000);
 </script>
 </body>
 </html>

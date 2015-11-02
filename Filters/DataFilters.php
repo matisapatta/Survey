@@ -6,7 +6,7 @@
  * Date: 25/10/2015
  * Time: 10:03
  */
-
+error_reporting(0);
 include_once("../Merge/employee_survey.php");
 include_once("Results.php");
 
