@@ -318,7 +318,7 @@
             .attr("class", "position labelY")
             .text(" ");
 
-    dataLoad();
+    reload();
     // Load the data.
     function dataLoad() {
 
@@ -504,7 +504,7 @@
 
     function reload(){
         getFilters();
-        setTimeout(reDraw,2000);
+
     }
     function reDraw(){
         clearScreen();
@@ -520,33 +520,38 @@
         if (flt2 != "None"){
             filter += "&flt2=" + flt2;
         }
+        $('.selectView1').prop('disabled', true);
+        $('.selectView2').prop('disabled', true);
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 response = xmlhttp.responseText;
+                console.log(response);
+                switch (response) {
+                    case "0":
+                        console.log("Correct execution")
+                        break;
+                    case "1":
+                        console.log("Problem execution")
+                        break;
+                    case "2":
+                        console.log("No parameter send")
+                        break;
+                    case "3":
+                        console.log("Default error")
+                        break;
+                    default:
+                        console.log("An unknown error")
+                        break;
+                }
+
+                reDraw();
+                $('.selectView1').prop('disabled', false);
+                $('.selectView2').prop('disabled', false);
+            }
         }
         xmlhttp.open("GET", "../Filters/FilteredData.php?" + filter, true);
         xmlhttp.send();
-
-
-        console.log(response);
-        switch (response) {
-            case "0":
-                console.log("Correct execution")
-                break;
-            case "1":
-                console.log("Problem execution")
-                break;
-            case "2":
-                console.log("No parameter send")
-                break;
-            case "3":
-                console.log("Default error")
-                break;
-            default:
-                console.log("An unknown error")
-                break;
-        }
-
     }
 
     //setInterval(reload,10000);
