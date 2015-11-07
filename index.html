@@ -442,8 +442,10 @@
 
             // function that shows the mouse over data
             function showMouseOver(d){
-                if ($('.check:checked').length<
-                        maxFilters) {
+                if (document.getElementById("sv2").value == "None")
+                /*($('.check:checked').length<
+                        maxFilters)*/
+                {
                     valueLabel1
                             .text(d.Name)
                             .attr("y", 80)
@@ -463,10 +465,7 @@
                             .attr("y", 180)
                             .attr("x", 20);
                     valueQuan
-                            .
-
-                            text(
-                            d.quantity + '')
+                            .text(d.quantity + '')
                             .attr("y", 280)
                             .attr("x", 20);
                 }
