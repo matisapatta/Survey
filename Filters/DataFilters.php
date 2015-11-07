@@ -8,7 +8,7 @@
  */
 error_reporting(0);
 include_once("../Merge/employee_survey.php");
-include_once("Result.php");
+include_once("./Result.php");
 
 class DataFilters
 {
