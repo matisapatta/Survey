@@ -100,7 +100,7 @@ class arrayResults
     }
 
     public function generate_Json(){
-        $fh = fopen("../FrontEnd_Des/data/info.json", 'w')  or die("Error al abrir fichero de salida");
+        $fh = fopen("../FrontEnd/data/info.json", 'w')  or die("Error al abrir fichero de salida");
         // PARA GENERAR JSON BIEN LAS PROPIEDADES DEBEN SER PUBLICAS!!!
         fwrite($fh, "[ \n");
         $i = 0;

@@ -138,7 +138,7 @@
         <div class="col-md-2" style="margin-top: 20px">
             <form name="Filtros" id="form">
                 <div class="selectView1">
-                    <select class="selectView1">
+                    <select class="selectView1" id="sv1" onchange="reload1()">
                         <option value="Client">Cliente1</option>
                         <option value="Project">Proyecto</option>
                         <option value="currentLocation">Current Site (location)</option>
@@ -149,8 +149,8 @@
                     </select>
                 </div>
                 <div class="selectView2">
-                    <select class="selectView2">
-                        <option selected>-- no filter --</option>
+                    <select class="selectView2" id="sv2" onchange="reload()">
+                        <option value="None" selected>-- no filter --</option>
                         <option value="Client">Cliente2</option>
                         <option value="Project">Proyecto</option>
                         <option value="currentLocation">Current Site (location)</option>
@@ -167,9 +167,7 @@
 </div>
 </div>
 
-<div><input type="submit" class="pepe"></div>
 <script>
-$(document).ready(function() {
     // Various accessors that specify the four dimensions of data to visualize.
     function x(d) {
         return d.project;
@@ -320,9 +318,10 @@ $(document).ready(function() {
             .attr("class", "position labelY")
             .text(" ");
 
-    dataLoad();
+    reload();
     // Load the data.
     function dataLoad() {
+
         var noCache = new Date().getTime();
 
         d3.json("data/info.json?_=" + noCache, function (surveyData) {
@@ -347,15 +346,15 @@ $(document).ready(function() {
                         dot.classed("selected", false);
                         d3.select(this).classed("selected", !d3.select(this).classed("selected"));
                         valueX
-                                .text(d.project)
+                                .text(d.project.toFixed(2))
                                 .attr("x", xScale(x(d)))
                                 .attr("y", height + margin.top + margin.bottom);
                         valueY
-                                .text(d.client)
+                                .text(d.client.toFixed(2))
                                 .attr("x", -margin.left)
                                 .attr("y", ("y", yScale(y(d))));
                     })
-                // Look at the state machine history and find a drag event in it?
+
 
                     .on("mouseenter", function (d, i) {
                         dot.style("opacity", .4)
@@ -420,7 +419,6 @@ $(document).ready(function() {
                         clearMouseLeave();
                     })
             legend.append("text")
-                    .attr("class", "legendText")
                     .attr("x", width + 232)
                     .attr("y", 9)
                     .attr("dy", ".35em")
@@ -429,36 +427,18 @@ $(document).ready(function() {
                         return d.Name;
                     });
 
-            // Interpolates the dataset for the given data.
+            // Interpolates the dataset for the given (fractional) year.
             function interpolateData() {
                 return surveyData.map(function (d) {
                     return {
                         Name: d.filter1,
                         region: d.filter2,
-                        project: d.project,
+                        project: d.answ1,
                         quantity: d.quantity,
-                        client: d.client
+                        client: d.answ2
                     };
                 });
             }
-
-
-            // draw the circles
-
-
-            /*function init() {
-
-                dragit.init(".gRoot");
-
-                dragit.data = d3.range(surveyData.length).map(function () {
-                    return Array();
-                })
-                interpolateData().filter(function (d, i) {
-                    dragit.data[i][0] = [xScale(x(d)), yScale(y(d))];
-                })
-
-
-            }*/
 
             // function that shows the mouse over data
             function showMouseOver(d){
@@ -491,6 +471,7 @@ $(document).ready(function() {
                             .attr("x", 20);
                 }
             }
+
             // function that clears the data
             function clearMouseLeave(){
                 valueLabel1.text("");
@@ -508,24 +489,76 @@ $(document).ready(function() {
 
     $(function greyOut(){
         $('.selectView1').change(function() {
-            clearScreen();
-            dataLoad();
             $('.selectView2').prop("selectedIndex",0);
         })
 
     })
 
-     function clearScreen(){
+    function clearScreen(){
         svg.selectAll(".dots").remove();
-        svg.selectAll(".rect").remove();
-         svg.selectAll(".legendText").remove();
+        svg.selectAll(".legend").remove();
+        $('.check').attr("disabled",true);
     }
 
-    $(function reload(){
-        $('.pepe').click(clearScreen);
-        $('.pepe').click(dataLoad);
-    })
-})
+    function reload(){
+        getFilters();
+
+    }
+    function reload1(){
+        document.getElementById("sv2").value = "None";
+        getFilters();
+
+    }
+
+    function reDraw(){
+        clearScreen();
+        dataLoad();
+    }
+
+
+    function getFilters(){
+        var response = "3";
+        var flt1 = document.getElementById("sv1").value;
+        var flt2 = document.getElementById("sv2").value;
+        var filter = "flt1=" + flt1;
+        if (flt2 != "None"){
+            filter += "&flt2=" + flt2;
+        }
+        $('.selectView1').prop('disabled', true);
+        $('.selectView2').prop('disabled', true);
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                response = xmlhttp.responseText;
+                console.log(response);
+                switch (response) {
+                    case "0":
+                        console.log("Correct execution")
+                        break;
+                    case "1":
+                        console.log("Problem execution")
+                        break;
+                    case "2":
+                        console.log("No parameter send")
+                        break;
+                    case "3":
+                        console.log("Default error")
+                        break;
+                    default:
+                        console.log("An unknown error")
+                        break;
+                }
+
+                reDraw();
+                $('.selectView1').prop('disabled', false);
+                $('.selectView2').prop('disabled', false);
+            }
+        }
+        xmlhttp.open("GET", "../Filters/FilteredData.php?" + filter, true);
+        xmlhttp.send();
+    }
+
+    //setInterval(reload,10000);
 </script>
 </body>
 </html>

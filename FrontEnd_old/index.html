@@ -138,7 +138,7 @@
         <div class="col-md-2" style="margin-top: 20px">
             <form name="Filtros" id="form">
                 <div class="selectView1">
-                    <select class="selectView1" id="sv1" onchange="reload()">
+                    <select class="selectView1">
                         <option value="Client">Cliente1</option>
                         <option value="Project">Proyecto</option>
                         <option value="currentLocation">Current Site (location)</option>
@@ -149,8 +149,8 @@
                     </select>
                 </div>
                 <div class="selectView2">
-                    <select class="selectView2" id="sv2" onchange="reload()">
-                        <option value="None" selected>-- no filter --</option>
+                    <select class="selectView2">
+                        <option class="noFilter" selected>-- no filter --</option>
                         <option value="Client">Cliente2</option>
                         <option value="Project">Proyecto</option>
                         <option value="currentLocation">Current Site (location)</option>
@@ -167,7 +167,9 @@
 </div>
 </div>
 
+<div><input type="submit" class="pepe"></div>
 <script>
+$(document).ready(function() {
     // Various accessors that specify the four dimensions of data to visualize.
     function x(d) {
         return d.project;
@@ -318,12 +320,9 @@
             .attr("class", "position labelY")
             .text(" ");
 
-    reload();
+    dataLoad();
     // Load the data.
     function dataLoad() {
-
-
-
         var noCache = new Date().getTime();
 
         d3.json("data/info.json?_=" + noCache, function (surveyData) {
@@ -356,7 +355,7 @@
                                 .attr("x", -margin.left)
                                 .attr("y", ("y", yScale(y(d))));
                     })
-
+                // Look at the state machine history and find a drag event in it?
 
                     .on("mouseenter", function (d, i) {
                         dot.style("opacity", .4)
@@ -421,6 +420,7 @@
                         clearMouseLeave();
                     })
             legend.append("text")
+                    .attr("class", "legendText")
                     .attr("x", width + 232)
                     .attr("y", 9)
                     .attr("dy", ".35em")
@@ -429,23 +429,40 @@
                         return d.Name;
                     });
 
-            // Interpolates the dataset for the given (fractional) year.
+            // Interpolates the dataset for the given data.
             function interpolateData() {
                 return surveyData.map(function (d) {
                     return {
                         Name: d.filter1,
                         region: d.filter2,
-                        project: d.answ1,
+                        project: d.project,
                         quantity: d.quantity,
-                        client: d.answ2
+                        client: d.client
                     };
                 });
             }
 
+
+            // draw the circles
+
+
+            /*function init() {
+
+                dragit.init(".gRoot");
+
+                dragit.data = d3.range(surveyData.length).map(function () {
+                    return Array();
+                })
+                interpolateData().filter(function (d, i) {
+                    dragit.data[i][0] = [xScale(x(d)), yScale(y(d))];
+                })
+
+
+            }*/
+
             // function that shows the mouse over data
             function showMouseOver(d){
-                if ($('.check:checked').length<
-                        maxFilters) {
+                if ($('.noFilter').index() == 0) {
                     valueLabel1
                             .text(d.Name)
                             .attr("y", 80)
@@ -473,7 +490,6 @@
                             .attr("x", 20);
                 }
             }
-
             // function that clears the data
             function clearMouseLeave(){
                 valueLabel1.text("");
@@ -491,70 +507,24 @@
 
     $(function greyOut(){
         $('.selectView1').change(function() {
+            clearScreen();
+            dataLoad();
             $('.selectView2').prop("selectedIndex",0);
         })
 
     })
 
-    function clearScreen(){
+     function clearScreen(){
         svg.selectAll(".dots").remove();
-        svg.selectAll(".legend").remove();
-        $('.check').attr("disabled",true);
+        svg.selectAll(".rect").remove();
+         svg.selectAll(".legendText").remove();
     }
 
-    function reload(){
-        getFilters();
-
-    }
-    function reDraw(){
-        clearScreen();
-        dataLoad();
-    }
-
-
-    function getFilters(){
-        var response = "3";
-        var flt1 = document.getElementById("sv1").value;
-        var flt2 = document.getElementById("sv2").value;
-        var filter = "flt1=" + flt1;
-        if (flt2 != "None"){
-            filter += "&flt2=" + flt2;
-        }
-        $('.selectView1').prop('disabled', true);
-        $('.selectView2').prop('disabled', true);
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                response = xmlhttp.responseText;
-                console.log(response);
-                switch (response) {
-                    case "0":
-                        console.log("Correct execution")
-                        break;
-                    case "1":
-                        console.log("Problem execution")
-                        break;
-                    case "2":
-                        console.log("No parameter send")
-                        break;
-                    case "3":
-                        console.log("Default error")
-                        break;
-                    default:
-                        console.log("An unknown error")
-                        break;
-                }
-
-                reDraw();
-                $('.selectView1').prop('disabled', false);
-                $('.selectView2').prop('disabled', false);
-            }
-        }
-        xmlhttp.open("GET", "../Filters/FilteredData.php?" + filter, true);
-        xmlhttp.send();
-    }
-
-    //setInterval(reload,10000);
+    $(function reload(){
+        $('.pepe').click(clearScreen);
+        $('.pepe').click(dataLoad);
+    })
+})
 </script>
 </body>
 </html>
