@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link href="src/dragit.css" rel="stylesheet"/>
-    <link href="css/bootstrap.css" rel="stylesheet"/>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/jquery-1.11.3.js"></script>
-    <script src="src/dragit.js"></script>
+    <link href="FrontEnd/src/dragit.css" rel="stylesheet"/>
+    <link href="FrontEnd/css/bootstrap.css" rel="stylesheet"/>
+    <script src="FrontEnd/lib/d3.v3.js"></script>
+    <script src="FrontEnd/lib/jquery-1.11.3.js"></script>
+    <script src="FrontEnd/src/dragit.js"></script>
 </head>
 <style>
 
@@ -15,7 +15,7 @@
         margin-left:40px;
         font-weight: 200;
         font-size: 14px;
-        background-image: url("./img/background.jpeg");
+        background-image: url("FrontEnd/img/background.jpeg");
     }
 
     html,body {
@@ -324,7 +324,7 @@
 
         var noCache = new Date().getTime();
 
-        d3.json("data/info.json?_=" + noCache, function (surveyData) {
+        d3.json("FrontEnd/data/info.json?_=" + noCache, function (surveyData) {
 
             // A bisector since many value's data is sparsely-defined.
             var bisect = d3.bisector(function (d) {
@@ -554,7 +554,7 @@
                 $('.selectView2').prop('disabled', false);
             }
         }
-        xmlhttp.open("GET", "../Filters/FilteredData.php?" + filter, true);
+        xmlhttp.open("GET", "Filters/FilteredData.php?" + filter, true);
         xmlhttp.send();
     }
 
