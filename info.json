@@ -1,0 +1,23 @@
+[ 
+{"answ1":3.7142857142857,"answ2":2.9047619047619,"filter1":"Sony Store","filter2":17,"quantity":63},
+{"answ1":2.8367346938776,"answ2":3.3877551020408,"filter1":"SamGlob","filter2":13,"quantity":49},
+{"answ1":3.7142857142857,"answ2":3.2619047619048,"filter1":"Anti-Emision","filter2":1,"quantity":42},
+{"answ1":2.7428571428571,"answ2":3.2285714285714,"filter1":"Control Siemens","filter2":6,"quantity":35},
+{"answ1":3.25,"answ2":3.53125,"filter1":"Mercadoenvios","filter2":7,"quantity":32},
+{"answ1":3.5714285714286,"answ2":3.1071428571429,"filter1":"Web B&D","filter2":20,"quantity":28},
+{"answ1":1.8928571428571,"answ2":2.8571428571429,"filter1":"Spot and Go","filter2":18,"quantity":28},
+{"answ1":2.3571428571429,"answ2":2.8928571428571,"filter1":"Sony Mobile","filter2":16,"quantity":28},
+{"answ1":3.7916666666667,"answ2":2.4583333333333,"filter1":"BD Micro","filter2":2,"quantity":24},
+{"answ1":3.2380952380952,"answ2":3.1428571428571,"filter1":"Net and Chill","filter2":9,"quantity":21},
+{"answ1":2.5,"answ2":2.8125,"filter1":"WinGlob","filter2":21,"quantity":16},
+{"answ1":1.3125,"answ2":3.6875,"filter1":"Mercadopago","filter2":8,"quantity":16},
+{"answ1":2.125,"answ2":2.5,"filter1":"Cogni Go","filter2":3,"quantity":16},
+{"answ1":2.875,"answ2":2.4375,"filter1":"Cogni Move","filter2":4,"quantity":16},
+{"answ1":5,"answ2":2.3125,"filter1":"Cogni Web","filter2":5,"quantity":16},
+{"answ1":2.2142857142857,"answ2":2.9285714285714,"filter1":"Street Music","filter2":19,"quantity":14},
+{"answ1":3.8571428571429,"answ2":2.8571428571429,"filter1":"Netflix Mobile","filter2":10,"quantity":14},
+{"answ1":4.0714285714286,"answ2":2.7142857142857,"filter1":"PLC Net","filter2":12,"quantity":14},
+{"answ1":4.3571428571429,"answ2":3.4285714285714,"filter1":"Shure Mobile","filter2":14,"quantity":14},
+{"answ1":4,"answ2":3.2857142857143,"filter1":"Online PLC","filter2":11,"quantity":7},
+{"answ1":4,"answ2":3.4285714285714,"filter1":"Shure Web","filter2":15,"quantity":7}
+]

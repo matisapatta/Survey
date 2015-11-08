@@ -20,7 +20,9 @@ var headers = [];
 // Basic PutItem
 var params = {
     TableName: 'Survey',
-    Item: { "token": {S:'11'}, "resp1": {S:'5'}, "resp2": {S:'2'} }
+    Item: { "token": {S:'17'}, "resp1": {S:'1'}, "resp2": {S:'3'} }
+
+
 };
 
 
@@ -30,8 +32,7 @@ var params = {
 
 // // Conditional Put - Expression Attribute Names and Values
 
-
-dynamodb.putItem(params, function(err, data) {
-    if (err) console.log(err); // an error occurred
-    else console.log(data); // successful response
-});
+    dynamodb.putItem(params, function (err, data) {
+        if (err) console.log(err); // an error occurred
+        else console.log(data); // successful response
+    });
