@@ -139,7 +139,7 @@
             <form name="Filtros" id="form">
                 <div class="selectView1">
                     <select class="selectView1" id="sv1" onchange="reload1()">
-                        <option value="Client">Cliente1</option>
+                        <option value="Client">Cliente</option>
                         <option value="Project">Proyecto</option>
                         <option value="currentLocation">Current Site (location)</option>
                         <option value="currentTL">Team Lead</option>
@@ -151,7 +151,7 @@
                 <div class="selectView2">
                     <select class="selectView2" id="sv2" onchange="reload()">
                         <option value="None" selected>-- no filter --</option>
-                        <option value="Client">Cliente2</option>
+                        <option value="Client">Cliente</option>
                         <option value="Project">Proyecto</option>
                         <option value="currentLocation">Current Site (location)</option>
                         <option value="currentTL">Team Lead</option>
@@ -160,7 +160,19 @@
                         <option value="businessUnitName">Business Unit Name</option>
                     </select>
                 </div>
-
+                <div class="refreshInterval">
+                    <div style="margin-top: 30px">Refresh Interval</div>
+                    <select class="refreshInterval" id="refreshInt" onchange="reload()">
+                        <option value="5" selected>5 minutes</option>
+                        <option value="10">10 minutes</option>
+                        <option value="15">15 minutes</option>
+                        <option value="30">30 minutes</option>
+                        <option value="60">1 hour</option>
+                        <option value="300">5 hour</option>
+                        <option value="720">12 hours</option>
+                        <option value="1440">24 hours</option>
+                    </select>
+                </div>
             </form>
         </div>
     </div>
@@ -557,7 +569,7 @@
         xmlhttp.send();
     }
 
-    //setInterval(reload,10000);
+    setInterval(reload,document.getElementById("refreshInt").value*60000);
 </script>
 </body>
 </html>
