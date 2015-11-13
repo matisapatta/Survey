@@ -26,8 +26,8 @@ if (isset($_GET['flt1']) and $_GET['flt1'] !=""){
         $results = $dataFilter->getFilteredResults($rawEmployeesSurveyArray, $filter1);
 
     try{
-        $results->generate_Json();
-        echo "0";
+        echo $results->generate_Json();
+        //echo "0";
     }
     catch(Exception $e){
         echo "1";
