@@ -334,17 +334,14 @@
     reload();
     // Load the data.
     function dataLoad() {
-
-        var noCache = new Date().getTime();
         var flt1 = document.getElementById("sv1").value;
         var flt2 = document.getElementById("sv2").value;
         var filter = "flt1=" + flt1;
         if (flt2 != "None"){
             filter += "&flt2=" + flt2;
         }
-        //d3.json("FrontEnd/data/info.json?_=" + noCache, function (surveyData) {
         d3.json("./Filters/FilteredData.php?" + filter, function (surveyData) {
-            console.log(surveyData);
+
             // A bisector since many value's data is sparsely-defined.
             var bisect = d3.bisector(function (d) {
                 return d[0];
@@ -535,52 +532,12 @@
 
 
     function getFilters(){
-       /* var response = "3";
-        var flt1 = document.getElementById("sv1").value;
-        var flt2 = document.getElementById("sv2").value;
-        var filter = "flt1=" + flt1;
-        if (flt2 != "None"){
-            filter += "&flt2=" + flt2;
-        }
-        $('.selectView1').prop('disabled', true);
-        $('.selectView2').prop('disabled', true);
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                response = xmlhttp.responseText;
-                console.log(response);
-                switch (response) {
-                    case "0":
-                        console.log("Correct execution")
-                        break;
-                    case "1":
-                        console.log("Problem execution")
-                        break;
-                    case "2":
-                        console.log("No parameter send")
-                        break;
-                    case "3":
-                        console.log("Default error")
-                        break;
-                    default:
-                        console.log("An unknown error")
-                        break;
-                }
-
-                reDraw();
-                $('.selectView1').prop('disabled', false);
-                $('.selectView2').prop('disabled', false);
-            }
-        }
-        xmlhttp.open("GET", "./Filters/FilteredData.php?" + filter, true);
-        xmlhttp.send();*/
         $('.selectView1').prop('disabled', true);
         $('.selectView2').prop('disabled', true);
         reDraw();
         $('.selectView1').prop('disabled', false);
         $('.selectView2').prop('disabled', false);
     }
-
     setInterval(reload,document.getElementById("refreshInt").value*60000);
 </script>
 </body>
