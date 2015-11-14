@@ -100,22 +100,7 @@ class arrayResults
     }
 
     public function generate_Json(){
-        /*$fh = fopen("../FrontEnd/data/info.json", 'w')  or die("Error al abrir fichero de salida");
-        // PARA GENERAR JSON BIEN LAS PROPIEDADES DEBEN SER PUBLICAS!!!
-        fwrite($fh, "[ \n");
-        $i = 0;
-        $len = count($this->Results);
-        foreach($this->Results as $result)
-        {
-            fwrite($fh, json_encode($result,JSON_UNESCAPED_UNICODE));
-            if ($i != $len - 1) {
-                // not the last
-                fwrite($fh, ",\n");
-            }
-            $i++;
-        }
-        fwrite($fh, "\n]");
-        fclose($fh);*/
+
         $jsonString = "[ \n";
         $i = 0;
         $len = count($this->Results);

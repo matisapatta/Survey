@@ -27,11 +27,10 @@ if (isset($_GET['flt1']) and $_GET['flt1'] !=""){
 
     try{
         echo $results->generate_Json();
-        //echo "0";
     }
     catch(Exception $e){
-        echo "1";
+        echo "";
     }
 }else
-    echo "2";
+    echo "";
 ?>
