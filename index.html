@@ -335,7 +335,6 @@
     // Load the data.
     function dataLoad() {
 
-        var noCache = new Date().getTime();
         var flt1 = document.getElementById("sv1").value;
         var flt2 = document.getElementById("sv2").value;
         var filter = "flt1=" + flt1;
@@ -519,22 +518,36 @@
     }
 
     function reload(){
-        getFilters();
+       // getFilters();
+        $('.selectView1').prop('disabled', true);
+        $('.selectView2').prop('disabled', true);
+        reDraw();
+
 
     }
     function reload1(){
         document.getElementById("sv2").value = "None";
-        getFilters();
+      //  getFilters();
+        $('.selectView1').prop('disabled', true);
+        $('.selectView2').prop('disabled', true);
+        reDraw();
 
     }
 
     function reDraw(){
         clearScreen();
         dataLoad();
+        $('.selectView1').prop('disabled', false);
+        $('.selectView2').prop('disabled', false);
     }
 
 
     function getFilters(){
+        $('.selectView1').prop('disabled', true);
+        $('.selectView2').prop('disabled', true);
+        reDraw();
+        $('.selectView1').prop('disabled', false);
+        $('.selectView2').prop('disabled', false);
        /* var response = "3";
         var flt1 = document.getElementById("sv1").value;
         var flt2 = document.getElementById("sv2").value;
@@ -574,14 +587,10 @@
         }
         xmlhttp.open("GET", "./Filters/FilteredData.php?" + filter, true);
         xmlhttp.send();*/
-        $('.selectView1').prop('disabled', true);
-        $('.selectView2').prop('disabled', true);
-        reDraw();
-        $('.selectView1').prop('disabled', false);
-        $('.selectView2').prop('disabled', false);
+
     }
 
-    setInterval(reload,document.getElementById("refreshInt").value*60000);
+    setInterval(reload1,document.getElementById("refreshInt").value*60000);
 </script>
 </body>
 </html>

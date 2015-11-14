@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-node dynamoDB.js -t Survey > Survey.csv
+node dynamoDB.js -t Survey > test.csv
