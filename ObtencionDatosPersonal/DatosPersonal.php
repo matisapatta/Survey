@@ -9,7 +9,7 @@
 include_once("../Merge/Employee.php");
 class DatosPersonal
 {
-    public $fileEmpleados = "example_data.csv";
+    public $fileEmpleados = "example_data1.csv";
 
     public function get(){
     /*este metodo obtiene los datos de los empleados desde un archivo csv y los guarda en un array de dos dimensiones
