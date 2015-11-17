@@ -181,6 +181,8 @@
 </div>
 
 <script>
+
+    var inter =  setInterval(reload,document.getElementById("refreshInt").value*60000);
     // Various accessors that specify the four dimensions of data to visualize.
     function x(d) {
         return d.project;
@@ -523,7 +525,10 @@
         getFilters();
         $('.selectView1').prop('disabled', true);
         $('.selectView2').prop('disabled', true);
+        clearInterval(inter);
+        inter =  setInterval(reload,document.getElementById("refreshInt").value*60000);
         reDraw();
+
 
 
     }
@@ -581,7 +586,7 @@
 
     }
 
-    setInterval(reload,document.getElementById("refreshInt").value*60000);
+
 </script>
 </body>
 </html>
