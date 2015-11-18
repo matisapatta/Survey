@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <link href="FrontEnd/src/dragit.css" rel="stylesheet"/>
     <link href="FrontEnd/css/bootstrap.css" rel="stylesheet"/>
-    <script src="FrontEnd/lib/d3.v3.js"></script>
+    <script src="FrontEnd/lib/d3.v3.js"></script> <!--Main library used for bubble chart-->
     <script src="FrontEnd/lib/jquery-1.11.3.js"></script>
     <script src="FrontEnd/src/dragit.js"></script>
 </head>
+
+<!--Styles definition:-->
 <style>
 
     body {
@@ -127,8 +129,8 @@
 
 </style>
 
-
-<div align="center" id="title">Survey Results</div>
+<!--Interface layout:-->
+<div align="center" id="title">Survey Results</div><!--Page title-->
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-10" align="left">
@@ -138,7 +140,7 @@
         <div class="col-md-2" style="margin-top: 20px">
             <form name="Filtros" id="form">
                 <div class="selectView1">
-                    <select class="selectView1" id="sv1" onchange="reload1()">
+                    <select class="selectView1" id="sv1" onchange="resetAndReload()"><!--function executed when selecting the first filter-->
                         <option value="Client">Cliente</option>
                         <option value="Project">Proyecto</option>
                         <option value="currentLocation">Current Site (location)</option>
@@ -149,7 +151,7 @@
                     </select>
                 </div>
                 <div class="selectView2">
-                    <select class="selectView2" id="sv2" onchange="reload()">
+                    <select class="selectView2" id="sv2" onchange="reload()"><!--function executed when selecting the second filter-->
                         <option value="None" selected>-- no filter --</option>
                         <option value="Client">Cliente</option>
                         <option value="Project">Proyecto</option>
@@ -162,7 +164,7 @@
                 </div>
                 <div class="refreshInterval">
                     <div style="margin-top: 30px">Refresh Interval</div>
-                    <select class="refreshInterval" id="refreshInt" onchange="reload()">
+                    <select class="refreshInterval" id="refreshInt" onchange="reload()"><!--function executed when selecting the refresh time-->
                         <option value="1" >1 minute</option>
                         <option value="5" selected>5 minutes</option>
                         <option value="10">10 minutes</option>
@@ -180,16 +182,24 @@
 </div>
 </div>
 
+<!--Javascript Section:-->
 <script>
 
+    /*-------------------------------------------------------------------------------*/
+    //MAIN SCRIPT AND DEFINITIONS
+    /*-------------------------------------------------------------------------------*/
+
+    //setInterval handles the automatic refresh
     var inter =  setInterval(reload,document.getElementById("refreshInt").value*60000);
-    // Various accessors that specify the four dimensions of data to visualize.
+
+
+    // Various things that specify the four dimensions of data to visualize.
     function x(d) {
-        return d.project;
+        return d.answer1;
     }
 
     function y(d) {
-        return d.client;
+        return d.answer2;
     }
 
     function radius(d) {
@@ -197,11 +207,11 @@
     }
 
     function color(d) {
-        return d.region;
+        return d.filter2;
     }
 
     function key(d) {
-        return d.Name;
+        return d.filter1;
     }
 
     // Max filters
@@ -296,6 +306,7 @@
             .attr("text-anchor", "end")
             .attr("x", width)
             .attr("y", height - 10)
+            //X axis text
             .text("Grado de conformidad con el proyecto");
 
     // Add a y-axis label.
@@ -305,6 +316,7 @@
             .attr("y", 6)
             .attr("dy", ".75em")
             .attr("transform", "rotate(-90)")
+            //Y axis text
             .text("Grado de conformidad del cliente");
 
 
@@ -333,185 +345,180 @@
             .attr("class", "position labelY")
             .text(" ");
 
+    //First call to load the data on the bubble chart
     reload();
-    // Load the data.
+
+    /*-------------------------------------------------------------------------------*/
+    //FUNCTIONS
+    /*-------------------------------------------------------------------------------*/
+
+    // Loads the data to the bubble chart
     function dataLoad(jsonData) {
-
-        var flt1 = document.getElementById("sv1").value;
-        var flt2 = document.getElementById("sv2").value;
-        var filter = "flt1=" + flt1;
-        if (flt2 != "None"){
-            filter += "&flt2=" + flt2;
-        }
-        console.log("json");
-        console.log(jsonData);
-        console.log("json end");
-        //d3.json("FrontEnd/data/info.json?_=" + noCache, function (surveyData) {
+        //jsonData contains the json with the information to show on the chart, first it is parsed
         var surveyData = JSON.parse(jsonData);
-            console.log(surveyData);
-            // A bisector since many value's data is sparsely-defined.
-            var bisect = d3.bisector(function (d) {
-                return d[0];
-            });
 
-            var dot = svg.append("g")
-                    .attr("class", "dots")
-                    .attr("id", "theDots")
-                    .selectAll(".dot")
-                    .data(interpolateData())
-                    .enter().append("circle")
-                    .attr("class", "dot")
-                    .style("fill", function (d) {
-                        return colorScale(color(d));
-                    })
-                    .call(position)
-                    .on("mouseup", function (d, i) {
-                        dot.classed("selected", false);
-                        d3.select(this).classed("selected", !d3.select(this).classed("selected"));
-                        valueX
-                                .text(d.project.toFixed(2))
-                                .attr("x", xScale(x(d)))
-                                .attr("y", height + margin.top + margin.bottom);
-                        valueY
-                                .text(d.client.toFixed(2))
-                                .attr("x", -margin.left)
-                                .attr("y", ("y", yScale(y(d))));
-                    })
+        // A bisector since many value's data is sparsely-defined.
+        var bisect = d3.bisector(function (d) {
+            return d[0];
+        });
 
-
-                    .on("mouseenter", function (d, i) {
-                        dot.style("opacity", .4)
-                        d3.select(this).style("opacity", 1)
-                        d3.selectAll(".selected").style("opacity", 1)
-                        showMouseOver(d);
-
-                    })
-                    .on("mouseleave", function (d, i) {
-
-                        clearMouseLeave();
-
-                    })
-                    .call(dragit.object.activate)
-
-            // Add a title.
-            dot.append("title")
-                    .text(function (d) {
-                        return d.Name;
-                    });
-
-
-            // Positions the dots based on data.
-            function position(dot) {
-                dot.attr("cx", function (d) {
-                    return xScale(x(d));
+        //Definition of a dot and its events
+        var dot = svg.append("g")
+                .attr("class", "dots")
+                .attr("id", "theDots")
+                .selectAll(".dot")
+                .data(interpolateData())
+                .enter().append("circle")
+                .attr("class", "dot")
+                .style("fill", function (d) {
+                    return colorScale(color(d));
                 })
-                        .attr("cy", function (d) {
-                            return yScale(y(d));
-                        })
-                        .attr("r", function (d) {
-                            return radiusScale(radius(d));
-                        });
-            }
+                .call(position)
+                .on("mouseup", function (d, i) {
+                    dot.classed("selected", false);
+                    d3.select(this).classed("selected", !d3.select(this).classed("selected"));
+                    valueX
+                            .text(d.answer1.toFixed(2))
+                            .attr("x", xScale(x(d)))
+                            .attr("y", height + margin.top + margin.bottom);
+                    valueY
+                            .text(d.answer2.toFixed(2))
+                            .attr("x", -margin.left)
+                            .attr("y", ("y", yScale(y(d))));
+                })
 
-            var legend = svg.selectAll(".legend")
-                    .data(interpolateData())
-                    .enter().append("g")
-                    .attr("class", "legend")
-                    .attr("transform", function (d, i) {
-                        return "translate(-200," + i * 20 + ")";
-                    });
 
-            legend.append("rect")
-                    .attr("x", width + 210)
-                    .attr("width", 18)
-                    .attr("height", 18)
-                    .attr("class", "rect")
-                    .style("fill", function (d) {
-                        return colorScale(color(d));
-                    })
-                    .on("mouseenter", function (d, i) {
-                        showMouseOver(d);
-                        var texto = d.Name;
-                        valueQuan.text(d.quantity + '');
-                        d3.selectAll(".dot").style("opacity", .4)
-                        d3.selectAll(".dot").filter(function (d) {
-                            return d.Name == texto;
-                        }).style("opacity", 1)
-                    })
-                    .on("mouseleave", function (d, i) {
-                        clearMouseLeave();
-                    })
-            legend.append("text")
-                    .attr("x", width + 232)
-                    .attr("y", 9)
-                    .attr("dy", ".35em")
-                    .style("text-anchor", "start")
-                    .text(function (d) {
-                        var flt2 = document.getElementById("sv2").value;
-                        if (flt2 != "None")
-                            return d.Name + ", " + d.region;
-                        else
-                            return d.Name;
-                    });
+                .on("mouseenter", function (d, i) {
+                    dot.style("opacity", .4)
+                    d3.select(this).style("opacity", 1)
+                    d3.selectAll(".selected").style("opacity", 1)
+                    showMouseOver(d);
 
-            // Interpolates the dataset for the given (fractional) year.
-            function interpolateData() {
-                return surveyData.map(function (d) {
-                    return {
-                        Name: d.filter1,
-                        region: d.filter2,
-                        project: d.answ1,
-                        quantity: d.quantity,
-                        client: d.answ2
-                    };
+                })
+                .on("mouseleave", function (d, i) {
+
+                    clearMouseLeave();
+
+                })
+                .call(dragit.object.activate)
+
+        // Add a title.
+        dot.append("title")
+                .text(function (d) {
+                    return d.filter1;
                 });
-            }
-
-            // function that shows the mouse over data
-            function showMouseOver(d){
-                if (document.getElementById("sv2").value == "None")
-                /*($('.check:checked').length<
-                        maxFilters)*/
-                {
-                    valueLabel1
-                            .text(d.Name)
-                            .attr("y", 80)
-                            .attr("x", 20);
-                    valueQuan
-                            .text(d.quantity + '')
-                            .attr(
-                            "y", 180)
-                            .attr("x", 20);
-                } else {
-                    valueLabel2
-                            .text(d.region)
-                            .attr("y", 80)
-                            .attr("x", 20);
-                    valueLabel1
-                            .text(d.Name)
-                            .attr("y", 180)
-                            .attr("x", 20);
-                    valueQuan
-                            .text(d.quantity + '')
-                            .attr("y", 280)
-                            .attr("x", 20);
-                }
-            }
-            // function that clears the data
-            function clearMouseLeave(){
-                valueLabel1.text("");
-                valueLabel2.text("");
-                valueQuan.text("");
-                valueX.text("");
-                valueY.text("");
-                dot.style("opacity", 1);
-                dot.classed("selected", false);
-            }
 
 
+        // Positions the dots based on data.
+        function position(dot) {
+            dot.attr("cx", function (d) {
+                return xScale(x(d));
+            })
+                    .attr("cy", function (d) {
+                        return yScale(y(d));
+                    })
+                    .attr("r", function (d) {
+                        return radiusScale(radius(d));
+                    });
+        }
+
+        //Definition of the legend shown on screen
+        var legend = svg.selectAll(".legend")
+                .data(interpolateData())
+                .enter().append("g")
+                .attr("class", "legend")
+                .attr("transform", function (d, i) {
+                    return "translate(-200," + i * 20 + ")";
+                });
+
+        legend.append("rect")
+                .attr("x", width + 210)
+                .attr("width", 18)
+                .attr("height", 18)
+                .attr("class", "rect")
+                .style("fill", function (d) {
+                    return colorScale(color(d));
+                })
+                .on("mouseenter", function (d, i) {
+                    showMouseOver(d);
+                    var text = d.filter1;
+                    valueQuan.text(d.quantity + '');
+                    d3.selectAll(".dot").style("opacity", .4)
+                    d3.selectAll(".dot").filter(function (d) {
+                        return d.filter1 == text;
+                    }).style("opacity", 1)
+                })
+                .on("mouseleave", function (d, i) {
+                    clearMouseLeave();
+                })
+        legend.append("text")
+                .attr("x", width + 232)
+                .attr("y", 9)
+                .attr("dy", ".35em")
+                .style("text-anchor", "start")
+                .text(function (d) {
+                    var flt2 = document.getElementById("sv2").value;
+                    if (flt2 != "None")
+                        return d.filter1 + ", " + d.filter2;
+                    else
+                        return d.filter1;
+                });
+
+        // Interpolates the dataset for the given (fractional) year.
+        function interpolateData() {
+            return surveyData.map(function (d) {
+                return {
+                    filter1: d.filter1,
+                    filter2: d.filter2,
+                    answer1: d.answ1,
+                    quantity: d.quantity,
+                    answer2: d.answ2
+                };
+            });
+        }
+
+        // function that shows the mouse over data
+        function showMouseOver(d){
+            if (document.getElementById("sv2").value == "None")
+            {
+                valueLabel1
+                        .text(d.filter1)
+                        .attr("y", 80)
+                        .attr("x", 20);
+                valueQuan
+                        .text(d.quantity + '')
+                        .attr(
+                        "y", 180)
+                        .attr("x", 20);
+            } else {
+                valueLabel2
+                        .text(d.filter2)
+                        .attr("y", 80)
+                        .attr("x", 20);
+                valueLabel1
+                        .text(d.filter1)
+                        .attr("y", 180)
+                        .attr("x", 20);
+                valueQuan
+                        .text(d.quantity + '')
+                        .attr("y", 280)
+                        .attr("x", 20);
+            }
+        }
+        // function that clears the data
+        function clearMouseLeave(){
+            valueLabel1.text("");
+            valueLabel2.text("");
+            valueQuan.text("");
+            valueX.text("");
+            valueY.text("");
+            dot.style("opacity", 1);
+            dot.classed("selected", false);
+        }
     }
- // to work with filters
+    //End of dataLoad
 
+    //When the first filter is changed the second one is reset.
     $(function greyOut(){
         $('.selectView1').change(function() {
             $('.selectView2').prop("selectedIndex",0);
@@ -519,43 +526,43 @@
 
     })
 
+    //Clears the bubble chart
     function clearScreen(){
         svg.selectAll(".dots").remove();
         svg.selectAll(".legend").remove();
         $('.check').attr("disabled",true);
     }
 
-    function reload(){
-        getFilters();
+    //changes the refresh time
+    function setTimeout(){
         clearInterval(inter);
         inter =  setInterval(reload,document.getElementById("refreshInt").value*60000);
-        reDraw();
     }
 
-    function reload1(){
-        document.getElementById("sv2").value = "None";
-        getFilters();
-        reDraw();
-
-    }
-
+    //redraws the bubble chart with the data stored in a json
     function reDraw(jsonData){
         clearScreen();
         dataLoad(jsonData);
     }
 
-
+    //sets the filters from the values selected from the dropdown lists
     function getFilters(){
-        var response = "3";
         var flt1 = document.getElementById("sv1").value;
         var flt2 = document.getElementById("sv2").value;
         var filter = "flt1=" + flt1;
         if (flt2 != "None"){
             filter += "&flt2=" + flt2;
         }
+        return filter;
+    }
+
+    //sends the request to php to get the json with the filtered data to show
+    function sendRequest(filter){
         $('.selectView1').prop('disabled', true);
         $('.selectView2').prop('disabled', true);
         var xmlhttp = new XMLHttpRequest();
+        //Definition of the function executed on the response arrival
+        //when the response is acquired the redrawing of the bubble chart is performed with the json obtained in response
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 response = xmlhttp.responseText;
@@ -573,11 +580,26 @@
                 $('.selectView2').prop('disabled', false);
             }
         }
+
+        //sends the request
         xmlhttp.open("GET", "./Filters/FilteredData.php?" + filter, true);
         xmlhttp.send();
     }
 
+    //reloads the data on screen based on the selected filters
+    function reload(){
+        setTimeout(); //resets the autorefresh
+        filters = getFilters();
+        sendRequest(filters);
+    }
+
+    //when selecting the first filter, sets the second one to "none" before reloading
+    function resetAndReload(){
+        document.getElementById("sv2").value = "None";
+        reload();
+    }
 
 </script>
+
 </body>
 </html>
