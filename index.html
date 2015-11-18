@@ -447,7 +447,11 @@
                     .attr("dy", ".35em")
                     .style("text-anchor", "start")
                     .text(function (d) {
-                        return d.Name;
+                        var flt2 = document.getElementById("sv2").value;
+                        if (flt2 != "None")
+                            return d.Name + ", " + d.region;
+                        else
+                            return d.Name;
                     });
 
             // Interpolates the dataset for the given (fractional) year.
@@ -523,20 +527,14 @@
 
     function reload(){
         getFilters();
-        $('.selectView1').prop('disabled', true);
-        $('.selectView2').prop('disabled', true);
         clearInterval(inter);
         inter =  setInterval(reload,document.getElementById("refreshInt").value*60000);
         reDraw();
-
-
-
     }
+
     function reload1(){
         document.getElementById("sv2").value = "None";
         getFilters();
-        $('.selectView1').prop('disabled', true);
-        $('.selectView2').prop('disabled', true);
         reDraw();
 
     }
@@ -544,16 +542,10 @@
     function reDraw(jsonData){
         clearScreen();
         dataLoad(jsonData);
-        //$('.selectView1').prop('disabled', false);
-        //$('.selectView2').prop('disabled', false);
     }
 
 
     function getFilters(){
-        /*$('.selectView1').prop('disabled', true);
-        $('.selectView2').prop('disabled', true);
-        reDraw();
-        $('.selectView1').prop('disabled', false);*/
         var response = "3";
         var flt1 = document.getElementById("sv1").value;
         var flt2 = document.getElementById("sv2").value;
@@ -575,15 +567,14 @@
                 catch (exception){
                     $('.selectView1').prop('disabled', false);
                     $('.selectView2').prop('disabled', false);
+                    console.log(exception);
                 }
                 $('.selectView1').prop('disabled', false);
                 $('.selectView2').prop('disabled', false);
-
             }
         }
         xmlhttp.open("GET", "./Filters/FilteredData.php?" + filter, true);
         xmlhttp.send();
-
     }
 
 
