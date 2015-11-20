@@ -7,6 +7,7 @@
     <script src="FrontEnd/lib/d3.v3.js"></script> <!--Main library used for bubble chart-->
     <script src="FrontEnd/lib/jquery-1.11.3.js"></script>
     <script src="FrontEnd/src/dragit.js"></script>
+    <script src="http://fgnass.github.io/spin.js/spin.js"></script>
 </head>
 
 <!--Styles definition:-->
@@ -131,13 +132,13 @@
 
 <!--Interface layout:-->
 <div align="center" id="title">Survey Results</div><!--Page title-->
-<div class="container-fluid">
+<div class="container-fluid" >
     <div class="row">
         <div class="col-md-10" align="left">
             <div align="center" id="chart" style="margin:0px"></div>
 
         </div>
-        <div class="col-md-2" style="margin-top: 20px">
+        <div class="col-md-2" style="margin-top: 20px" >
             <form name="Filtros" id="form">
                 <div class="selectView1">
                     <select class="selectView1" id="sv1" onchange="resetAndReload()"><!--function executed when selecting the first filter-->
@@ -344,6 +345,35 @@
     var valueY = svg.append("text")
             .attr("class", "position labelY")
             .text(" ");
+
+    //Loading spinner options
+
+    var opts = {
+        lines: 9 // The number of lines to draw
+        , length: 47 // The length of each line
+        , width: 26 // The line thickness
+        , radius: 65 // The radius of the inner circle
+        , scale: 0.75 // Scales overall size of the spinner
+        , corners: 0.7 // Corner roundness (0..1)
+        , color: '#000' // #rgb or #rrggbb or array of colors
+        , opacity: 0.4 // Opacity of the lines
+        , rotate: 24 // The rotation offset
+        , direction: 1 // 1: clockwise, -1: counterclockwise
+        , speed: 1.4 // Rounds per second
+        , trail: 78 // Afterglow percentage
+        , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+        , zIndex: 2e9 // The z-index (defaults to 2000000000)
+        , className: 'spinner' // The CSS class to assign to the spinner
+        , top: '38%' // Top position relative to parent
+        , left: '50%' // Left position relative to parent
+        , shadow: false // Whether to render a shadow
+        , hwaccel: false // Whether to use hardware acceleration
+        , position: 'absolute' // Element positioning
+    };
+
+    //Loading spinner creation
+    var target = document.getElementById('chart');
+    var spinner = new Spinner(opts);
 
     //First call to load the data on the bubble chart
     reload();
@@ -560,6 +590,8 @@
     function sendRequest(filter){
         $('.selectView1').prop('disabled', true);
         $('.selectView2').prop('disabled', true);
+        spinner.spin(target);
+
         var xmlhttp = new XMLHttpRequest();
         //Definition of the function executed on the response arrival
         //when the response is acquired the redrawing of the bubble chart is performed with the json obtained in response
@@ -574,10 +606,12 @@
                 catch (exception){
                     $('.selectView1').prop('disabled', false);
                     $('.selectView2').prop('disabled', false);
+                    spinner.stop();
                     console.log(exception);
                 }
                 $('.selectView1').prop('disabled', false);
                 $('.selectView2').prop('disabled', false);
+                spinner.stop();
             }
         }
 
@@ -598,6 +632,8 @@
         document.getElementById("sv2").value = "None";
         reload();
     }
+
+
 
 </script>
 
