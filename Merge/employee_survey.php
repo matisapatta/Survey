@@ -9,6 +9,7 @@
 include_once("Employee.php");
 include_once("Survey.php");
 
+//This class stores both the employee data and its survey results in a single object.
 class dtoEmployee_Survey
 {
     private $resp1;
@@ -476,13 +477,14 @@ class dtoEmployee_Survey
     }
 }
 
+//This class handles an array of dtoEmployee_Survey objects
 class arrayEmployee_Survey
 {
     private $Employees_Survey = array();
 
     public function saveObject()
     {
-        array_push($this->Employees_Survey , $this->newEmployee_Survey);
+        array_push($this->Employees_Survey, $this->newEmployee_Survey);
     }
 
     public function getEmployees_Survey()
@@ -493,15 +495,5 @@ class arrayEmployee_Survey
     {
         $this->newEmployee_Survey = $employee_survey;
         $this->saveObject();
-    }
-
-    public function generar_Json(){
-        $fh = fopen("datos_out.json", 'w')  or die("Error al abrir fichero de salida");
-        // PARA GENERAR JSON BIEN LAS PROPIEDADES DEBEN SER PUBLICAS!!!
-        foreach($this->Employees_Survey as $employee_survey)
-        {
-            fwrite($fh, json_encode($employee_survey,JSON_UNESCAPED_UNICODE));
-        }
-        fclose($fh);
     }
 }

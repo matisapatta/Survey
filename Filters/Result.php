@@ -7,6 +7,8 @@
  * Time: 11:46 PM
  */
 
+//This class stores a result obtained from filtering employee_survey objects with a DataFilter object.
+//It stores the average result of two answers, the filters considered and the quantity of people that is in those filter's scope
 
 class Result
 {
@@ -67,26 +69,24 @@ class Result
     }
 }
 
+//This class handles an array of Result objects.
+
 class arrayResults
 {
     public $Results = array();
-
-
-    public function saveObject()
-    {
-        array_push($this->Results , $this->newResult);
-    }
 
     public function getResults()
     {
         return $this->Results;
     }
 
+    //Function used by 'usort' inside sortDesc() to perform the sorting
     private function sortResultDesc(Result $a, Result $b)
     {
         return ($a->getQuantity() < $b->getQuantity());
     }
 
+    //Sorts the array $Results descending by the $quantity parameter.
     public function sortDesc(){
 
         usort($this->Results, array('arrayResults', 'sortResultDesc'));
@@ -95,10 +95,10 @@ class arrayResults
 
     public function addResults(Result $result)
     {
-        $this->newResult = $result;
-        $this->saveObject();
+        array_push($this->Results , $result);
     }
 
+    //Generates a Json string with a line for each Result object in the Array.
     public function generate_Json(){
 
         $jsonString = "[ \n";
@@ -108,7 +108,7 @@ class arrayResults
         {
             $jsonString = $jsonString . json_encode($result,JSON_UNESCAPED_UNICODE);
             if ($i != $len - 1) {
-                // not the last
+                // not the last line
                 $jsonString = $jsonString . ",\n";
             }
             $i++;

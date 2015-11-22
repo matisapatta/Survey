@@ -6,6 +6,8 @@
  * Date: 18/10/2015
  * Time: 11:56 PM
  */
+
+//This class stores an employee's data
 class dtoEmployee
 {
     private $Email;

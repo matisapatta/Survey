@@ -616,7 +616,7 @@
         }
 
         //sends the request
-        xmlhttp.open("GET", "./Filters/FilteredData.php?" + filter, true);
+        xmlhttp.open("GET", "./Filters/ApplyFilters.php?" + filter, true);
         xmlhttp.send();
     }
 
@@ -632,8 +632,6 @@
         document.getElementById("sv2").value = "None";
         reload();
     }
-
-
 
 </script>
 
