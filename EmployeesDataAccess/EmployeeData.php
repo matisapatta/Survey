@@ -14,7 +14,7 @@ class EmployeeData
     //This is the location of the csv file that contains the employees database's dump
     public $fileEmployees = "example_data.csv";
 
-    
+
     //This function obtains the employees data from a csv file and stores it in a dtoEmployee objects array.
     public function get(){
         $myfile = fopen($this->fileEmployees, "r", 1) or die("No se puede abrir el archivo!");
