@@ -36,8 +36,8 @@ class dtoSurvey
     {
         $this->token = $token;
     }
-    public function arraySurveyToDto( $row ){
-        $sequenceSurvey = new SequenceSurvey();
+    public function arraySurveyToDto( $row, SequenceSurvey $sequenceSurvey ){
+        //$sequenceSurvey = new SequenceSurvey();
         for($x=0; $x < $sequenceSurvey->getMax(); $x++ )
         {
             switch($x){
@@ -57,14 +57,33 @@ class dtoSurvey
 
 class SequenceSurvey
 {
-    public static $resp1 = 2;
-    public static $resp2 = 0;
-    public static $token = 1;
-    public static $Max = 3;
+    public static $resp1;
+    public static $resp2;
+    public static $token;
+    public static $Max;
 
-    /**
-     * @return int
-     */
+
+    public function __construct($row)
+    {
+        $x = 0;
+        do {
+            switch ($row[$x]) {
+                case "resp1";
+                    $this->setResp1($x);
+                    break;
+                case "resp2";
+                    $this->setResp2($x);
+                    break;
+                case "token";
+                    $this->setToken($x);
+                    break;
+            }
+            $x++;
+        }while(isset($row[$x]));
+        $this->setMax($x);
+    }
+
+
     public static function getMax()
     {
         return self::$Max;

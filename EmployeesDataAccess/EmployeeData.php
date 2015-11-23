@@ -18,10 +18,11 @@ class EmployeeData
     public function get(){
         $myfile = fopen($this->fileEmployees, "r", 1) or die("No se puede abrir el archivo!");
         $arrayEmployees = new arrayEmployee();
+        $orderEmployee = new orderEmployee(fgetcsv($myfile));
 
         while(!feof($myfile)) {
             $employee = new dtoEmployee();
-            $employee->ArrayEmployeeToDto(fgetcsv($myfile) );
+            $employee->ArrayEmployeeToDto(fgetcsv($myfile), $orderEmployee);
             $arrayEmployees->addEmployee($employee);
         }
         fclose($myfile);

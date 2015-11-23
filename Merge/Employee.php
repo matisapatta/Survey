@@ -11,9 +11,6 @@
 class dtoEmployee
 {
     private $Email;
-    private $Q1;
-    private $Q2;
-    private $Observation;
     private $Name;
     private $ID;
     private $Current_Skill;
@@ -255,16 +252,6 @@ class dtoEmployee
     {
         $this->Name = $Name;
     }
-    public function getObservation()
-    {
-        return $this->Observation;
-    }/**
- * @param mixed $Observation
- */
-    public function setObservation($Observation)
-    {
-        $this->Observation = $Observation;
-    }
     public function getOffice()
     {
         return $this->Office;
@@ -355,26 +342,7 @@ class dtoEmployee
     {
         $this->Project_Tag = $Project_Tag;
     }
-    public function getQ1()
-    {
-        return $this->Q1;
-    }/**
- * @param mixed $Q1
- */
-    public function setQ1($Q1)
-    {
-        $this->Q1 = $Q1;
-    }
-    public function getQ2()
-    {
-        return $this->Q2;
-    }/**
- * @param mixed $Q2
- */
-    public function setQ2($Q2)
-    {
-        $this->Q2 = $Q2;
-    }
+
     public function getReplacementReason()
     {
         return $this->replacement_reason;
@@ -405,22 +373,13 @@ class dtoEmployee
     {
         $this->Studio = $Studio;
     }
-    public function ArrayEmployeeToDto( $row ){
-        $orderEmployee = new orderEmployee();
+    public function ArrayEmployeeToDto( $row, orderEmployee $orderEmployee ){
+        //$orderEmployee = new orderEmployee();
         for($x=0; $x < $orderEmployee->getMax(); $x++ )
         {
             switch($x){
                 case $orderEmployee->getEmail():
                     $this->setEmail($row[$x]);
-                    break;
-                case $orderEmployee->getQ1():
-                    $this->setQ1($row[$x]);
-                    break;
-                case $orderEmployee->getQ2():
-                    $this->setQ2($row[$x]);
-                    break;
-                case $orderEmployee->getObservation();
-                    $this->setObservation($row[$x]);
                     break;
                 case $orderEmployee->getName():
                     $this->setName($row[$x]);
@@ -525,47 +484,155 @@ class dtoEmployee
 
 class orderEmployee
 {
-    private $Email = 0 ;
-    private $Q1 = 1 ;
-    private $Q2 = 2 ;
-    private $Observation = 3 ;
-    private $Name = 4 ;
-    private $ID = 5 ;
-    private $Current_Skill = 6 ;
-    private $Current_Seniority = 7 ;
-    private $Client_Tag = 8 ;
-    private $Client = 9 ;
-    private $Project_Tag = 10 ;
-    private $Project = 11 ;
-    private $starting_Date = 12 ;
-    private $end_Date = 13 ;
-    private $percentage = 14 ;
-    private $current_Location = 15 ;
-    private $current_TL = 16 ;
-    private $all_Locations = 17 ;
-    private $current_PMs = 18 ;
-    private $current_PA = 19 ;
-    private $pms_History = 20 ;
-    private $current_DDs = 21 ;
-    private $assignment_Type = 22 ;
-    private $comments = 23 ;
-    private $Project_Studio = 24 ;
-    private $Studio = 25 ;
-    private $Office = 26 ;
-    private $dds_History = 27 ;
-    private $business_Unit_Tag = 28 ;
-    private $business_Unit_Name = 29 ;
-    private $replacement_reason = 30 ;
-    private $organizational_Unit_Type = 31 ;
-    private $billable = 32 ;
-    private $Organizational_Unit_de_SAP = 33 ;
-    private $Organizational_Unit_SAP_last = 34 ;
-    private $Entry_Date = 35 ;
-    private $Max = 36;
+    private $Email ;
+    private $Name;
+    private $ID;
+    private $Current_Skill;
+    private $Current_Seniority;
+    private $Client_Tag;
+    private $Client;
+    private $Project_Tag;
+    private $Project;
+    private $starting_Date;
+    private $end_Date;
+    private $percentage;
+    private $current_Location;
+    private $current_TL;
+    private $all_Locations;
+    private $current_PMs;
+    private $current_PA;
+    private $pms_History;
+    private $current_DDs;
+    private $assignment_Type;
+    private $comments;
+    private $Project_Studio;
+    private $Studio;
+    private $Office;
+    private $dds_History;
+    private $business_Unit_Tag;
+    private $business_Unit_Name;
+    private $replacement_reason;
+    private $organizational_Unit_Type;
+    private $billable;
+    private $Organizational_Unit_de_SAP;
+    private $Organizational_Unit_SAP_last;
+    private $Entry_Date;
+    private $Max;
 
     /**
-     * @return int
+     * orderEmployee constructor.
      */
+    public function __construct($row)
+    {
+        $x = 0;
+        do{
+            switch($row[$x]){
+                case "Glober email";
+                    $this->setEmail($x);
+                    break;
+                case "Glober";
+                    $this->setName($x);
+                    break;
+                case "Legal ID";
+                    $this->setID($x);
+                    break;
+                case "Current Skill";
+                    $this->setCurrentSkill($x);
+                    break;
+                case "Current Seniority";
+                    $this->setCurrentSeniority($x);
+                    break;
+                case "Client Tag";
+                    $this->setClientTag($x);
+                    break;
+                case "Client";
+                    $this->setClient($x);
+                    break;
+                case "Project Tag";
+                    $this->setProjectTag($x);
+                    break;
+                case "Project";
+                    $this->setProject($x);
+                    break;
+                case "Starting Date";
+                    $this->setStartingDate($x);
+                    break;
+                case "End Date";
+                    $this->setEndDate($x);
+                    break;
+                case "Percentage";
+                    $this->setPercentage($x);
+                    break;
+                case "Current Location";
+                    $this->setCurrentLocation($x);
+                    break;
+                case "Current TL";
+                    $this->setCurrentTL($x);
+                    break;
+                case "All Locations";
+                    $this->setAllLocations($x);
+                    break;
+                case "Current PMs";
+                    $this->setCurrentPMs($x);
+                    break;
+                case "Current PA";
+                    $this->setCurrentPA($x);
+                    break;
+                case "PMs History";
+                    $this->setPmsHistory($x);
+                    break;
+                case "Current DDs";
+                    $this->setCurrentDDs($x);
+                    break;
+                case "Assignment Type";
+                    $this->setAssignmentType($x);
+                    break;
+                case "Comments";
+                    $this->setComments($x);
+                    break;
+                case "Project Studio";
+                    $this->setProjectStudio($x);
+                    break;
+                case "Glober Studio/BU";
+                    $this->setStudio($x);
+                    break;
+                case "Glober Office";
+                    $this->setOffice($x);
+                    break;
+                case "DDs History";
+                    $this->setDdsHistory($x);
+                    break;
+                case "Business Unit Tag";
+                    $this->setBusinessUnitTag($x);
+                    break;
+                case "Business Unit Name";
+                    $this->setBusinessUnitName($x);
+                    break;
+                case "Replacement reason";
+                    $this->setReplacementReason($x);
+                    break;
+                case "Organizational Unit Type";
+                    $this->setOrganizationalUnitType($x);
+                    break;
+                case "Billable";
+                    $this->setBillable($x);
+                    break;
+                case "Organizational Unit de SAP";
+                    $this->setOrganizationalUnitDeSAP($x);
+                    break;
+                case "Organizational Unit SAP last";
+                    $this->setOrganizationalUnitSAPLast($x);
+                    break;
+                case "Entry Date";
+                    $this->setEntryDate($x);
+                    break;
+            }
+            $x++;
+        }while(isset($row[$x]));
+        $this->setMax($x);
+    }
+
+
     public function getAllLocations()
     {
         return $this->all_Locations;
@@ -915,25 +982,6 @@ class orderEmployee
         $this->Name = $Name;
     }
 
-    /**
-     * @return int
-     */
-    public function getObservation()
-    {
-        return $this->Observation;
-    }
-
-    /**
-     * @param int $Observation
-     */
-    public function setObservation($Observation)
-    {
-        $this->Observation = $Observation;
-    }
-
-    /**
-     * @return int
-     */
     public function getOffice()
     {
         return $this->Office;
@@ -1075,41 +1123,6 @@ class orderEmployee
         $this->Project_Tag = $Project_Tag;
     }
 
-    /**
-     * @return int
-     */
-    public function getQ1()
-    {
-        return $this->Q1;
-    }
-
-    /**
-     * @param int $Q1
-     */
-    public function setQ1($Q1)
-    {
-        $this->Q1 = $Q1;
-    }
-
-    /**
-     * @return int
-     */
-    public function getQ2()
-    {
-        return $this->Q2;
-    }
-
-    /**
-     * @param int $Q2
-     */
-    public function setQ2($Q2)
-    {
-        $this->Q2 = $Q2;
-    }
-
-    /**
-     * @return int
-     */
     public function getReplacementReason()
     {
         return $this->replacement_reason;

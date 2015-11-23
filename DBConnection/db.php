@@ -18,10 +18,11 @@ class DBData
     public function get(){
         $myfile = fopen($this->fileSurvey, "r", 1) or die("File could not open!");
         $arraySurveys = new arraySurvey();
+        $SequenceSurvey = new SequenceSurvey(fgetcsv($myfile));
 
         while(!feof($myfile)) {
             $survey = new dtoSurvey();
-            $survey->arraySurveyToDto(fgetcsv($myfile));
+            $survey->arraySurveyToDto(fgetcsv($myfile),$SequenceSurvey);
             $arraySurveys->add_Survey($survey);
         }
         fclose($myfile);

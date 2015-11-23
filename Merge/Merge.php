@@ -32,16 +32,18 @@ class Merge
         $employees_survey = new arrayEmployee_Survey();
 
         //Employees-Survey merging
-        foreach ($employees as $employee){
-            foreach ($surveys as $survey){
+        foreach ($surveys as $survey){
+            $index = -1;
+            foreach ($employees as $employee){
+                $index++;
                 if ($employee->getID() == $survey->getToken()) {
                     $employee_survey = new dtoEmployee_Survey($survey , $employee);
                     $employees_survey->add_Employee_Survey($employee_survey);
                     break;
                 }
             }
+            unset($employees[$index]);
         }
-
         return $employees_survey;
     }
 }

@@ -16,9 +16,6 @@ class dtoEmployee_Survey
     private $resp2;
     private $token;
     private $Email;
-    private $Q1;
-    private $Q2;
-    private $Observation;
     private $Name;
     private $Current_Skill;
     private $Current_Seniority;
@@ -56,9 +53,6 @@ class dtoEmployee_Survey
         $this->setresp2($survey->getresp2());
         $this->settoken($survey->gettoken());
         $this->setEmail($employee->getEmail());
-        $this->setQ1($employee->getQ1());
-        $this->setQ2($employee->getQ2());
-        $this->setObservation($employee->getObservation());
         $this->setName($employee->getName());
         $this->setCurrentSkill($employee->getCurrentSkill());
         $this->setCurrentSeniority($employee->getCurrentSeniority());
@@ -325,16 +319,6 @@ class dtoEmployee_Survey
     {
         $this->Name = $Name;
     }
-    public function getObservation()
-    {
-        return $this->Observation;
-    }/**
- * @param mixed $Observation
- */
-    public function setObservation($Observation)
-    {
-        $this->Observation = $Observation;
-    }
     public function getOffice()
     {
         return $this->Office;
@@ -424,26 +408,6 @@ class dtoEmployee_Survey
     public function setProjectTag($Project_Tag)
     {
         $this->Project_Tag = $Project_Tag;
-    }
-    public function getQ1()
-    {
-        return $this->Q1;
-    }/**
- * @param mixed $Q1
- */
-    public function setQ1($Q1)
-    {
-        $this->Q1 = $Q1;
-    }
-    public function getQ2()
-    {
-        return $this->Q2;
-    }/**
- * @param mixed $Q2
- */
-    public function setQ2($Q2)
-    {
-        $this->Q2 = $Q2;
     }
     public function getReplacementReason()
     {
