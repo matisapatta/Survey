@@ -469,17 +469,21 @@
                 .style("fill", function (d) {
                     return colorScale(color(d));
                 })
-                .on("mouseenter", function (d, i) {
+                .on("mouseup", function (d, i) {
+
                     showMouseOver(d);
+                    d3.selectAll(".rect").attr("stroke-width", 1)
+                    d3.select(this).attr("stroke-width", 3)
                     var text = d.filter1;
-                    valueQuan.text(d.quantity + '');
+                    valueQuan.text(d.quantity + '')
                     d3.selectAll(".dot").style("opacity", .4)
                     d3.selectAll(".dot").filter(function (d) {
                         return d.filter1 == text;
                     }).style("opacity", 1)
+
                 })
                 .on("mouseleave", function (d, i) {
-                    clearMouseLeave();
+                    //clearMouseLeave();
                 })
         legend.append("text")
                 .attr("x", width + 232)
