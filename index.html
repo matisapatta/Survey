@@ -419,6 +419,7 @@
 
 
                 .on("mouseenter", function (d, i) {
+                    clearRect();
                     dot.style("opacity", .4)
                     d3.select(this).style("opacity", 1)
                     d3.selectAll(".selected").style("opacity", 1)
@@ -556,6 +557,11 @@
             dot.style("opacity", 1);
             dot.classed("selected", false);
         }
+        function clearRect(){
+            valueX.text("");
+            valueY.text("");
+            d3.selectAll(".rect").attr("stroke-width", 1);
+        }
     }
     //End of dataLoad
 
@@ -649,6 +655,7 @@
         svg.selectAll(".graph.label").text("");
         svg.selectAll(".position.labelX").text("");
         svg.selectAll(".position.labelY").text("");
+        svg.selectAll(".rect").attr("stroke-width", 1);
     }
 </script>
 
