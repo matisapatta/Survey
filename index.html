@@ -131,7 +131,7 @@
 </style>
 
 <!--Interface layout:-->
-<div align="center" id="title">Survey Results</div><!--Page title-->
+<div align="center" id="title" onclick="clearRectText()">Survey Results</div><!--Page title-->
 <div class="container-fluid" >
     <div class="row">
         <div class="col-md-10" align="left">
@@ -244,10 +244,7 @@
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             .attr("class", "gRoot")
-            .on("mouseup", function(){
-                clearRectText();
-                clearRect();
-            })
+
 
 
 
@@ -413,6 +410,7 @@
                     clearMouseLeave();
                     showMouseOver(d);
                     var text = d.filter1;
+
                     dot.style("opacity", .4);
                     d3.select(this).style("opacity", 1);
                     dot.classed("selected", false);
@@ -687,6 +685,7 @@
     }
     function clearRectText(){
         svg.selectAll('.selected').classed("selected",false);
+        svg.selectAll('.dot').style("opacity",1);
         svg.selectAll(".graph.label").text("");
         svg.selectAll(".position.labelX").text("");
         svg.selectAll(".position.labelY").text("");
