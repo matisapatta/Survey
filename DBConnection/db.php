@@ -12,8 +12,8 @@ include_once("../Merge/Survey.php");
 class DBData
 {
     //This is the location of the csv file that contains the survey results database's dump
-    private $fileSurvey = "http://212.47.226.113/Survey.csv";
-    //private $fileSurvey = "Survey.csv";
+    //private $fileSurvey = "http://212.47.226.113/Survey.csv";
+    private $fileSurvey = "Survey.csv";
     //This function obtains the survey results data from a csv file and stores it in a dtoSurvey objects array.
     public function get(){
         $myfile = fopen($this->fileSurvey, "r", 1) or die("File could not open!");
