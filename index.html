@@ -243,7 +243,12 @@
             .attr("height", height + margin.top + margin.bottom + 200)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-            .attr("class", "gRoot");
+            .attr("class", "gRoot")
+            .on("mouseup", function(){
+                clearRectText();
+                clearRect();
+            })
+
 
 
     // Add the x-axis.
@@ -405,8 +410,18 @@
                 })
                 .call(position)
                 .on("mouseup", function (d, i) {
+                    clearMouseLeave();
+                    showMouseOver(d);
+                    var text = d.filter1;
+                    dot.style("opacity", .4);
+                    d3.select(this).style("opacity", 1);
                     dot.classed("selected", false);
+                    d3.selectAll('.selected').classed("selected", false);
                     d3.select(this).classed("selected", !d3.select(this).classed("selected"));
+                    d3.selectAll(".rect").filter(function (d) {
+                        return d.filter1 == text;
+                    }).classed("selected", true)
+                    d3.selectAll('.rect').style("opacity", 1);
                     valueX
                             .text(d.answer1.toFixed(2))
                             .attr("x", xScale(x(d)))
@@ -415,19 +430,22 @@
                             .text(d.answer2.toFixed(2))
                             .attr("x", -margin.left)
                             .attr("y", ("y", yScale(y(d))));
+
                 })
 
 
                 .on("mouseenter", function (d, i) {
-                    clearRect();
-                    dot.style("opacity", .4)
-                    d3.select(this).style("opacity", 1)
-                    d3.selectAll(".selected").style("opacity", 1)
-                    showMouseOver(d);
-
+                    if($('.selected').length < 1) {
+                        dot.style("opacity", .4)
+                        clearRect();
+                        d3.select(this).style("opacity", 1)
+                        d3.selectAll(".selected").style("opacity", 1)
+                        showMouseOver(d);
+                    }
                 })
                 .on("mouseleave", function (d, i) {
 
+                   if($('.selected').length < 1)
                     clearMouseLeave();
 
                 })
@@ -470,17 +488,32 @@
                 .style("fill", function (d) {
                     return colorScale(color(d));
                 })
+                .on("mouseenter", function (d, i){
+                    if($('.selected').length < 1) {
+                        var text = d.filter1;
+                        showMouseOver(d);
+                        d3.selectAll(".dot").style("opacity", .4)
+                        d3.selectAll(".dot").filter(function (d) {
+                            return d.filter1 == text;
+                        }).style("opacity", 1)
+                    }
+                })
                 .on("mouseup", function (d, i) {
-
                     showMouseOver(d);
-                    d3.selectAll(".rect").attr("stroke-width", 1)
-                    d3.select(this).attr("stroke-width", 3)
+                    //d3.selectAll(".rect").attr("stroke-width", 1)
+                    //d3.select(this).attr("stroke-width", 3)
+                    d3.selectAll('.selected').classed("selected",false);
+                    d3.select(this).classed("selected", !d3.select(this).classed("selected"));
+                    d3.select(this).style("opacity",1);
                     var text = d.filter1;
                     valueQuan.text(d.quantity + '')
                     d3.selectAll(".dot").style("opacity", .4)
                     d3.selectAll(".dot").filter(function (d) {
                         return d.filter1 == text;
                     }).style("opacity", 1)
+                    d3.selectAll(".dot").filter(function (d) {
+                        return d.filter1 == text;
+                    }).classed("selected", true)
                     valueX
                             .text(d.answer1.toFixed(2))
                             .attr("x", xScale(x(d)))
@@ -491,7 +524,8 @@
                             .attr("y", ("y", yScale(y(d))));
                 })
                 .on("mouseleave", function (d, i) {
-                    //clearMouseLeave();
+                    if($('.selected').length < 1)
+                    clearMouseLeave();
                 })
         legend.append("text")
                 .attr("x", width + 232)
@@ -652,6 +686,7 @@
         reload();
     }
     function clearRectText(){
+        svg.selectAll('.selected').classed("selected",false);
         svg.selectAll(".graph.label").text("");
         svg.selectAll(".position.labelX").text("");
         svg.selectAll(".position.labelY").text("");
