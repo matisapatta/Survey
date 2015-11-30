@@ -135,7 +135,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-10" align="left">
-            <div align="center" id="chart" style="margin:0px"></div>
+            <div align="center" id="chart" onclick="clearReference()" style="margin:0px"></div>
 
         </div>
         <div class="col-md-2" style="margin-top: 20px">
@@ -192,7 +192,7 @@
 
     //setInterval handles the automatic refresh
     var inter =  setInterval(reload,document.getElementById("refreshInt").value*60000);
-
+    var flag = true;
 
     // Various things that specify the four dimensions of data to visualize.
     function x(d) {
@@ -243,9 +243,7 @@
             .attr("height", height + margin.top + margin.bottom + 200)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-            .attr("class", "gRoot")
-
-
+            .attr("class", "gRoot");
 
 
     // Add the x-axis.
@@ -407,10 +405,11 @@
                 })
                 .call(position)
                 .on("mouseup", function (d, i) {
+
                     clearMouseLeave();
                     showMouseOver(d);
                     var text = d.filter1;
-
+                    flag = true;
                     dot.style("opacity", .4);
                     d3.select(this).style("opacity", 1);
                     dot.classed("selected", false);
@@ -498,6 +497,7 @@
                 })
                 .on("mouseup", function (d, i) {
                     showMouseOver(d);
+                    flag = true;
                     //d3.selectAll(".rect").attr("stroke-width", 1)
                     //d3.select(this).attr("stroke-width", 3)
                     d3.selectAll('.selected').classed("selected",false);
@@ -692,6 +692,12 @@
             svg.selectAll(".position.labelY").text("");
             svg.selectAll(".rect").attr("stroke-width", 1);
         }
+    }
+    function clearReference(){
+        if(!flag){
+            clearRectText();
+        }
+        flag = false;
     }
 </script>
 
